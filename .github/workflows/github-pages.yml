@@ -35,6 +35,12 @@ jobs:
           version: 10
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Type-check
+        run: pnpm check
+      - name: Lint
+        run: pnpm lint
+      - name: Run unit tests
+        run: pnpm test
       - name: Build static storefront artifact
         run: pnpm build:pages
       - name: Upload Pages artifact

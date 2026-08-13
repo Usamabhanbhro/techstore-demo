@@ -4,8 +4,8 @@ import { paymentProviders, paymentRegistry, type PaymentMethod } from "./payment
 
 describe("payment provider registry", () => {
   it("registers every supported Pakistani demo connector", () => {
-    expect(Object.keys(paymentRegistry)).toEqual(["jazzcash", "easypaisa", "sadapay", "nayapay", "cod"]);
-    expect(paymentProviders).toHaveLength(5);
+    expect(Object.keys(paymentRegistry)).toEqual(["jazzcash", "easypaisa", "sadapay", "nayapay", "bank-transfer", "cod"]);
+    expect(paymentProviders).toHaveLength(6);
   });
 
   it("uses the common interface for success, failure, pending, and cancellation", async () => {
@@ -16,7 +16,7 @@ describe("payment provider registry", () => {
       const cancelled = await provider.initialize({ amount: 1000, orderId: "DEMO-4", demoOutcome: "cancelled" });
       expect(successful.referenceId).toContain("DEMO-");
       expect(["successful", "pending"]).toContain(successful.status);
-      if (provider.id === "cod") expect(["pending", "cancelled"]).toContain(failed.status);
+      if (provider.id === "bank-transfer" || provider.id === "cod") expect(["pending", "cancelled"]).toContain(failed.status);
       else expect(failed.status).toBe("failed");
       expect(pending.status).toBe("pending");
       expect(cancelled.status).toBe("cancelled");

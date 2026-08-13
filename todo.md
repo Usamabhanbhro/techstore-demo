@@ -46,3 +46,9 @@
 - [x] Audit all current storefront media slots and create a complete copy-ready prompt pack with a ZIP manifest for replacement and expansion assets.
 - [x] Recover the user-supplied complete storefront asset ZIP from its signed attachment URL, validate its media manifest, and stage approved files in the external asset workspace.
 - [x] Upload and map the complete user-supplied asset set through managed storage, then validate desktop and mobile storefront presentation.
+- [x] Audit the completed storefront, persistence layer, asset library, documentation, and workflows against the attached continuation brief.
+- [x] Align the GitHub Actions workflow with automated CI validation and Pages deployment readiness while preserving the static-versus-backend boundary.
+- [x] Re-run release verification, inspect deployment configuration, and document the verified status and any external publication prerequisites.
+- [x] Include the new client-side Pages routing utility test in the standard Vitest discovery pattern.
+- [x] Correct stale client-payment assertions now surfaced by full client-test discovery.
+- [x] Verify a real catalog product dossier route after the visual QA sample URL resolved to the intended styled 404 state.

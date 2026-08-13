@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Usamabhanbhro</title>
+    <script>
+      (function (location) {
+        var base = "/e-commerce";
+        var inAppPath = location.pathname.indexOf(base) === 0
+          ? location.pathname.slice(base.length)
+          : location.pathname;
+        location.replace(base + "/?p=" + encodeURIComponent(inAppPath + location.search + location.hash));
+      })(window.location);
+    </script>
+  </head>
+  <body></body>
+</html>

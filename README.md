@@ -60,7 +60,9 @@ Use the platform migration process only after reviewing the generated SQL. Never
 
 ## GitHub Pages static demo
 
-Run `pnpm build:pages` to create a static artifact rooted at `/e-commerce/`. The manual-only GitHub Actions workflow in `.github/workflows/github-pages.yml` uploads this artifact for review and deploys it only when an administrator explicitly selects the **publish** option. See [`docs/deployment/github-pages.md`](docs/deployment/github-pages.md) for the compatibility boundary.
+Run `pnpm build:pages` to create a static artifact rooted at `/e-commerce/`. `.github/workflows/ci.yml` validates pushes and pull requests with type checking, linting, tests, a full-stack build, and a Pages build. `.github/workflows/github-pages.yml` repeats the validation gates before it uploads the Pages artifact and deploys only when an administrator explicitly selects the **publish** option. A Pages-safe `404.html` restores direct nested SPA routes under `/e-commerce/` without affecting local development.
+
+Set the public build-time variable `VITE_API_URL` only when the static storefront should call a separately hosted API. Its value is an origin such as `https://api.example.com`, never a credential; the client then uses `${VITE_API_URL}/api/trpc`. The managed full-stack runtime leaves it unset and uses the relative `/api/trpc` endpoint.
 
 GitHub Pages cannot run the Node server, tRPC APIs, database, OAuth session, or secure payment code. Use it for the visual/catalog demo only; use a Node-compatible environment for the full-stack build.
 

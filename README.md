@@ -66,4 +66,6 @@ GitHub Pages cannot run the Node server, tRPC APIs, database, OAuth session, or 
 
 ## Current limitations
 
-The managed database host must be reachable before the generated commerce migration can be applied. Until that connection is available, the server services use an isolated in-memory demo store for tests and local demonstration. Real customer identity, orders, wishlists, payments, webhooks, and product stock must be backed by the migrated database before any live use.
+The initial managed commerce schema has been applied. Protected address, wishlist, order, and mock-payment services now use durable database repositories when the managed connection is available; the application deliberately falls back to its isolated in-memory demo adapter during a transient database DNS outage, so the showcase remains safe to browse. The browser cart remains local by design, and catalog content is centrally managed in source pending a production catalog-admin workflow.
+
+The payments remain **mock-only**: no provider credential, live collection, signature verification, settlement, or live webhook processing has been activated. A production launch still requires provider-approved server-side adapters, monitoring, fraud controls, stock operations, and an availability-tested managed database connection.

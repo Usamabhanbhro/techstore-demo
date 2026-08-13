@@ -39,7 +39,7 @@ const addresses = new Map<number, AddressInput[]>();
 
 const resolveProduct = (identifier: string) => products.find((product) => product.id === identifier) ?? findProduct(identifier) ?? findProduct(identifier.replace(/^.*\//, ""));
 
-function calculateOrder(lines: OrderLineInput[]) {
+export function calculateOrder(lines: OrderLineInput[]) {
   if (!lines.length) throw new Error("Your bag is empty.");
   const resolvedLines = lines.map((line) => {
     const product = resolveProduct(line.productId);
@@ -54,7 +54,7 @@ function calculateOrder(lines: OrderLineInput[]) {
   return { resolvedLines, subtotalPkr, shippingPkr, discountPkr: 0, totalPkr: subtotalPkr + shippingPkr };
 }
 
-function paymentStatusFor(provider: PaymentMethod, outcome?: "success" | "failure" | "pending" | "cancelled"): PaymentStatus {
+export function paymentStatusFor(provider: PaymentMethod, outcome?: "success" | "failure" | "pending" | "cancelled"): PaymentStatus {
   if (outcome === "failure") return "failed";
   if (outcome === "cancelled") return "cancelled";
   if (outcome === "pending" || provider === "cod") return "pending";

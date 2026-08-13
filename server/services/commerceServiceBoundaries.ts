@@ -1,7 +1,7 @@
 import type { AddressInput, OrderLineInput, PaymentMethod } from "../../shared/commerce";
 import { products } from "../../client/src/lib/catalog";
 import { CatalogService } from "./catalogService";
-import { DemoCommerceService } from "./demoCommerce";
+import { PersistentCommerceService } from "./persistentCommerce";
 
 export type CartLineInput = OrderLineInput;
 
@@ -24,9 +24,8 @@ function validateCartLines(lines: CartLineInput[]) {
 }
 
 /**
- * Explicit façades preserve stable domain names while the managed database is
- * temporarily unavailable. Each façade can later move from the demo adapter to
- * Drizzle without changing tRPC procedure contracts.
+ * Explicit façades preserve stable domain names while the durable repositories
+ * manage migrated database records beneath the existing typed API contracts.
  */
 export const ProductService = {
   list: CatalogService.listProducts,
@@ -40,38 +39,40 @@ export const CollectionService = {
 
 export const CartService = {
   list(userId: number) {
-    return carts.get(userId) ?? [];
+    return PersistentCommerceService.listCart(userId, () => carts.get(userId) ?? []);
   },
   replace(userId: number, lines: CartLineInput[]) {
     const sanitized = validateCartLines(lines);
-    carts.set(userId, sanitized);
-    return sanitized;
+    return PersistentCommerceService.replaceCart(userId, sanitized, () => {
+      carts.set(userId, sanitized);
+      return sanitized;
+    });
   },
 };
 
 export const WishlistService = {
-  list: DemoCommerceService.listWishlist,
-  merge: DemoCommerceService.mergeWishlist,
-  setItem: DemoCommerceService.setWishlistItem,
+  list: PersistentCommerceService.listWishlist,
+  merge: PersistentCommerceService.mergeWishlist,
+  setItem: PersistentCommerceService.setWishlistItem,
 };
 
 export const AccountService = {
-  listAddresses: DemoCommerceService.listAddresses,
+  listAddresses: PersistentCommerceService.listAddresses,
   saveAddress(userId: number, address: AddressInput) {
-    return DemoCommerceService.saveAddress(userId, address);
+    return PersistentCommerceService.saveAddress(userId, address);
   },
 };
 
 export const OrderService = {
-  list: DemoCommerceService.listOrders,
-  getDetail: DemoCommerceService.getOrder,
+  list: PersistentCommerceService.listOrders,
+  getDetail: PersistentCommerceService.getOrder,
   create(userId: number, email: string, lines: OrderLineInput[], address: AddressInput) {
-    return DemoCommerceService.createOrder(userId, email, lines, address);
+    return PersistentCommerceService.createOrder(userId, email, lines, address);
   },
 };
 
 export const PaymentService = {
   create(userId: number, input: { orderId: string; method: PaymentMethod; idempotencyKey: string; demoOutcome?: "success" | "failure" | "pending" | "cancelled" }) {
-    return DemoCommerceService.createPayment(userId, input);
+    return PersistentCommerceService.createPayment(userId, input);
   },
 };

@@ -26,9 +26,9 @@
 - [x] Populate the homepage, shop, collections, product pages, search, and related/recently-viewed content from the expanded catalog.
 - [x] Add persistence-ready ProductService, CollectionService, CartService, WishlistService, OrderService, AccountService, and PaymentService boundaries.
 - [x] Implement server APIs for products, collections, cart, orders, payments, authentication, account data, and wishlist data; catalog procedures support typed search and discovery filters.
-- [ ] Migrate the managed database and replace the temporary in-memory account, address, wishlist, cart, and order adapters with durable Drizzle-backed repositories.
+- [x] Replace the remaining in-memory CartService with a durable saved-cart repository and add server-side product validation to durable wishlist operations; retain the safe local fallback during transient database unavailability.
 - [x] Add hybrid anonymous-local and authenticated-server wishlist synchronization with safe merge behavior.
-- [ ] Persist authenticated order history in the managed database once connectivity is restored; current demo history is safely scoped to in-memory local runs.
+- [x] Persist authenticated order history through the managed database repository, with a documented safe fallback if the managed endpoint experiences a temporary DNS outage.
 - [x] Add SadaPay and NayaPay providers while preserving JazzCash, Easypaisa, bank transfer, and COD through the common interface.
 - [x] Add server-side mock payment boundaries, total recalculation, idempotency, duplicate prevention, and safe provider webhook placeholders.
 - [x] Add `PAYMENT_MODE=mock` or an equivalent sandbox configuration and keep payment credentials out of the frontend and repository.

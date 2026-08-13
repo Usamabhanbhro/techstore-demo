@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CatalogService } from "./catalogService";
-import { CartService } from "./commerceServiceBoundaries";
+import { CartService, WishlistService } from "./commerceServiceBoundaries";
 import { DemoCommerceService } from "./demoCommerce";
 
 const address = {
@@ -46,10 +46,14 @@ describe("DemoCommerceService", () => {
 });
 
 describe("CartService", () => {
-  it("stores canonical product lines and rejects duplicate or unavailable cart input", () => {
-    expect(CartService.replace(91, [{ productId: "ub-001", quantity: 2 }])).toEqual([{ productId: "ub-001", variantId: undefined, quantity: 2 }]);
-    expect(CartService.list(91)).toHaveLength(1);
+  it("stores canonical product lines durably when available and rejects duplicate or unavailable cart input", async () => {
+    await expect(CartService.replace(91, [{ productId: "ub-001", quantity: 2 }])).resolves.toEqual([{ productId: "ub-001", variantId: undefined, quantity: 2 }]);
+    await expect(CartService.list(91)).resolves.toHaveLength(1);
     expect(() => CartService.replace(91, [{ productId: "ub-001", quantity: 1 }, { productId: "ub-001", quantity: 1 }])).toThrow("Duplicate cart lines");
     expect(() => CartService.replace(91, [{ productId: "missing-product", quantity: 1 }])).toThrow("cart products are unavailable");
+  });
+
+  it("rejects unknown durable-wishlist entries before persistence", async () => {
+    await expect(WishlistService.setItem(91, "missing-product", true)).rejects.toThrow("cannot be saved");
   });
 });

@@ -62,6 +62,16 @@ export const wishlistItems = mysqlTable("wishlist_items", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 }, (table) => [uniqueIndex("wishlist_user_product_unique").on(table.userId, table.productKey), index("wishlist_user_idx").on(table.userId)]);
 
+export const savedCartLines = mysqlTable("saved_cart_lines", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  productKey: varchar("productKey", { length: 80 }).notNull(),
+  variantKey: varchar("variantKey", { length: 96 }).notNull().default(""),
+  quantity: int("quantity").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => [uniqueIndex("saved_cart_user_product_variant_unique").on(table.userId, table.productKey, table.variantKey), index("saved_cart_user_idx").on(table.userId)]);
+
 export const orders = mysqlTable("orders", {
   id: int("id").autoincrement().primaryKey(),
   orderNumber: varchar("orderNumber", { length: 48 }).notNull(),

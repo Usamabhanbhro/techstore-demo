@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { COOKIE_NAME } from "../shared/const";
 import { CatalogService } from "./services/catalogService";
-import { DemoCommerceService } from "./services/demoCommerce";
 import { AccountService, CartService, CollectionService, OrderService, PaymentService, ProductService, WishlistService } from "./services/commerceServiceBoundaries";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
@@ -69,7 +68,7 @@ export const appRouter = router({
   }),
   orders: router({
     list: protectedProcedure.query(({ ctx }) => OrderService.list(ctx.user.id)),
-    detail: protectedProcedure.input(z.object({ orderId: z.string().uuid() })).query(({ ctx, input }) => OrderService.getDetail(ctx.user.id, input.orderId)),
+    detail: protectedProcedure.input(z.object({ orderId: z.string().trim().min(1).max(48) })).query(({ ctx, input }) => OrderService.getDetail(ctx.user.id, input.orderId)),
     create: protectedProcedure.input(z.object({ lines: z.array(orderLineSchema).min(1).max(30), address: addressSchema })).mutation(({ ctx, input }) => {
       if (!ctx.user.email) throw new Error("A verified account email is required before creating an order.");
       return OrderService.create(ctx.user.id, ctx.user.email, input.lines, input.address);
@@ -77,7 +76,7 @@ export const appRouter = router({
   }),
   payments: router({
     create: protectedProcedure.input(z.object({
-      orderId: z.string().uuid(),
+      orderId: z.string().trim().min(1).max(48),
       method: paymentMethodSchema,
       idempotencyKey: z.string().uuid(),
       demoOutcome: z.enum(["success", "failure", "pending", "cancelled"]).optional(),

@@ -1,6 +1,6 @@
 // Usamabhanbhro payment boundary: UI talks to this interface, while every provider below remains a local demo connector.
 export type PaymentStatus = "pending" | "initiated" | "successful" | "failed" | "cancelled";
-export type PaymentMethod = "jazzcash" | "easypaisa" | "sadapay" | "nayapay" | "cod";
+export type PaymentMethod = "jazzcash" | "easypaisa" | "sadapay" | "nayapay" | "bank-transfer" | "cod";
 export type PaymentRequest = { amount: number; orderId: string; demoOutcome?: "success" | "failure" | "pending" | "cancelled" };
 export type PaymentResult = { status: PaymentStatus; referenceId: string; message: string; providerMetadata: Record<string, string> };
 
@@ -41,11 +41,15 @@ export class JazzCashPaymentConnector extends DemoProvider { id = "jazzcash" as 
 export class EasypaisaPaymentConnector extends DemoProvider { id = "easypaisa" as const; name = "Easypaisa"; description = "Mobile wallet demo connector"; }
 export class SadaPayPaymentConnector extends DemoProvider { id = "sadapay" as const; name = "SadaPay"; description = "Digital account demo connector"; }
 export class NayaPayPaymentConnector extends DemoProvider { id = "nayapay" as const; name = "NayaPay"; description = "Digital wallet demo connector"; }
+export class BankTransferPaymentConnector extends DemoProvider {
+  id = "bank-transfer" as const; name = "Manual Bank Transfer"; description = "Reference-only transfer instructions for demo orders";
+  async initialize(request: PaymentRequest) { await sleep(180); return { status: request.demoOutcome === "cancelled" ? "cancelled" as const : "pending" as const, referenceId: reference("bank"), message: request.demoOutcome === "cancelled" ? "Demo bank transfer cancelled. No money was moved." : "Demo transfer reference created. Collection remains pending and no bank details are collected here.", providerMetadata: { mode: "showcase", collectionStatus: "pending", amount: String(request.amount) } }; }
+}
 
 export class CashOnDeliveryPaymentConnector extends DemoProvider {
   id = "cod" as const; name = "Cash on Delivery"; description = "Pay when your demo order arrives";
   async initialize(request: PaymentRequest) { await sleep(180); return { status: request.demoOutcome === "cancelled" ? "cancelled" as const : "pending" as const, referenceId: reference("cod"), message: request.demoOutcome === "cancelled" ? "Demo COD order cancelled." : "Demo COD order created; collection is pending.", providerMetadata: { mode: "showcase", collectionStatus: "pending" } }; }
 }
 
-export const paymentProviders: PaymentProvider[] = [new JazzCashPaymentConnector(), new EasypaisaPaymentConnector(), new SadaPayPaymentConnector(), new NayaPayPaymentConnector(), new CashOnDeliveryPaymentConnector()];
+export const paymentProviders: PaymentProvider[] = [new JazzCashPaymentConnector(), new EasypaisaPaymentConnector(), new SadaPayPaymentConnector(), new NayaPayPaymentConnector(), new BankTransferPaymentConnector(), new CashOnDeliveryPaymentConnector()];
 export const paymentRegistry = Object.fromEntries(paymentProviders.map((provider) => [provider.id, provider])) as Record<PaymentMethod, PaymentProvider>;

@@ -13,4 +13,27 @@
 - [x] Remove obsolete files, generated artifacts, screenshots, secrets, temporary files, and unused dependencies where safe.
 - [x] Run type check, lint, tests, production build, route smoke tests, responsive verification, and repository-wide legacy brand search.
 - [x] Initialize a clean Git history and create/push the private `e-commerce` GitHub repository.
-- [ ] Save the final project checkpoint and report the repository URL, route list, verification results, commit summary, and limitations.
+- [x] Save the final project checkpoint and report the repository URL, route list, verification results, commit summary, and limitations.
+
+## Full-stack extension
+
+- [x] Read the complete extension attachment and audit the current static project architecture.
+- [x] Upgrade the project with backend, database, authentication, and file-storage capabilities where required.
+- [x] Expand the catalog to 30–50 original products across 6–8 collections and multiple premium categories.
+- [x] Add structured catalog fields, related-product links, featured/new-arrival/best-seller/editorial flags, stock, variants, and PKR pricing.
+- [ ] Generate and wire multiple verified original product and editorial assets so the catalog and homepage do not rely on a single fallback image.
+- [x] Centralize product, collection, editorial, and image data behind service abstractions.
+- [x] Populate the homepage, shop, collections, product pages, search, and related/recently-viewed content from the expanded catalog.
+- [x] Add persistence-ready ProductService, CollectionService, CartService, WishlistService, OrderService, AccountService, and PaymentService boundaries.
+- [x] Implement server APIs for products, collections, cart, orders, payments, authentication, account data, and wishlist data; catalog procedures support typed search and discovery filters.
+- [ ] Migrate the managed database and replace the temporary in-memory account, address, wishlist, cart, and order adapters with durable Drizzle-backed repositories.
+- [x] Add hybrid anonymous-local and authenticated-server wishlist synchronization with safe merge behavior.
+- [ ] Persist authenticated order history in the managed database once connectivity is restored; current demo history is safely scoped to in-memory local runs.
+- [x] Add SadaPay and NayaPay providers while preserving JazzCash, Easypaisa, bank transfer, and COD through the common interface.
+- [x] Add server-side mock payment boundaries, total recalculation, idempotency, duplicate prevention, and safe provider webhook placeholders.
+- [x] Add `PAYMENT_MODE=mock` or an equivalent sandbox configuration and keep payment credentials out of the frontend and repository.
+- [x] Prepare README, safe environment-boundary documentation, tests, security scans, and GitHub Pages-ready deployment configuration without auto-publishing.
+- [x] Run full-stack checks, route journeys, responsive QA, production builds, and deployment-readiness validation.
+- [ ] Save the final full-stack checkpoint and report implementation status, deployment guidance, and limitations.
+- [ ] Generate a cohesive Higgsfield image set for bags, small leather goods, accessories, jewellery, travel, home, eyewear, and editorial modules; upload and wire the assets into catalog and homepage media references.
+- [ ] Resolve the intermittent managed-storage proxy/DNS failure that leaves fresh mobile product-gallery image requests unavailable despite a valid managed asset path.

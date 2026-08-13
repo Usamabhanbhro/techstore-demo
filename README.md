@@ -1,70 +1,37 @@
-# Usamabhanbhro E-commerce Showcase
+# Usamabhanbhro e-commerce showcase
 
-Usamabhanbhro is an original, client-presentable premium fashion and objects storefront demonstration. It preserves an editorial luxury direction while adding a complete local commerce journey: catalog discovery, collection browsing, product detail, search, wishlist, cart, checkout, order confirmation, account dashboard, journal, about, and contact.
+Usamabhanbhro is an original premium fashion-and-objects storefront demonstration. It combines a 36-piece catalog, eight editorial collections, original generated visual assets, a polished client commerce journey, and a full-stack service boundary for future persistence and payments.
 
-This is intentionally a **frontend showcase**, not a production store. Product data, cart state, wishlist state, newsletter signup, contact form, and orders are local mock behavior. The checkout never asks for card numbers, never calls a payment API, never sends personal information to an external service, and never represents a simulated result as a real transaction.
+> **Demo boundary.** All checkout results, order references, account data, payment outcomes, and stock behavior are simulated. The project does not accept card numbers, merchant credentials, or provider tokens, and it must not be used to collect real payment information.
 
-## Technology stack
+## Experience and routes
 
-- React 19 with TypeScript
-- Vite 7 and Wouter client-side routing
-- CSS-first responsive editorial system
-- LocalStorage-backed mock commerce state
-- Vitest for payment connector tests
-- Pexels-hosted presentation imagery used as temporary visual assets
-
-## Features
-
-- Sticky responsive header with desktop navigation, mobile drawer, bag count, and wishlist count.
-- Original product catalog with category filters, sorting, hover imagery, variants, availability, related products, and accessible alt text.
-- Local cart and wishlist persistence with quantity controls, removal, subtotal, delivery estimate, empty states, and suggested pieces.
-- Demo checkout with contact details, shipping, delivery method, promo placeholder, order summary, validation, processing, success, pending, failed, and cancelled states.
-- Provider-agnostic Pakistani payment architecture with text-based demo selectors for JazzCash, Easypaisa, SadaPay, NayaPay, and Cash on Delivery.
-- Editorial journal, article pages, collection index/detail pages, account dashboard, about page, contact success state, and custom 404.
-- Reduced-motion support, keyboard-safe controls, responsive layouts for desktop, tablet, and mobile, and no dead-end public links.
-
-## Route map
-
-| Route | Purpose |
-|---|---|
-| `/` | Premium homepage and showcase entry |
-| `/shop` | Filterable and sortable all-products grid |
-| `/collections` | Collection overview |
-| `/collections/:slug` | Editorial collection detail and products |
-| `/products/:slug` | Gallery, variants, quantity, bag, wishlist, and related products |
-| `/search` | Local search with matching and empty states |
-| `/cart` | Interactive local shopping bag |
-| `/checkout` | Demo-only checkout and payment selection |
-| `/order-confirmation` | Local mock order confirmation |
-| `/account` | Mock customer dashboard |
-| `/wishlist` | Local saved-products view |
-| `/journal` | Editorial index |
-| `/journal/:slug` | Reusable article page |
-| `/about` | Brand and project concept |
-| `/contact` | Demo contact form |
-| any invalid route | Styled 404 page |
+| Route | Experience |
+| --- | --- |
+| `/` | Editorial landing page with featured pieces, new arrivals, collections, and journal modules |
+| `/shop`, `/collections`, `/collections/:slug` | Expanded catalog discovery, collection browsing, category/stock controls, and sorting |
+| `/products/:slug`, `/search` | Product dossier, variants, availability, related items, recently viewed, and search states |
+| `/cart`, `/checkout`, `/order-confirmation` | Local bag, transparent totals, shipping, provider selection, mock payment result, and confirmation |
+| `/account`, `/wishlist` | Managed-session account shell and hybrid local/server wishlist boundary |
+| `/journal`, `/about`, `/contact` | Editorial articles and brand content with accessible form states |
 
 ## Architecture
 
-The UI is separated from commerce contracts in `client/src/lib`. `catalog.ts` owns the product and editorial domain model. `commerce.tsx` owns local cart, wishlist, and order state. `payment.ts` defines the `PaymentProvider` interface and registry, so a future secure server-side connector can replace any demo adapter without rewriting checkout components.
+The project keeps UI and commerce responsibilities separate. `shared/commerce.ts` defines shared contracts; `client/src/lib/catalog.ts` owns the structured 36-piece inventory and media references; `client/src/lib/commerce.tsx` retains anonymous browser state; `server/services/catalogService.ts`, `server/services/demoCommerce.ts`, and `server/services/commerceServiceBoundaries.ts` establish named Product, Collection, Cart, Wishlist, Account, Order, and Payment façades over the current validated demo adapter. tRPC procedures in `server/routers.ts` provide the application API surface.
 
-The intended production boundary is:
+| Layer | Role |
+| --- | --- |
+| React and Wouter | Responsive storefront, route composition, local discovery, and explicit loading/empty/error states |
+| tRPC and Express | Typed public catalog APIs plus protected cart, account, address, wishlist, order, and payment procedures |
+| Drizzle schema | Products, collections, variants, customers, addresses, wishlists, orders, payment records, and idempotency keys |
+| Mock payment service | Server-calculated totals, duplicate-attempt protection, safe provider outcomes, and no real payment rails |
+| S3-backed project assets | Original generated product and editorial visuals referenced through centralized catalog data |
 
-```text
-Checkout UI → Order Service → Payment Service → PaymentProvider → Provider adapter
-```
+## Payment providers
 
-The current implementation stops at local simulation. It contains no credentials, merchant IDs, API keys, undocumented endpoints, or provider-specific secrets.
+The checkout registry uses a common `PaymentProvider` shape for **JazzCash**, **Easypaisa**, **SadaPay**, **NayaPay**, **manual bank transfer**, and **Cash on Delivery**. Every adapter remains in mock mode. The server-side demo service recalculates the order total from product data, retains an idempotency key for each attempt, and returns clear pending, successful, failed, or cancelled states without contacting a provider.
 
-## Supported payment connector architecture
-
-| Connector | Current behavior | Production note |
-|---|---|---|
-| JazzCash | Local success, pending, failure, and cancellation simulation | Requires a secure backend adapter and merchant configuration |
-| Easypaisa | Local success, pending, failure, and cancellation simulation | Requires a secure backend adapter and merchant configuration |
-| SadaPay | Local success, pending, failure, and cancellation simulation | Requires a secure backend adapter and merchant configuration |
-| NayaPay | Local success, pending, failure, and cancellation simulation | Requires a secure backend adapter and merchant configuration |
-| Cash on Delivery | Local order creation and pending collection simulation | Future order service should record collection and cancellation events |
+Production adapters require provider-approved technical documentation, server-side credentials, signature verification, audited webhook handlers, fraud controls, and monitoring. No undocumented endpoint has been invented in this repository.
 
 ## Local development
 
@@ -73,7 +40,7 @@ pnpm install
 pnpm dev
 ```
 
-Useful verification commands:
+Run the verification suite with:
 
 ```bash
 pnpm check
@@ -82,10 +49,21 @@ pnpm test
 pnpm build
 ```
 
-## Demo-mode disclaimer
+The database schema is ready for migration through the managed database connection:
 
-All payment outcomes, order references, customer details, newsletter submissions, and contact submissions are showcase-only. Do not enter real financial credentials or sensitive personal information. Before production, add a secure backend, real provider contracts, server-side validation, authenticated customer storage, an order service, a webhook handler, fraud controls, and environment-managed secrets.
+```bash
+pnpm drizzle-kit generate
+pnpm drizzle-kit migrate
+```
 
-## Verification status
+Use the platform migration process only after reviewing the generated SQL. Never place `DATABASE_URL`, OAuth credentials, merchant keys, or webhook secrets in source control. See [`docs/configuration/environment.md`](docs/configuration/environment.md) for the safe configuration boundary.
 
-The final project is intended to be verified through the commands above plus route smoke testing and the journey `Home → Collection → Product → Bag → Checkout → Demo Confirmation`. The repository-wide source search must return no intentional references to the replaced source brand or its campaign language.
+## GitHub Pages static demo
+
+Run `pnpm build:pages` to create a static artifact rooted at `/e-commerce/`. The manual-only GitHub Actions workflow in `.github/workflows/github-pages.yml` uploads this artifact for review and deploys it only when an administrator explicitly selects the **publish** option. See [`docs/deployment/github-pages.md`](docs/deployment/github-pages.md) for the compatibility boundary.
+
+GitHub Pages cannot run the Node server, tRPC APIs, database, OAuth session, or secure payment code. Use it for the visual/catalog demo only; use a Node-compatible environment for the full-stack build.
+
+## Current limitations
+
+The managed database host must be reachable before the generated commerce migration can be applied. Until that connection is available, the server services use an isolated in-memory demo store for tests and local demonstration. Real customer identity, orders, wishlists, payments, webhooks, and product stock must be backed by the migrated database before any live use.

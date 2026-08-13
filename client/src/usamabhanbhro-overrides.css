@@ -27,6 +27,12 @@
 .confirmation-items { border-top: 1px solid var(--rule); margin: 0 0 35px; padding: 24px 0 0; text-align: left; }
 .confirmation-items > div { display: flex; font-size: 12px; justify-content: space-between; padding: 10px 0; }
 .confirmation-items strong { font-weight: 500; }
+.filter-selects { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; }
+.filter-selects .sort-control { white-space: nowrap; }
+.product-subtitle { color: var(--muted); font-size: 14px; line-height: 1.5; margin: -8px 0 18px; }
+.product-care { border-top: 1px solid var(--rule); color: var(--muted); font-size: 12px; line-height: 1.6; margin: 24px 0 0; padding-top: 18px; }
+.product-care strong { color: var(--ink); font-weight: 500; }
+.product-section--signature { border-top: 1px solid var(--rule); }
 
 @media (max-width: 720px) {
   .product-gallery::before { display: none; }
@@ -34,4 +40,6 @@
   .confirmation-actions { align-items: stretch; flex-direction: column; }
   .confirmation-actions .button { width: 100%; }
   .payment-result__actions { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .filter-selects { align-items: stretch; display: grid; grid-template-columns: 1fr; width: 100%; }
+  .filter-selects .sort-control { justify-content: space-between; }
 }

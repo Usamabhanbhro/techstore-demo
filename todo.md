@@ -43,3 +43,6 @@
 - [x] Recover the user-supplied `usama.zip` archive after its signed attachment URL download failed, validate its contents, and integrate the approved image files.
 - [x] Re-verify the managed-storage/media recovery at a true mobile viewport on homepage, collection, and product-gallery routes, with fresh image requests succeeding.
 - [x] Validate and document the recovered DNS-dependent paths individually: Higgsfield connector, Forge presign/upload, managed media proxy delivery, and managed database connectivity.
+- [x] Audit all current storefront media slots and create a complete copy-ready prompt pack with a ZIP manifest for replacement and expansion assets.
+- [x] Recover the user-supplied complete storefront asset ZIP from its signed attachment URL, validate its media manifest, and stage approved files in the external asset workspace.
+- [x] Upload and map the complete user-supplied asset set through managed storage, then validate desktop and mobile storefront presentation.

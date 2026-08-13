@@ -4,8 +4,8 @@ import { collections, featuredProducts, journals, newArrivalProducts } from "@/l
 import { useCommerce } from "@/lib/commerce";
 import { ProductCard } from "@/components/ProductCard";
 
-const heroImage = "/manus-storage/usamabhanbhro-editorial-hero-higgsfield_a2a808c4.webp";
-const campaignImage = "/manus-storage/usamabhanbhro-editorial-hero-higgsfield_a2a808c4.webp";
+const heroImage = "/manus-storage/1786605638826_c5b84767.png";
+const campaignImage = "/manus-storage/1786605652965_fc685904.png";
 export default function Home() { useCommerce(); return <>
   <section className="hero hero--home"><img className="hero__image" src={heroImage} alt="A warm editorial study of considered leather and home objects" /><div className="hero__veil" /><div className="hero__content"><p className="eyebrow eyebrow--light">Object study 01</p><h1>THE BEAUTY<br />OF USE.</h1><p>Made slowly. Carried often.</p><Link className="text-link" href="/collections/new-arrivals">Explore the new edit <span>↗</span></Link></div><span className="hero__scroll">Scroll to explore ↓</span></section>
   <section className="story-links" aria-label="Featured edits"><Link className="story-link story-link--wide" href="/collections/new-arrivals"><span>THE NEW EDIT</span><strong>Objects for the way you move.</strong><span className="story-link__cta">Shop new arrivals</span></Link><Link className="story-link" href="/collections/signature"><span>SIGNATURE FORMS</span><strong>Quietly expressive.</strong><span className="story-link__cta">Discover signature</span></Link><Link className="story-link" href="/collections/bags"><span>BAGS</span><strong>Carry considered.</strong><span className="story-link__cta">Shop bags</span></Link></section>

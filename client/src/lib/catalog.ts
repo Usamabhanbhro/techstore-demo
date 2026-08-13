@@ -26,29 +26,33 @@ export type Product = {
 };
 
 const assets = {
-  reference: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
-  arc: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
-  wallet: "/manus-storage/usamabhanbhro-small-goods-higgsfield_7b4b91e3.webp",
-  strap: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
-  editorial: "/manus-storage/usamabhanbhro-editorial-hero-higgsfield_a2a808c4.webp",
-  detail: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
-  accessories: "/manus-storage/usamabhanbhro-accessories-gemini_071a73aa.png",
-  jewellery: "/manus-storage/usamabhanbhro-jewellery-gemini_46eaa9b4.png",
-  softGoods: "/manus-storage/usamabhanbhro-soft-goods-gemini_f7ccf02b.png",
-  eyewear: "/manus-storage/usamabhanbhro-eyewear-gemini_fd3b9c59.png",
-  home: "/manus-storage/usamabhanbhro-home-gemini_451d1000.png",
-  travel: "/manus-storage/usamabhanbhro-travel-gemini_ffa2c6ab.png",
+  campaignHero: "/manus-storage/1786605638826_c5b84767.png",
+  jewellery: "/manus-storage/1786605641752_5f120be7.png",
+  travel: "/manus-storage/1786605644082_a3996dc6.png",
+  arc: "/manus-storage/1786605646678_6fb24be6.png",
+  workBag: "/manus-storage/1786605649946_70946391.png",
+  bagsEditorial: "/manus-storage/1786605652965_fc685904.png",
+  accessories: "/manus-storage/1786605656583_7c5b1232.png",
+  eveningBag: "/manus-storage/1786605661481_93115a2a.png",
+  travelEditorial: "/manus-storage/1786605664388_bc8a7e5a.png",
+  home: "/manus-storage/1786605671429_d418f0a0.png",
+  smallLeather: "/manus-storage/1786605673788_e007e92b.png",
+  wallet: "/manus-storage/1786605677702_9c3e757f.png",
+  tote: "/manus-storage/1786605681885_2144d048.png",
+  softGoods: "/manus-storage/1786605695263_992330a0.png",
+  homePortrait: "/manus-storage/1786605704946_80d9d4e5.png",
+  eyewear: "/manus-storage/1786605704964_210be81d.png",
 } as const;
 
 const mediaFor: Record<string, string[]> = {
-  Bags: [assets.reference, assets.arc, assets.detail],
-  "Small Leather Goods": [assets.wallet, assets.wallet, assets.detail],
-  Accessories: [assets.accessories, assets.accessories, assets.detail],
-  Jewellery: [assets.jewellery, assets.jewellery, assets.editorial],
-  Travel: [assets.travel, assets.travel, assets.detail],
-  "Soft Goods": [assets.softGoods, assets.softGoods, assets.editorial],
-  Home: [assets.home, assets.home, assets.editorial],
-  Eyewear: [assets.eyewear, assets.eyewear, assets.detail],
+  Bags: [assets.campaignHero, assets.arc, assets.workBag],
+  "Small Leather Goods": [assets.smallLeather, assets.wallet, assets.accessories],
+  Accessories: [assets.accessories, assets.smallLeather, assets.tote],
+  Jewellery: [assets.jewellery, assets.eveningBag, assets.accessories],
+  Travel: [assets.travel, assets.travelEditorial, assets.tote],
+  "Soft Goods": [assets.softGoods, assets.softGoods, assets.campaignHero],
+  Home: [assets.home, assets.homePortrait, assets.campaignHero],
+  Eyewear: [assets.eyewear, assets.eyewear, assets.tote],
 };
 
 const detailsFor: Record<string, string[]> = {
@@ -156,21 +160,21 @@ export const products: Product[] = inventory.map((product) => ({
 }));
 
 export const collections = [
-  { slug: "new-arrivals", name: "New Arrivals", eyebrow: "The new edit", description: "Quietly expressive pieces shaped for the pace of now.", image: assets.editorial, category: "Seasonal" },
-  { slug: "signature", name: "Signature", eyebrow: "The house codes", description: "Form, material, and the details that stay with you.", image: assets.reference, category: "Core" },
-  { slug: "bags", name: "Bags", eyebrow: "Carry considered", description: "Sculptural silhouettes, useful interiors, and an easy point of view.", image: assets.arc, category: "Carry" },
+  { slug: "new-arrivals", name: "New Arrivals", eyebrow: "The new edit", description: "Quietly expressive pieces shaped for the pace of now.", image: assets.bagsEditorial, category: "Seasonal" },
+  { slug: "signature", name: "Signature", eyebrow: "The house codes", description: "Form, material, and the details that stay with you.", image: assets.campaignHero, category: "Core" },
+  { slug: "bags", name: "Bags", eyebrow: "Carry considered", description: "Sculptural silhouettes, useful interiors, and an easy point of view.", image: assets.bagsEditorial, category: "Carry" },
   { slug: "accessories", name: "Accessories", eyebrow: "Small gestures", description: "Objects and layers that bring a considered rhythm to every day.", image: assets.accessories, category: "Finish" },
   { slug: "jewellery", name: "Jewellery", eyebrow: "Reflective forms", description: "Polished forms designed for layering, gifting, and keeping.", image: assets.jewellery, category: "Adornment" },
   { slug: "travel", name: "Travel", eyebrow: "Long horizons", description: "Useful objects for leaving, arriving, and the unplanned interval.", image: assets.travel, category: "Journey" },
   { slug: "home", name: "Home", eyebrow: "Small rituals", description: "Quiet domestic objects with material presence.", image: assets.home, category: "Living" },
-  { slug: "essentials", name: "Essentials", eyebrow: "Made for every day", description: "The reliable objects that make the rest feel easy.", image: assets.wallet, category: "Daily" },
+  { slug: "essentials", name: "Essentials", eyebrow: "Made for every day", description: "The reliable objects that make the rest feel easy.", image: assets.smallLeather, category: "Daily" },
 ] as const;
 
 export const journals = [
-  { slug: "the-shape-of-a-day", title: "The shape of a day", type: "Studio notes", date: "18 June 2025", excerpt: "A study in useful beauty, warm light, and the objects that move with us.", image: assets.editorial },
+  { slug: "the-shape-of-a-day", title: "The shape of a day", type: "Studio notes", date: "18 June 2025", excerpt: "A study in useful beauty, warm light, and the objects that move with us.", image: assets.eyewear },
   { slug: "material-in-motion", title: "Material in motion", type: "The journal", date: "04 June 2025", excerpt: "Why a good material changes the way a piece is worn, carried, and remembered.", image: assets.softGoods },
-  { slug: "a-quiet-kind-of-colour", title: "A quiet kind of colour", type: "Field notes", date: "22 May 2025", excerpt: "On cedar, parchment, charcoal, and the warmth they bring to a daily uniform.", image: assets.home },
-  { slug: "the-ritual-of-carry", title: "The ritual of carry", type: "Object dossier", date: "07 May 2025", excerpt: "A compact exercise in proportion, pockets, and the things worth bringing close.", image: assets.arc },
+  { slug: "a-quiet-kind-of-colour", title: "A quiet kind of colour", type: "Field notes", date: "22 May 2025", excerpt: "On cedar, parchment, charcoal, and the warmth they bring to a daily uniform.", image: assets.homePortrait },
+  { slug: "the-ritual-of-carry", title: "The ritual of carry", type: "Object dossier", date: "07 May 2025", excerpt: "A compact exercise in proportion, pockets, and the things worth bringing close.", image: assets.bagsEditorial },
 ];
 
 export const money = (value: number) => new Intl.NumberFormat("en-PK", { style: "currency", currency: "PKR", maximumFractionDigits: 0 }).format(value);

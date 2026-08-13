@@ -18,7 +18,7 @@ A reversible, **sandbox-only** `/etc/hosts` fallback was added after resolving t
 | Managed media proxy | Followed the signed asset redirect and retrieved image bytes with HTTP 200 | Passed |
 | Mobile media delivery | Captured fresh 375 × 812 homepage, collection, and product-dossier views using the managed asset routes | Passed |
 | Higgsfield connector configuration | Retrieved the `generate_image` tool contract through the restored configuration host path | Passed; new image generation remains unavailable because the selected Higgsfield workspace reports zero credits |
-| Managed database runner | Direct schema query still reports an unresolved TiDB gateway hostname | Not recoverable from this sandbox because that query runner uses a separate managed network environment; application repositories retain their safe in-memory fallback during that outage |
+| Managed database runner | After the gateway was pinned in the sandbox and runtime TCP connectivity was verified on ports 4000 and 3306, a direct schema query returned `connection_ok = 1` | Passed; the initial retry was an external resolution delay rather than a schema or credential failure |
 
 ## Current media mapping
 

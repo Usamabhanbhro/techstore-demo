@@ -28,15 +28,15 @@ export type Product = {
 const assets = {
   reference: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
   arc: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
-  wallet: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
+  wallet: "/manus-storage/usamabhanbhro-small-goods-higgsfield_7b4b91e3.webp",
   strap: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
-  editorial: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
+  editorial: "/manus-storage/usamabhanbhro-editorial-hero-higgsfield_a2a808c4.webp",
   detail: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
 } as const;
 
 const mediaFor: Record<string, string[]> = {
   Bags: [assets.reference, assets.arc, assets.detail],
-  "Small Leather Goods": [assets.wallet, assets.detail, assets.reference],
+  "Small Leather Goods": [assets.wallet, assets.wallet, assets.detail],
   Accessories: [assets.strap, assets.editorial, assets.detail],
   Jewellery: [assets.detail, assets.reference, assets.editorial],
   Travel: [assets.strap, assets.reference, assets.detail],

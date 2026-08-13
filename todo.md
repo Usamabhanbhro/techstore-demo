@@ -36,4 +36,5 @@
 - [x] Run full-stack checks, route journeys, responsive QA, production builds, and deployment-readiness validation.
 - [ ] Save the final full-stack checkpoint and report implementation status, deployment guidance, and limitations.
 - [ ] Generate a cohesive Higgsfield image set for bags, small leather goods, accessories, jewellery, travel, home, eyewear, and editorial modules; upload and wire the assets into catalog and homepage media references.
-- [ ] Resolve the intermittent managed-storage proxy/DNS failure that leaves fresh mobile product-gallery image requests unavailable despite a valid managed asset path.
+- [x] Re-verify the managed-storage/media recovery at a true mobile viewport on homepage, collection, and product-gallery routes, with fresh image requests succeeding.
+- [ ] Validate and document the recovered DNS-dependent paths individually: Higgsfield connector, Forge presign/upload, managed media proxy delivery, and managed database connectivity. The first four paths are verified; the managed database runner remains externally unavailable and is documented in `docs/verification/dns-recovery.md`.

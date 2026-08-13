@@ -32,17 +32,23 @@ const assets = {
   strap: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
   editorial: "/manus-storage/usamabhanbhro-editorial-hero-higgsfield_a2a808c4.webp",
   detail: "/manus-storage/usamabhanbhro-bags-higgsfield_8b834722.webp",
+  accessories: "/manus-storage/usamabhanbhro-accessories-gemini_071a73aa.png",
+  jewellery: "/manus-storage/usamabhanbhro-jewellery-gemini_46eaa9b4.png",
+  softGoods: "/manus-storage/usamabhanbhro-soft-goods-gemini_f7ccf02b.png",
+  eyewear: "/manus-storage/usamabhanbhro-eyewear-gemini_fd3b9c59.png",
+  home: "/manus-storage/usamabhanbhro-home-gemini_451d1000.png",
+  travel: "/manus-storage/usamabhanbhro-travel-gemini_ffa2c6ab.png",
 } as const;
 
 const mediaFor: Record<string, string[]> = {
   Bags: [assets.reference, assets.arc, assets.detail],
   "Small Leather Goods": [assets.wallet, assets.wallet, assets.detail],
-  Accessories: [assets.strap, assets.editorial, assets.detail],
-  Jewellery: [assets.detail, assets.reference, assets.editorial],
-  Travel: [assets.strap, assets.reference, assets.detail],
-  "Soft Goods": [assets.editorial, assets.detail, assets.reference],
-  Home: [assets.detail, assets.editorial, assets.reference],
-  Eyewear: [assets.reference, assets.detail, assets.editorial],
+  Accessories: [assets.accessories, assets.accessories, assets.detail],
+  Jewellery: [assets.jewellery, assets.jewellery, assets.editorial],
+  Travel: [assets.travel, assets.travel, assets.detail],
+  "Soft Goods": [assets.softGoods, assets.softGoods, assets.editorial],
+  Home: [assets.home, assets.home, assets.editorial],
+  Eyewear: [assets.eyewear, assets.eyewear, assets.detail],
 };
 
 const detailsFor: Record<string, string[]> = {
@@ -153,17 +159,17 @@ export const collections = [
   { slug: "new-arrivals", name: "New Arrivals", eyebrow: "The new edit", description: "Quietly expressive pieces shaped for the pace of now.", image: assets.editorial, category: "Seasonal" },
   { slug: "signature", name: "Signature", eyebrow: "The house codes", description: "Form, material, and the details that stay with you.", image: assets.reference, category: "Core" },
   { slug: "bags", name: "Bags", eyebrow: "Carry considered", description: "Sculptural silhouettes, useful interiors, and an easy point of view.", image: assets.arc, category: "Carry" },
-  { slug: "accessories", name: "Accessories", eyebrow: "Small gestures", description: "Objects and layers that bring a considered rhythm to every day.", image: assets.strap, category: "Finish" },
-  { slug: "jewellery", name: "Jewellery", eyebrow: "Reflective forms", description: "Polished forms designed for layering, gifting, and keeping.", image: assets.detail, category: "Adornment" },
-  { slug: "travel", name: "Travel", eyebrow: "Long horizons", description: "Useful objects for leaving, arriving, and the unplanned interval.", image: assets.strap, category: "Journey" },
-  { slug: "home", name: "Home", eyebrow: "Small rituals", description: "Quiet domestic objects with material presence.", image: assets.detail, category: "Living" },
+  { slug: "accessories", name: "Accessories", eyebrow: "Small gestures", description: "Objects and layers that bring a considered rhythm to every day.", image: assets.accessories, category: "Finish" },
+  { slug: "jewellery", name: "Jewellery", eyebrow: "Reflective forms", description: "Polished forms designed for layering, gifting, and keeping.", image: assets.jewellery, category: "Adornment" },
+  { slug: "travel", name: "Travel", eyebrow: "Long horizons", description: "Useful objects for leaving, arriving, and the unplanned interval.", image: assets.travel, category: "Journey" },
+  { slug: "home", name: "Home", eyebrow: "Small rituals", description: "Quiet domestic objects with material presence.", image: assets.home, category: "Living" },
   { slug: "essentials", name: "Essentials", eyebrow: "Made for every day", description: "The reliable objects that make the rest feel easy.", image: assets.wallet, category: "Daily" },
 ] as const;
 
 export const journals = [
   { slug: "the-shape-of-a-day", title: "The shape of a day", type: "Studio notes", date: "18 June 2025", excerpt: "A study in useful beauty, warm light, and the objects that move with us.", image: assets.editorial },
-  { slug: "material-in-motion", title: "Material in motion", type: "The journal", date: "04 June 2025", excerpt: "Why a good material changes the way a piece is worn, carried, and remembered.", image: assets.detail },
-  { slug: "a-quiet-kind-of-colour", title: "A quiet kind of colour", type: "Field notes", date: "22 May 2025", excerpt: "On cedar, parchment, charcoal, and the warmth they bring to a daily uniform.", image: assets.reference },
+  { slug: "material-in-motion", title: "Material in motion", type: "The journal", date: "04 June 2025", excerpt: "Why a good material changes the way a piece is worn, carried, and remembered.", image: assets.softGoods },
+  { slug: "a-quiet-kind-of-colour", title: "A quiet kind of colour", type: "Field notes", date: "22 May 2025", excerpt: "On cedar, parchment, charcoal, and the warmth they bring to a daily uniform.", image: assets.home },
   { slug: "the-ritual-of-carry", title: "The ritual of carry", type: "Object dossier", date: "07 May 2025", excerpt: "A compact exercise in proportion, pockets, and the things worth bringing close.", image: assets.arc },
 ];
 

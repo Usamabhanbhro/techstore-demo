@@ -21,7 +21,7 @@
 - [x] Upgrade the project with backend, database, authentication, and file-storage capabilities where required.
 - [x] Expand the catalog to 30–50 original products across 6–8 collections and multiple premium categories.
 - [x] Add structured catalog fields, related-product links, featured/new-arrival/best-seller/editorial flags, stock, variants, and PKR pricing.
-- [ ] Generate and wire multiple verified original product and editorial assets so the catalog and homepage do not rely on a single fallback image.
+- [x] Generate and wire multiple verified original product and editorial assets so the catalog and homepage do not rely on a single fallback image.
 - [x] Centralize product, collection, editorial, and image data behind service abstractions.
 - [x] Populate the homepage, shop, collections, product pages, search, and related/recently-viewed content from the expanded catalog.
 - [x] Add persistence-ready ProductService, CollectionService, CartService, WishlistService, OrderService, AccountService, and PaymentService boundaries.
@@ -34,7 +34,12 @@
 - [x] Add `PAYMENT_MODE=mock` or an equivalent sandbox configuration and keep payment credentials out of the frontend and repository.
 - [x] Prepare README, safe environment-boundary documentation, tests, security scans, and GitHub Pages-ready deployment configuration without auto-publishing.
 - [x] Run full-stack checks, route journeys, responsive QA, production builds, and deployment-readiness validation.
-- [ ] Save the final full-stack checkpoint and report implementation status, deployment guidance, and limitations.
-- [ ] Generate a cohesive Higgsfield image set for bags, small leather goods, accessories, jewellery, travel, home, eyewear, and editorial modules; upload and wire the assets into catalog and homepage media references.
+- [x] Save the final full-stack checkpoint and report implementation status, deployment guidance, and limitations.
+- [x] Replace the originally planned full Higgsfield image set with a cohesive user-supplied Gemini asset set after Higgsfield credits were exhausted; upload and wire the approved original imagery into catalog and homepage media references.
+- [x] Integrate the supplied Gemini accessories, jewellery, travel, home, eyewear, and soft-goods images plus the original Usamabhanbhro wordmark through managed project storage.
+- [x] Verify the configured Google Gemini connector route; its quota was exhausted, so the approved user-supplied Gemini outputs became the production asset source.
+- [x] Deliver a copy-ready Gemini prompt pack for the six remaining category scenes and the original Usamabhanbhro wordmark, then validate and integrate the user-supplied outputs.
+- [x] Recover the user-supplied Gemini image files after their signed attachment URLs returned access denied to the sandbox, then upload and map them through managed storage.
+- [x] Recover the user-supplied `usama.zip` archive after its signed attachment URL download failed, validate its contents, and integrate the approved image files.
 - [x] Re-verify the managed-storage/media recovery at a true mobile viewport on homepage, collection, and product-gallery routes, with fresh image requests succeeding.
 - [x] Validate and document the recovered DNS-dependent paths individually: Higgsfield connector, Forge presign/upload, managed media proxy delivery, and managed database connectivity.

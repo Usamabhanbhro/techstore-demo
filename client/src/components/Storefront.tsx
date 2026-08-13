@@ -4,6 +4,7 @@ import { Link, useLocation } from "wouter";
 import { useCommerce } from "@/lib/commerce";
 
 const nav = [{ label: "Shop", href: "/shop" }, { label: "Collections", href: "/collections" }, { label: "Journal", href: "/journal" }, { label: "About", href: "/about" }];
+const wordmarkAsset = "/manus-storage/usamabhanbhro-wordmark-gemini_596788b0.png";
 
 export function Header() {
   const [menu, setMenu] = useState(false); const [scrolled, setScrolled] = useState(false); const [, navigate] = useLocation(); const { cartCount, wishlist } = useCommerce();
@@ -14,14 +15,14 @@ export function Header() {
       <div className="header-main">
         <button className="mobile-menu-button" aria-label="Open menu" onClick={() => setMenu(true)}>☰</button>
         <nav className="desktop-nav" aria-label="Primary">{nav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}</nav>
-        <Link className="wordmark" href="/">USAMABHANBHRO</Link>
+        <Link className="wordmark wordmark--image" href="/" aria-label="Usamabhanbhro home"><img src={wordmarkAsset} alt="Usamabhanbhro" /></Link>
         <div className="utility-nav"><Link href="/search">Search</Link><Link href="/account">Account</Link><Link href="/wishlist">Wishlist ({wishlist.length})</Link><Link href="/cart">Bag ({cartCount})</Link></div>
         <button className="mobile-bag-button" aria-label="Open bag" onClick={() => navigate("/cart")}>Bag ({cartCount})</button>
       </div>
       <div className="header-subline"><span>Hand-finished objects for considered living</span><span>Karachi · Lahore · Everywhere</span></div>
     </header>
     <div className={`mobile-drawer ${menu ? "mobile-drawer--open" : ""}`} aria-hidden={!menu}>
-      <div className="mobile-drawer__top"><Link className="wordmark wordmark--drawer" href="/" onClick={() => setMenu(false)}>USAMABHANBHRO</Link><button onClick={() => setMenu(false)} aria-label="Close menu">Close ×</button></div>
+      <div className="mobile-drawer__top"><Link className="wordmark wordmark--image wordmark--drawer" href="/" aria-label="Usamabhanbhro home" onClick={() => setMenu(false)}><img src={wordmarkAsset} alt="Usamabhanbhro" /></Link><button onClick={() => setMenu(false)} aria-label="Close menu">Close ×</button></div>
       <nav>{[...nav, { label: "Search", href: "/search" }, { label: "Account", href: "/account" }, { label: "Bag", href: "/cart" }].map((item) => <Link key={item.href} href={item.href} onClick={() => setMenu(false)}>{item.label}</Link>)}</nav>
       <div className="mobile-drawer__footer"><span>Demo storefront</span><Link href="/contact" onClick={() => setMenu(false)}>Contact</Link></div>
     </div>
@@ -41,4 +42,3 @@ export function Footer() {
 export function StorefrontLayout({ children }: { children: React.ReactNode }) { return <div className="storefront"><Header /><main>{children}</main><Footer /></div>; }
 
 export const PageIntro = ({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) => <section className="page-intro"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{body && <p>{body}</p>}</section>;
-

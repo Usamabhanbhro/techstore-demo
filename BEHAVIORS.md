@@ -1,24 +1,9 @@
-# Oroton Homepage Clone — Behavior Record
+# Usamabhanbhro Behavior Record
 
-## Observed source evidence
+The public experience is an original multi-route storefront for demonstrating a premium fashion and objects concept. The header remains sticky, the desktop navigation collapses into a mobile drawer, and all visible links resolve to meaningful client-side routes.
 
-The public page exposes editorial collection links for **New Everyday Collection**, **Father's Day Gift Guide**, **New Bags**, **Shop Frank Green x Oroton**, **New Spring Collection**, and **New Mini Bags**. It also exposes a “Campaign in Motion” module for “Spring 25 Campaign, Uncharted Beauty,” plus editorial story blocks for the Everyday Spring 25 Collection, Spring Preview, and Everyday Denim.
+The homepage leads with a full-bleed hero, featured edits, a product rail, an editorial campaign split, journal modules, collections, and an explicit showcase note. Product cards support hover imagery, wishlist toggles, and links to detail pages. Product detail supports variants, quantity, local add-to-bag, related products, and local wishlist state.
 
-## Recreated behavior
+Cart state persists in localStorage. Checkout validates contact and shipping fields, exposes the five demo payment connectors, simulates provider outcomes, prevents repeat submission while processing, and creates a local order only for successful or COD-pending showcase outcomes. Confirmation copy always explains that no money moved and no fulfillment began.
 
-| Element | State A | State B | Trigger | Faithful implementation |
-|---|---|---|---|---|
-| Header | Full desktop navigation with centered wordmark | Compact mobile bar with menu button | Viewport breakpoint | CSS breakpoint at 760px; mobile drawer toggles via React state |
-| Mobile menu | Hidden | White drawer from top with category links | Menu button click | 200ms opacity/translate transition; Escape closes |
-| Product tiles | Image, name, color, price | Image lifts slightly and CTA becomes more opaque | Hover/focus | `transform` and opacity only, 180ms ease-out |
-| Editorial tiles | Static image and caption | Caption underline/opacity shift | Hover/focus | Underline and opacity transition |
-| Announcement strip | Visible and scroll-stable | Dismissed | Close button click | React state hides the strip for the current session |
-| Newsletter form | Empty email field | Validated success or inline error | Submit | Client-side validation only; no email is transmitted |
-| Footer accordions | Expanded on desktop | Collapsed on mobile | Disclosure click | Native button controls with `aria-expanded` |
-
-## Responsive notes
-
-- **Desktop (1440px):** three-column global navigation around a centered wordmark; full-bleed campaign and editorial imagery; four-up new-in product row.
-- **Tablet (768px):** reduced navigation labels, two-up imagery/product composition, and tighter section padding.
-- **Mobile (390px):** hamburger navigation, one-column editorial sections, two-up product strip that can horizontally scroll, smaller headline scale, and stacked newsletter/footer content.
-
+Newsletter and contact forms validate locally and show success/error states without sending data. Footer accordions are interactive on mobile. Reduced-motion preferences disable visual transitions.

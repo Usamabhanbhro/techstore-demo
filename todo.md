@@ -52,5 +52,5 @@
 - [x] Include the new client-side Pages routing utility test in the standard Vitest discovery pattern.
 - [x] Correct stale client-payment assertions now surfaced by full client-test discovery.
 - [x] Verify a real catalog product dossier route after the visual QA sample URL resolved to the intended styled 404 state.
-- [ ] Verify the authorized GitHub repository destination and push the latest completed project checkpoint.
-- [ ] Rename the authorized GitHub repository to `webstore-demo` and replace its unrelated default-branch contents with the completed storefront code.
+- [x] Verify the authorized GitHub repository destination and push the latest completed project checkpoint.
+- [x] Rename the authorized GitHub repository to `webstore-demo` and replace its unrelated default-branch contents with the completed storefront code.

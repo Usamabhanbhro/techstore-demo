@@ -32,7 +32,7 @@ for line in SUMMARY.read_text().splitlines():
         if len(text) >= 24 and text not in paragraphs and not text.startswith("Copyright"):
             paragraphs.append(text)
     h1 = headings[0] if headings else row["route"].strip("/").replace("/", " ") or "Apple"
-    rows.append((row["route"], h1, headings[:24], paragraphs[:16]))
+    rows.append((row["route"], h1, headings[:64], paragraphs[:48]))
 
 lines = [
     "// Generated from individually captured Apple.com route DOM evidence.",

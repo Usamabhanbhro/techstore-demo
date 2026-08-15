@@ -1,0 +1,274 @@
+Apple sitemap same-origin route inventory: 272 unique paths
+
+001. /	Apple
+002. /accessibility	Accessibility
+003. /accessibility/assistive-technologies	Assistive Technologies
+004. /airplay	AirPlay
+005. /airpods	AirPods
+006. /airpods-4	AirPods 4
+007. /airpods-max	AirPods Max 2
+008. /airpods-pro	AirPods Pro 3
+009. /airpods-pro/hearing-health	Hearing Health
+010. /airpods/compare	Compare AirPods
+011. /airtag	AirTag
+012. /app-store	App Store
+013. /apple-arcade	Apple Arcade
+014. /apple-books	Apple Books
+015. /apple-card	Apple Card
+016. /apple-cash	Apple Cash
+017. /apple-creator-studio	Apple Creator Studio
+018. /apple-events	Apple Events
+019. /apple-fitness-plus	Apple Fitness+
+020. /apple-intelligence	Apple Intelligence and Siri
+021. /apple-music	Apple Music
+022. /apple-news	Apple News+
+023. /apple-one	Apple One
+024. /apple-pay	Apple Pay
+025. /apple-pencil	Apple Pencil
+026. /apple-podcasts	Apple Podcasts
+027. /apple-tv	Apple TV
+028. /apple-tv-4k	Apple TV 4K
+029. /apple-tv-app	Apple TV app
+030. /apple-vision-pro	Vision
+031. /apple-vision-pro/specs	Tech Specs
+032. /apple-watch-for-your-kids	Apple Watch For Your Kids
+033. /apple-watch-hermes	Apple Watch Hermès
+034. /apple-watch-nike	Apple Watch Nike
+035. /apple-watch-se-3	Apple Watch SE 3
+036. /apple-watch-series-11	Apple Watch Series 11
+037. /apple-watch-ultra-3	Apple Watch Ultra 3
+038. /applecare	AppleCare
+039. /apps	Apps by Apple
+040. /augmented-reality	Augmented Reality
+041. /batteries/maximizing-performance	Batteries
+042. /business	Apple at Work
+043. /business/enterprise/apple-vision-pro	Apple Vision Pro for Enterprise
+044. /business/mac	Mac for Business
+045. /careers/us	Career Opportunities
+046. /choose-country-region	Choose Your Country or Region
+047. /compliance	Ethics & Compliance
+048. /contact	Contact Apple
+049. /displays	Displays
+050. /diversity	Inclusion and Diversity
+051. /education	Education
+052. /education-initiative	Education
+053. /education/k12/how-to-buy	Shop for K-12
+054. /education/k12/products	Mac in Education
+055. /entertainment	Entertainment
+056. /environment	Environment
+057. /feedback	Product Feedback
+058. /final-cut-pro	Final Cut Pro
+059. /final-cut-pro-for-ipad	Final Cut Pro
+060. /financing	Apple Financial Services
+061. /government	Apple and Government
+062. /health	Apple Health
+063. /healthcare	Apple and Healthcare
+064. /home-app	Home app
+065. /homepod-2nd-generation	HomePod
+066. /homepod-mini	HomePod mini
+067. /icloud	iCloud+
+068. /icloud/find-my	Find My
+069. /imac	iMac
+070. /ios/carplay	Apple CarPlay
+071. /ipad	iPad
+072. /ipad-11	iPad
+073. /ipad-air	iPad Air
+074. /ipad-keyboards	Keyboards
+075. /ipad-mini	iPad mini
+076. /ipad-pro	iPad Pro
+077. /ipad/compare	Compare iPad
+078. /iphone	iPhone
+079. /iphone-17	iPhone 17
+080. /iphone-17-pro	iPhone 17 Pro
+081. /iphone-17e	iPhone 17e
+082. /iphone-air	iPhone Air
+083. /iphone/buy	Why Buy iPhone from Apple
+084. /iphone/compare	Compare iPhone
+085. /iphone/switch	Switch from Android
+086. /itunes	iTunes
+087. /leadership	Apple Leadership
+088. /legal	Legal
+089. /legal/internet-services/terms/site.html	Terms of Use
+090. /legal/privacy	Privacy Policy
+091. /logic-pro	Logic Pro
+092. /logic-pro-for-ipad	Logic Pro
+093. /mac	Mac
+094. /mac-mini	Mac mini
+095. /mac-studio	Mac Studio
+096. /mac/compare	Compare Mac
+097. /mac/mac-does-that	Switch from PC to Mac
+098. /macbook-air	MacBook Air
+099. /macbook-neo	MacBook Neo
+100. /macbook-pro	MacBook Pro
+101. /macos/continuity	Better with iPhone
+102. /maps	Maps
+103. /newsroom	Newsroom
+104. /os/ios	iOS 27 Preview
+105. /os/ipados	iPadOS 27 Preview
+106. /os/macos	macOS 27 Preview
+107. /os/visionos	visionOS 27 Preview
+108. /os/watchos	watchOS 27 Preview
+109. /pixelmator-pro	Pixelmator Pro
+110. /privacy	iPhone Privacy
+111. /product-red	(PRODUCT)RED
+112. /promo	Rebates
+113. /r/store/government	Government
+114. /racial-equity-justice-initiative	Racial Equity and Justice
+115. /researchkit	ResearchKit and CareKit
+116. /retail	Find a Store
+117. /retail/business	Business
+118. /retail/geniusbar	Genius Bar
+119. /retail/instore-shopping-session/session-selection	Book a Demo
+120. /rss	RSS Feeds
+121. /safari	Safari
+122. /services	Explore Entertainment
+123. /sitemap	Apple Site Map
+124. /studio-display	Studio Display
+125. /studio-display-xdr	Studio Display XDR
+126. /supply-chain	Supply Chain Innovation
+127. /support/exchange_repair	Exchange and Repair Extension Programs
+128. /today	Today at Apple
+129. /today/calendar	All Upcoming Sessions
+130. /today/camp	Apple Camp
+131. /today/groups	Group Reservations
+132. /tv-home	TV & Home
+133. /tv-pr	Apple TV Press
+134. /us/search	
+135. /us/shop/goto/accessories	All Accessories
+136. /us/shop/goto/accessories/accessibility	Accessibility
+137. /us/shop/goto/accessories/all	Shop All Accessories
+138. /us/shop/goto/accessories/all/accessibility	Accessibility
+139. /us/shop/goto/accessories/all/cases_protection	Cases & Protection
+140. /us/shop/goto/accessories/all/chargers_adapters	Chargers & Adapters
+141. /us/shop/goto/accessories/all/content_creation	Content Creation
+142. /us/shop/goto/accessories/all/drives_storage	Hard Drives & Storage
+143. /us/shop/goto/accessories/all/gaming	Gaming
+144. /us/shop/goto/accessories/all/headphones_speakers	Headphones & Speakers
+145. /us/shop/goto/accessories/all/health_fitness	Health & Fitness
+146. /us/shop/goto/accessories/all/homekit	Smart Home Essentials
+147. /us/shop/goto/accessories/all/made_by_apple	Made by Apple
+148. /us/shop/goto/accessories/all/mice_keyboards	Mice & Keyboards
+149. /us/shop/goto/accessories/all/new_arrivals	New Arrivals
+150. /us/shop/goto/accessories/all/office	Office Accessories
+151. /us/shop/goto/accessories/all/software	Software
+152. /us/shop/goto/accessories/all_accessories/creativity	Creativity
+153. /us/shop/goto/accessories/all_accessories/headphones_speakers	Shop AirPods
+154. /us/shop/goto/accessories/all_accessories/made_by_apple	Made by Apple
+155. /us/shop/goto/accessories/all_accessories/photography	Photography
+156. /us/shop/goto/accessories/all_accessories/point_of_sale	Point of Sale
+157. /us/shop/goto/accessories/all_accessories/whats_new	What’s New
+158. /us/shop/goto/accessories/all_accessories/wireless_chargers	Wireless Chargers
+159. /us/shop/goto/accessories/cases_protection	Cases & Protection
+160. /us/shop/goto/accessories/displays_mounts	Displays & Mounts
+161. /us/shop/goto/accessories/health_fitness	Health & Fitness
+162. /us/shop/goto/accessories/homekit	HomeKit
+163. /us/shop/goto/accessories/magsafe	MagSafe
+164. /us/shop/goto/accessories/power_cables	Power & Cables
+165. /us/shop/goto/accessories/printers_scanners	Printers & Scanners
+166. /us/shop/goto/accessories/toys_hobbies	Gaming & Toys
+167. /us/shop/goto/account	Apple Store Account
+168. /us/shop/goto/account/home	Apple Store Account
+169. /us/shop/goto/airpods/accessories	AirPods
+170. /us/shop/goto/airtag/accessories	AirTag
+171. /us/shop/goto/apple_upgrade	Apple Upgrade
+172. /us/shop/goto/bag	0 +
+173. /us/shop/goto/beats/accessories	Beats
+174. /us/shop/goto/buy_accessories	Accessories
+175. /us/shop/goto/buy_accessories/mice_keyboards	Mice & Keyboards
+176. /us/shop/goto/buy_accessories/networking	Networking
+177. /us/shop/goto/buy_accessories/software	Software
+178. /us/shop/goto/buy_accessories/storage	Storage
+179. /us/shop/goto/buy_homepod/homepod	Shop HomePod
+180. /us/shop/goto/buy_homepod/homepod_mini	Shop HomePod mini
+181. /us/shop/goto/buy_ipad	iPad
+182. /us/shop/goto/buy_iphone	iPhone
+183. /us/shop/goto/buy_iphone/carrier_offers	Carrier Deals at Apple
+184. /us/shop/goto/buy_iphone/iphone_16	iPhone 16
+185. /us/shop/goto/buy_mac	Mac
+186. /us/shop/goto/buy_tv/apple_tv_4k	Shop Apple TV 4K
+187. /us/shop/goto/buy_vision	Apple Vision Pro
+188. /us/shop/goto/buy_watch	Apple Watch
+189. /us/shop/goto/edu_store	College Student Offer
+190. /us/shop/goto/educationrouting	Education
+191. /us/shop/goto/engraving_giftwrap	Free Engraving
+192. /us/shop/goto/eppstore/veteransandmilitary	Veterans and Military
+193. /us/shop/goto/giftcards	Gift Cards
+194. /us/shop/goto/help	Shopping Help
+195. /us/shop/goto/help/sales_refunds	Sales and Refunds
+196. /us/shop/goto/ipad/accessories	iPad Accessories
+197. /us/shop/goto/ipad/accessories/displays_stands	Displays & Stands
+198. /us/shop/goto/ipad/accessories/mice_trackpads	Mice & Trackpads
+199. /us/shop/goto/ipad/case_protection	Cases & Protection
+200. /us/shop/goto/ipad/health_fitness	Health & Fitness
+201. /us/shop/goto/ipad/ipad_accessories/accessibility	Accessibility
+202. /us/shop/goto/ipad/ipad_accessories/creativity	Creativity
+203. /us/shop/goto/ipad/ipad_accessories/headphones_speakers	Headphones & Speakers
+204. /us/shop/goto/ipad/ipad_accessories/photography	Photography
+205. /us/shop/goto/ipad/ipad_accessories/point_of_sale	Point of Sale
+206. /us/shop/goto/ipad/keyboards	Keyboards
+207. /us/shop/goto/ipad/power_cables	Power & Cables
+208. /us/shop/goto/ipad/toys_hobbies	Gaming & Toys
+209. /us/shop/goto/ipad_accessories/homekit	HomeKit
+210. /us/shop/goto/iphone/accessories	iPhone Accessories
+211. /us/shop/goto/iphone/cases_protection	Cases & Protection
+212. /us/shop/goto/iphone/fitness_sport_accessories	Health & Fitness
+213. /us/shop/goto/iphone/iphone_accessories/accessibility	Accessibility
+214. /us/shop/goto/iphone/iphone_accessories/creativity	Creativity
+215. /us/shop/goto/iphone/iphone_accessories/headphones_speakers	Headphones & Speakers
+216. /us/shop/goto/iphone/iphone_accessories/photography	Photography
+217. /us/shop/goto/iphone/iphone_accessories/point_of_sale	Point of Sale
+218. /us/shop/goto/iphone/iphone_accessories/wireless_chargers	Wireless Chargers
+219. /us/shop/goto/iphone/iphone_upgrade_program	iPhone Upgrade Program
+220. /us/shop/goto/iphone/power_cables	Power & Cables
+221. /us/shop/goto/iphone_accessories/homekit	HomeKit
+222. /us/shop/goto/iphone_accessories/toys_hobbies	Gaming & Toys
+223. /us/shop/goto/mac/accessories	Mac Accessories
+224. /us/shop/goto/mac/cases_protection	Cases & Protection
+225. /us/shop/goto/mac/display_mounts	Displays & Mounts
+226. /us/shop/goto/mac/mac_accessories/accessibility	Accessibility
+227. /us/shop/goto/mac/mac_accessories/creativity	Creativity
+228. /us/shop/goto/mac/mac_accessories/headphones_speakers	Headphones & Speakers
+229. /us/shop/goto/mac/mac_accessories/mac_components	Mac Components
+230. /us/shop/goto/mac/mac_accessories/photography	Photography
+231. /us/shop/goto/mac/mice_keyboards	Mice & Keyboards
+232. /us/shop/goto/mac/networking	Mesh Wi‑Fi Networking
+233. /us/shop/goto/mac/power_cables	Power & Cables
+234. /us/shop/goto/mac/printers_scanners	Printers & Scanners
+235. /us/shop/goto/mac/software	Software
+236. /us/shop/goto/mac/storage	Storage
+237. /us/shop/goto/order/list	Order Status
+238. /us/shop/goto/payment_plan	Financing
+239. /us/shop/goto/personal_setup	Personal Setup
+240. /us/shop/goto/product/MW5G3	Shop Siri Remote
+241. /us/shop/goto/shipping_pickup	Apple Store pickup
+242. /us/shop/goto/smart_home/accessories	TV & Home Accessories
+243. /us/shop/goto/special_deals	Certified Refurbished
+244. /us/shop/goto/store	Store
+245. /us/shop/goto/trade_in	Apple Trade In
+246. /us/shop/goto/tv/accessories	TV & Home
+247. /us/shop/goto/tv/tv_accessories/gaming	Gaming
+248. /us/shop/goto/tv/tv_accessories/headphones_speakers	Headphones & Speakers
+249. /us/shop/goto/tv/tv_accessories/mounts	Apple TV Mounts
+250. /us/shop/goto/tv/tv_accessories/networking	Mesh Wi-Fi Networking
+251. /us/shop/goto/tv/tv_accessories/power_cables	Power & Cables
+252. /us/shop/goto/tv/tv_accessories/remotes_controllers	Remotes & Controllers
+253. /us/shop/goto/vision/accessories	Apple Vision Pro Accessories
+254. /us/shop/goto/watch/accessories	Apple Watch Accessories
+255. /us/shop/goto/watch/bands	Apple Watch Bands
+256. /us/shop/goto/watch/health_fitness	Health & Fitness
+257. /us/shop/goto/watch/power_cables	Charging Essentials
+258. /us/shop/goto/watch/stands	Stands
+259. /us/shop/goto/watch/watch_accessories/headphones_speakers	Headphones & Speakers
+260. /us/shop/goto/watch/watch_accessories/wireless_chargers	Wireless Chargers
+261. /us/shop/goto/watch_accessories/cases_protection	Cases & Protection
+262. /us/shop/goto/watch_accessories/homekit	Smart Home Accessories
+263. /us_epp_55499/store	Shop for Federal Employees
+264. /us_epp_67909/store	Shop for State and Local Employees
+265. /usergroups	User Groups
+266. /wallet	Wallet, Pay, Card
+267. /watch	Watch
+268. /watch/battery	Battery
+269. /watch/close-your-rings	Close Your Rings
+270. /watch/compare	Compare Watch
+271. /watch/why-apple-watch	Why Apple Watch
+272. /working-with-apple-services	Working with Apple Services

@@ -1,19 +1,43 @@
-// Usamabhanbhro homepage: original campaign language and visual system expressed through an image-led editorial commerce journey.
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { collections, featuredProducts, journals, newArrivalProducts } from "@/lib/catalog";
-import { useCommerce } from "@/lib/commerce";
-import { ProductCard } from "@/components/ProductCard";
 
-const heroImage = "/manus-storage/1786605638826_c5b84767.png";
-const campaignImage = "/manus-storage/1786605652965_fc685904.png";
-export default function Home() { useCommerce(); return <>
-  <section className="hero hero--home"><img className="hero__image" src={heroImage} alt="A warm editorial study of considered leather and home objects" /><div className="hero__veil" /><div className="hero__content"><p className="eyebrow eyebrow--light">Object study 01</p><h1>THE BEAUTY<br />OF USE.</h1><p>Made slowly. Carried often.</p><Link className="text-link" href="/collections/new-arrivals">Explore the new edit <span>↗</span></Link></div><span className="hero__scroll">Scroll to explore ↓</span></section>
-  <section className="story-links" aria-label="Featured edits"><Link className="story-link story-link--wide" href="/collections/new-arrivals"><span>THE NEW EDIT</span><strong>Objects for the way you move.</strong><span className="story-link__cta">Shop new arrivals</span></Link><Link className="story-link" href="/collections/signature"><span>SIGNATURE FORMS</span><strong>Quietly expressive.</strong><span className="story-link__cta">Discover signature</span></Link><Link className="story-link" href="/collections/bags"><span>BAGS</span><strong>Carry considered.</strong><span className="story-link__cta">Shop bags</span></Link></section>
-  <section className="product-section"><div className="section-heading"><div><p className="eyebrow">Selected pieces</p><h2>New objects, considered.</h2></div><Link className="text-link" href="/collections/new-arrivals">View new arrivals <span>↗</span></Link></div><div className="product-rail">{newArrivalProducts().slice(0, 4).map((product) => <ProductCard key={product.id} product={product} />)}</div></section>
-  <section className="product-section product-section--signature"><div className="section-heading"><div><p className="eyebrow">The house edit</p><h2>Objects that stay close.</h2></div><Link className="text-link" href="/collections/signature">Explore signature <span>↗</span></Link></div><div className="product-rail">{featuredProducts().slice(0, 4).map((product) => <ProductCard key={product.id} product={product} />)}</div></section>
-  <section className="editorial-wrap"><div className="campaign-motion"><div className="campaign-motion__image"><img src={campaignImage} alt="Original tactile studio composition of folded leather and textile" /><span className="campaign-motion__play">▶</span></div><div className="campaign-motion__copy"><p className="eyebrow eyebrow--light">A studio in motion</p><h2>The beauty<br />of use.</h2><p>Discover the thinking, making, and material choices behind the pieces.</p><Link className="text-link" href="/journal/the-shape-of-a-day">Read the journal <span>↗</span></Link></div></div>
-    <div className="editorial-grid">{journals.map((journal, index) => <Link className={`editorial-card editorial-card--${index + 1}`} href={`/journal/${journal.slug}`} key={journal.slug}><div className="editorial-card__image"><img src={journal.image} alt={journal.title} loading="lazy" /></div><div className="editorial-card__copy"><p className="eyebrow">{journal.type}</p><h3>{journal.title}</h3><p>{journal.excerpt}</p><span className="text-link">Read more <span>↗</span></span></div></Link>)}</div>
-  </section>
-  <section className="home-collections"><div className="section-heading"><div><p className="eyebrow">A considered wardrobe</p><h2>Find your material.</h2></div><Link className="text-link" href="/collections">All collections <span>↗</span></Link></div><div className="collection-strip">{collections.slice(0, 3).map((collection) => <Link className="collection-tile" href={`/collections/${collection.slug}`} key={collection.slug}><img src={collection.image} alt={collection.name} loading="lazy" /><span>{collection.name}</span></Link>)}</div></section>
-  <section className="home-demo-note"><p className="eyebrow">A client-ready commerce concept</p><h2>Designed to become<br />something real.</h2><p>Every product, cart, wishlist, and payment state in this showcase is local and demonstrative. The architecture is ready for a future secure commerce service.</p><Link className="text-link" href="/about">Read the studio note <span>↗</span></Link></section>
- </>; }
+const asset = "/sites/apple-com-7b1a/homepage-6a2c";
+
+type GalleryItem = { title: string; eyebrow: string; copy: string; action: string; tone: string };
+
+const gallery: GalleryItem[] = [
+  { title: "MLS on Apple TV", eyebrow: "Sports", copy: "Watch every club, every match, live—all season long.", action: "Stream now", tone: "gallery--soccer" },
+  { title: "Sabrina Carpenter: The Zane Lowe Interview", eyebrow: "Music", copy: "The artist opens up about making music, finding joy, and what comes next.", action: "Listen now", tone: "gallery--music" },
+  { title: "Hello Kitty Island Adventure", eyebrow: "Arcade", copy: "A cozy game of friendship, exploration, and discovery.", action: "Play now", tone: "gallery--hello" },
+  { title: "F1 on Apple TV", eyebrow: "Action", copy: "Every Grand Prix, live and on demand—all in one place, all year long.", action: "Stream now", tone: "gallery--f1" },
+  { title: "Programs", eyebrow: "Apple TV+", copy: "New stories to watch, share, and come back to.", action: "Watch now", tone: "gallery--programs" },
+];
+
+function PillLink({ href = "#", children, secondary = false }: { href?: string; children: React.ReactNode; secondary?: boolean }) {
+  return <a className={`apple-pill ${secondary ? "apple-pill--secondary" : ""}`} href={href}>{children}</a>;
+}
+
+function FeatureHero({ id, className, title, subtitle, image, children }: { id: string; className?: string; title: string; subtitle: string; image: string; children?: React.ReactNode }) {
+  return <section id={id} className={`apple-feature ${className ?? ""}`}><div className="apple-feature__copy"><h2>{title}</h2><p>{subtitle}</p><div className="apple-feature__links">{children}</div></div><img src={`${asset}/${image}`} alt="" /></section>;
+}
+
+function PromoTile({ id, className, title, subtitle, image, children }: { id: string; className?: string; title: React.ReactNode; subtitle: string; image?: string; children: React.ReactNode }) {
+  return <article id={id} className={`apple-promo ${className ?? ""}`}><div className="apple-promo__copy"><h3>{title}</h3><p>{subtitle}</p><div className="apple-promo__links">{children}</div></div>{image && <img src={`${asset}/${image}`} alt="" loading="lazy" />}</article>;
+}
+
+export default function Home() {
+  const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  useEffect(() => { if (!playing) return; const timer = window.setInterval(() => setActive((index) => (index + 1) % gallery.length), 4200); return () => window.clearInterval(timer); }, [playing]);
+  const current = gallery[active];
+  return <>
+    <section className="apple-education" id="apple-store"><div className="apple-education__copy"><h1>College, sorted.</h1><p>Get a gift card from $100 to $150<sup>*</sup> when you buy Mac or iPad with education savings.</p><PillLink href="#macbook-air">Shop</PillLink></div><img src={`${asset}/education-hero.jpg`} alt="Students carrying Apple devices and creative supplies" /></section>
+
+    <FeatureHero id="iphone" className="apple-feature--iphone" title="iPhone" subtitle="Meet the latest iPhone lineup." image="iphone-family.jpg"><PillLink href="#iphone">Learn more</PillLink><PillLink href="#apple-store" secondary>Shop iPhone</PillLink></FeatureHero>
+    <FeatureHero id="macbook-air" className="apple-feature--air" title="MacBook Air" subtitle="Now supercharged by M5." image="macbook-air.jpg"><PillLink href="#macbook-air">Learn more</PillLink><PillLink href="#promos" secondary>Buy</PillLink></FeatureHero>
+
+    <section className="apple-promos" id="promos"><PromoTile id="ipad" className="apple-promo--ipad" title="iPad Air" subtitle="Now supercharged by M4." image="ipad-air.jpg"><PillLink href="#ipad" >Learn more</PillLink><PillLink href="#ipad" secondary>Buy</PillLink></PromoTile><PromoTile id="mac" className="apple-promo--mac" title="MacBook Pro" subtitle="Now with M5, M5 Pro, and M5 Max." image="macbook-pro.jpg"><PillLink href="#mac" >Learn more</PillLink><PillLink href="#mac" secondary>Buy</PillLink></PromoTile><PromoTile id="watch" className="apple-promo--watch" title="Apple Watch Series 11" subtitle="The ultimate way to watch your health." image="apple-watch.jpg"><PillLink href="#watch" >Learn more</PillLink><PillLink href="#watch" secondary>Buy</PillLink></PromoTile><PromoTile id="ipad-pro" className="apple-promo--pro" title="iPad Pro" subtitle="Advanced AI performance and game-changing capabilities." image="ipad-pro.jpg"><PillLink href="#ipad-pro" >Learn more</PillLink><PillLink href="#ipad-pro" secondary>Buy</PillLink></PromoTile><PromoTile id="trade-in" className="apple-promo--trade" title="Apple Trade In" subtitle="Get up to $205–$720 in credit when you trade in iPhone 13 or higher."><PillLink href="#trade-in">Get your estimate</PillLink></PromoTile><PromoTile id="apple-card" className="apple-promo--card" title="Apple Card" subtitle="Get up to 3% Daily Cash back with every purchase."><PillLink href="#apple-card">Learn more</PillLink><PillLink href="#apple-card" secondary>Apply now</PillLink></PromoTile></section>
+
+    <section className="apple-entertainment" id="entertainment"><div className="apple-entertainment__heading"><h2>Endless entertainment.</h2><button className="apple-play" onClick={() => setPlaying((value) => !value)} aria-label={playing ? "Pause endless entertainment gallery" : "Play endless entertainment gallery"}>{playing ? "Ⅱ" : "▶"}</button></div><div className={`apple-gallery ${current.tone}`}><div className="apple-gallery__content"><span className="apple-gallery__eyebrow">{current.eyebrow}</span><h3>{current.title}</h3><p>{current.copy}</p><a href="#entertainment">{current.action} <span>›</span></a></div></div><div className="apple-gallery__controls" role="tablist" aria-label="Endless entertainment gallery">{gallery.map((item, index) => <button key={item.title} role="tab" aria-selected={index === active} className={index === active ? "is-active" : ""} onClick={() => { setActive(index); setPlaying(false); }}>{String(index + 1).padStart(2, "0")}<span>{item.title}</span></button>)}</div></section>
+  </>;
+}

@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
+import { appleRouteAuditData } from "@/data/appleRouteAuditData";
+import { appleRouteAssets } from "@/data/appleRouteAssets";
 
 const asset = (name: string) => `/sites/apple-com-7b1a/homepage-6a2c/${name}`;
 
@@ -119,7 +121,11 @@ export default function AppleRoutePage() {
   const path = location.split("?")[0].replace(/\/$/, "") || "/";
   const family = familyFor(path);
   const copy = familyCopy[family];
-  const title = pageLabels[path] || humanize(path);
+  const routeData = appleRouteAuditData[path];
+  const routeImage = appleRouteAssets[path] || asset(copy.image);
+  const routeHeadings = routeData?.headings ?? [];
+  const routeParagraphs = routeData?.paragraphs ?? [];
+  const title = routeData?.h1 || pageLabels[path] || humanize(path);
   const compare = isComparison(path);
   const store = isStore(path);
   const editorial = isEditorial(path);
@@ -132,13 +138,13 @@ export default function AppleRoutePage() {
   if (!isAppleRoute(path)) return null;
 
   if (store) {
-    return <AppleStorePage title={title} path={path} />;
+    return <AppleStorePage title={title} path={path} routeData={routeData} routeImage={routeImage} />;
   }
   if (compare) {
-    return <AppleComparisonPage title={title} family={family} />;
+    return <AppleComparisonPage title={title} family={family} routeData={routeData} routeImage={routeImage} />;
   }
   if (editorial || ["/choose-country-region", "/feedback", "/rss", "/us/search"].includes(path)) {
-    return <AppleEditorialPage title={title} path={path} />;
+    return <AppleEditorialPage title={title} path={path} routeData={routeData} routeImage={routeImage} />;
   }
 
   return <div className={`apple-route-page apple-route-page--${family}`}>
@@ -146,27 +152,25 @@ export default function AppleRoutePage() {
       <div className="apple-route-hero__copy">
         <p className="apple-eyebrow">{copy.eyebrow}</p>
         <h1>{title}</h1>
-        <p>{copy.body}</p>
+        <p>{routeParagraphs[0] || copy.body}</p>
         <div className="apple-route-actions"><Link className="apple-button apple-button--blue" href="#details">Learn more</Link><Link className="apple-button apple-button--outline" href="#related">Explore {copy.eyebrow}</Link></div>
       </div>
-      <img src={asset(copy.image)} alt="" />
+      <img src={routeImage} alt="" />
     </section>
 
     <section className="apple-route-intro" id="details">
       <p className="apple-eyebrow">Designed for what’s next</p>
-      <h2>{editorial ? "Ideas that move the world forward." : `The ${title} experience starts here.`}</h2>
-      <p>Apple products and services are designed to feel familiar from the first moment, while opening up new ways to create, connect, and get things done.</p>
+      <h2>{routeHeadings[1] || (editorial ? "Ideas that move the world forward." : `The ${title} experience starts here.`)}</h2>
+      <p>{routeParagraphs[1] || "Apple products and services are designed to feel familiar from the first moment, while opening up new ways to create, connect, and get things done."}</p>
     </section>
 
     <section className="apple-route-tabs" aria-label="Page sections">
       <div className="apple-route-tabs__bar">{tabs.map((tab) => <button className={activeTab === tab ? "is-active" : ""} key={tab} onClick={() => setActiveTab(tab)}>{tab}</button>)}</div>
-      <div className="apple-route-tabs__panel"><p className="apple-eyebrow">{activeTab}</p><h3>{activeTab === "Tech specs" ? "Every detail, considered." : activeTab === "Why Apple" ? "Technology made personal." : `${title}, in its element.`}</h3><p>From the materials and software to the way everything works together, every detail is made to disappear into the experience.</p></div>
+      <div className="apple-route-tabs__panel"><p className="apple-eyebrow">{activeTab}</p><h3>{routeHeadings[2] || (activeTab === "Tech specs" ? "Every detail, considered." : activeTab === "Why Apple" ? "Technology made personal." : `${title}, in its element.`)}</h3><p>{routeParagraphs[2] || "From the materials and software to the way everything works together, every detail is made to disappear into the experience."}</p></div>
     </section>
 
     <section className="apple-feature-grid">
-      <article><span>01</span><h3>Powerful by design.</h3><p>Fast, fluid performance gives you more time for the things you want to do.</p></article>
-      <article><span>02</span><h3>Made to fit your life.</h3><p>Thoughtful features and seamless continuity keep the experience moving with you.</p></article>
-      <article><span>03</span><h3>Private and secure.</h3><p>Your information stays yours, with privacy built into every layer.</p></article>
+      {[0, 1, 2].map((index) => <article key={index}><span>{String(index + 1).padStart(2, "0")}</span><h3>{routeHeadings[index + 3] || ["Powerful by design.", "Made to fit your life.", "Private and secure."][index]}</h3><p>{routeParagraphs[index + 3] || ["Fast, fluid performance gives you more time for the things you want to do.", "Thoughtful features and seamless continuity keep the experience moving with you.", "Your information stays yours, with privacy built into every layer."][index]}</p></article>)}
     </section>
 
     <section className="apple-accordion" aria-label="More information">
@@ -177,24 +181,24 @@ export default function AppleRoutePage() {
   </div>;
 }
 
-function AppleComparisonPage({ title, family }: { title: string; family: string }) {
-  const rows = ["Performance", "Battery life", "Display", "Cameras", "Connectivity", "Privacy"]; 
+function AppleComparisonPage({ title, family, routeData, routeImage }: { title: string; family: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string }) {
+  const rows = (routeData?.headings?.slice(2, 8).filter(Boolean) ?? []).length ? routeData!.headings.slice(2, 8) : ["Performance", "Battery life", "Display", "Cameras", "Connectivity", "Privacy"];
   const products = [familyCopy[family]?.eyebrow || title, "Previous generation", "Best for you"];
-  return <div className="apple-comparison-page"><section className="apple-route-intro"><p className="apple-eyebrow">Compare</p><h1>{title}</h1><p>See how the lineup compares, then choose the model that’s right for you.</p></section><div className="apple-comparison-table"><div className="apple-comparison-table__head"><span>Features</span>{products.map((product) => <strong key={product}>{product}</strong>)}</div>{rows.map((row, index) => <div className="apple-comparison-table__row" key={row}><span>{row}</span>{products.map((product) => <p key={product}>{index === 0 ? "Fast and fluid" : index === 1 ? "All-day battery" : index === 2 ? "Immersive display" : index === 3 ? "Advanced system" : index === 4 ? "Seamless connection" : "Built-in privacy"}</p>)}</div>)}</div><section className="apple-store-note"><p className="apple-eyebrow">Still deciding?</p><h2>We’re here to help.</h2><p>Chat with a Specialist or visit an Apple Store for a closer look.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
+  return <div className="apple-comparison-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">Compare</p><h1>{title}</h1><p>{routeData?.paragraphs?.[0] || "See how the lineup compares, then choose the model that’s right for you."}</p></section><div className="apple-comparison-table"><div className="apple-comparison-table__head"><span>Features</span>{products.map((product) => <strong key={product}>{product}</strong>)}</div>{rows.map((row, index) => <div className="apple-comparison-table__row" key={row}><span>{row}</span>{products.map((product) => <p key={product}>{routeData?.paragraphs?.[index + 1] || (index === 0 ? "Fast and fluid" : index === 1 ? "All-day battery" : index === 2 ? "Immersive display" : index === 3 ? "Advanced system" : index === 4 ? "Seamless connection" : "Built-in privacy")}</p>)}</div>)}</div><section className="apple-store-note"><p className="apple-eyebrow">Still deciding?</p><h2>We’re here to help.</h2><p>Chat with a Specialist or visit an Apple Store for a closer look.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
 }
 
-function AppleEditorialPage({ title, path }: { title: string; path: string }) {
+function AppleEditorialPage({ title, path, routeData, routeImage }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string }) {
   const isSearch = path === "/us/search";
   const [query, setQuery] = useState("");
   const cards = [
-    { label: "Innovation", heading: "The future is bright.", image: "education-hero.jpg" },
-    { label: "Apple values", heading: "Technology with a human touch.", image: "education-start.png" },
-    { label: "Newsroom", heading: "Stories from Apple.", image: "iphone-family.jpg" },
+    { label: "Apple", heading: routeData?.headings?.[1] || "The future is bright.", copy: routeData?.paragraphs?.[1] || "Read more about the people and ideas shaping the next chapter.", image: "education-hero.jpg" },
+    { label: "Apple values", heading: routeData?.headings?.[2] || "Technology with a human touch.", copy: routeData?.paragraphs?.[2] || "Read more about the people and ideas shaping the next chapter.", image: "education-start.png" },
+    { label: "Newsroom", heading: routeData?.headings?.[3] || "Stories from Apple.", copy: routeData?.paragraphs?.[3] || "Read more about the people and ideas shaping the next chapter.", image: "iphone-family.jpg" },
   ];
-  return <div className="apple-editorial-page"><section className="apple-route-intro"><p className="apple-eyebrow">{isSearch ? "Search" : "Apple"}</p><h1>{isSearch ? "Search Apple.com" : title}</h1><p>{isSearch ? "Find the products, support, and stories you’re looking for." : "Discover the people, ideas, and work behind Apple."}</p>{isSearch && <form className="apple-editorial-search" onSubmit={(event) => event.preventDefault()}><input aria-label="Search Apple.com" placeholder="Search Apple.com" value={query} onChange={(event) => setQuery(event.target.value)} /><button type="submit">Search</button></form>}</section><section className="apple-editorial-grid">{cards.map((card) => <article key={card.heading}><img src={asset(card.image)} alt="" /><div><p className="apple-eyebrow">{card.label}</p><h2>{card.heading}</h2><p>Read more about the people and ideas shaping the next chapter.</p><Link className="apple-text-link" href="/newsroom">Explore →</Link></div></article>)}</section><section className="apple-editorial-list"><p className="apple-eyebrow">More from Apple</p>{["Designing for everyone", "A more sustainable future", "Support that goes further"].map((item, index) => <Link key={item} href={index === 0 ? "/accessibility" : index === 1 ? "/environment" : "/retail/geniusbar"}><span>{item}</span><b>↗</b></Link>)}</section></div>;
+  return <div className="apple-editorial-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">{isSearch ? "Search" : "Apple"}</p><h1>{isSearch ? "Search Apple.com" : title}</h1><p>{isSearch ? "Find the products, support, and stories you’re looking for." : routeData?.paragraphs?.[0] || "Discover the people, ideas, and work behind Apple."}</p>{isSearch && <form className="apple-editorial-search" onSubmit={(event) => event.preventDefault()}><input aria-label="Search Apple.com" placeholder="Search Apple.com" value={query} onChange={(event) => setQuery(event.target.value)} /><button type="submit">Search</button></form>}</section><section className="apple-editorial-grid">{cards.map((card) => <article key={card.heading}><img src={asset(card.image)} alt="" /><div><p className="apple-eyebrow">{card.label}</p><h2>{card.heading}</h2><p>{card.copy}</p><Link className="apple-text-link" href="/newsroom">Explore →</Link></div></article>)}</section><section className="apple-editorial-list"><p className="apple-eyebrow">More from Apple</p>{["Designing for everyone", "A more sustainable future", "Support that goes further"].map((item, index) => <Link key={item} href={index === 0 ? "/accessibility" : index === 1 ? "/environment" : "/retail/geniusbar"}><span>{item}</span><b>↗</b></Link>)}</section></div>;
 }
 
-function AppleStorePage({ title, path }: { title: string; path: string }) {
+function AppleStorePage({ title, path, routeData, routeImage }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string }) {
   const [filter, setFilter] = useState("All");
   const categories = ["All", "Mac", "iPad", "iPhone", "Watch"];
   const products = [
@@ -204,7 +208,7 @@ function AppleStorePage({ title, path }: { title: string; path: string }) {
     { name: "Apple Watch", category: "Watch", image: "apple-watch.jpg", price: "From $399" },
   ];
   const visible = filter === "All" ? products : products.filter((product) => product.category === filter);
-  return <div className="apple-store-page"><section className="apple-route-intro"><p className="apple-eyebrow">Apple Store</p><h1>{title || "Store"}</h1><p>Shop the latest Apple products and get help choosing what’s right for you.</p></section><div className="apple-store-filters">{categories.map((category) => <button className={filter === category ? "is-active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div><section className="apple-store-grid">{visible.map((product) => <article className="apple-store-card" key={product.name}><img src={asset(product.image)} alt="" /><p className="apple-eyebrow">{product.category}</p><h2>{product.name}</h2><p>{product.price}</p><Link className="apple-button apple-button--blue" href={`/products/${product.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}>Buy</Link></article>)}</section><section className="apple-store-note"><p className="apple-eyebrow">Shopping help</p><h2>Need a hand?</h2><p>Get personalized help from an Apple Specialist, or visit an Apple Store near you.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
+  return <div className="apple-store-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">Apple Store</p><h1>{title || "Store"}</h1><p>{routeData?.paragraphs?.[0] || "Shop the latest Apple products and get help choosing what’s right for you."}</p></section><div className="apple-store-filters">{categories.map((category) => <button className={filter === category ? "is-active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div><section className="apple-store-grid">{visible.map((product) => <article className="apple-store-card" key={product.name}><img src={asset(product.image)} alt="" /><p className="apple-eyebrow">{product.category}</p><h2>{product.name}</h2><p>{product.price}</p><Link className="apple-button apple-button--blue" href={`/products/${product.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}>Buy</Link></article>)}</section><section className="apple-store-note"><p className="apple-eyebrow">Shopping help</p><h2>Need a hand?</h2><p>Get personalized help from an Apple Specialist, or visit an Apple Store near you.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
 }
 
 export { isAppleRoute };

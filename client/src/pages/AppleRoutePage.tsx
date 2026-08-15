@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { appleRouteAuditData } from "@/data/appleRouteAuditData";
 import { appleRouteAssets } from "@/data/appleRouteAssets";
+import { appleRouteAssetSets } from "@/data/appleRouteAssetSets";
 
 const asset = (name: string) => `/sites/apple-com-7b1a/homepage-6a2c/${name}`;
 
@@ -114,6 +115,44 @@ function isAppleRoute(path: string) {
   return path === "/" || (!commerce.some((route) => path === route || path.startsWith(`${route}/`)) && path !== "");
 }
 
+type SourceSectionProps = {
+  headings: string[];
+  paragraphs: string[];
+  images: string[];
+  start?: number;
+  limit?: number;
+};
+
+function SourceDerivedSections({ headings, paragraphs, images, start = 3, limit = 10 }: SourceSectionProps) {
+  const sections = headings.slice(start, start + limit).filter(Boolean);
+  if (!sections.length && !paragraphs.length) return null;
+  return <>
+    <section className="apple-source-sections" aria-label="Page features">
+      {sections.map((heading, index) => <article className="apple-source-section" key={`${heading}-${index}`}>
+        {images[index % images.length] && <img src={images[index % images.length]} alt="" />}
+        <div>
+          <p className="apple-eyebrow">{String(index + 1).padStart(2, "0")}</p>
+          <h2>{heading}</h2>
+          <p>{paragraphs[start + index] || paragraphs[index] || "Explore the details, experiences, and support built into this Apple experience."}</p>
+        </div>
+      </article>)}
+    </section>
+    {paragraphs.length > sections.length + start && <section className="apple-source-copy" aria-label="More details">
+      <p className="apple-eyebrow">More to explore</p>
+      {paragraphs.slice(Math.max(start + sections.length, 1), start + sections.length + 6).map((paragraph, index) => <p key={`${paragraph.slice(0, 24)}-${index}`}>{paragraph}</p>)}
+    </section>}
+  </>;
+}
+
+function SourceGallery({ images, title }: { images: string[]; title: string }) {
+  if (images.length < 2) return null;
+  return <section className="apple-source-gallery" aria-label={`${title} gallery`}>
+    <p className="apple-eyebrow">A closer look</p>
+    <h2>{title}</h2>
+    <div className="apple-source-gallery__grid">{images.slice(0, 5).map((image, index) => <img key={image} src={image} alt={`${title} view ${index + 1}`} />)}</div>
+  </section>;
+}
+
 export default function AppleRoutePage() {
   const [location] = useLocation();
   const [activeTab, setActiveTab] = useState("Overview");
@@ -123,6 +162,7 @@ export default function AppleRoutePage() {
   const copy = familyCopy[family];
   const routeData = appleRouteAuditData[path];
   const routeImage = appleRouteAssets[path] || asset(copy.image);
+  const routeImages = appleRouteAssetSets[path]?.length ? appleRouteAssetSets[path] : [routeImage];
   const routeHeadings = routeData?.headings ?? [];
   const routeParagraphs = routeData?.paragraphs ?? [];
   const title = routeData?.h1 || pageLabels[path] || humanize(path);
@@ -138,13 +178,13 @@ export default function AppleRoutePage() {
   if (!isAppleRoute(path)) return null;
 
   if (store) {
-    return <AppleStorePage title={title} path={path} routeData={routeData} routeImage={routeImage} />;
+    return <AppleStorePage title={title} path={path} routeData={routeData} routeImage={routeImage} routeImages={routeImages} />;
   }
   if (compare) {
-    return <AppleComparisonPage title={title} family={family} routeData={routeData} routeImage={routeImage} />;
+    return <AppleComparisonPage title={title} family={family} routeData={routeData} routeImage={routeImage} routeImages={routeImages} />;
   }
   if (editorial || ["/choose-country-region", "/feedback", "/rss", "/us/search"].includes(path)) {
-    return <AppleEditorialPage title={title} path={path} routeData={routeData} routeImage={routeImage} />;
+    return <AppleEditorialPage title={title} path={path} routeData={routeData} routeImage={routeImage} routeImages={routeImages} />;
   }
 
   return <div className={`apple-route-page apple-route-page--${family}`}>
@@ -173,6 +213,9 @@ export default function AppleRoutePage() {
       {[0, 1, 2].map((index) => <article key={index}><span>{String(index + 1).padStart(2, "0")}</span><h3>{routeHeadings[index + 3] || ["Powerful by design.", "Made to fit your life.", "Private and secure."][index]}</h3><p>{routeParagraphs[index + 3] || ["Fast, fluid performance gives you more time for the things you want to do.", "Thoughtful features and seamless continuity keep the experience moving with you.", "Your information stays yours, with privacy built into every layer."][index]}</p></article>)}
     </section>
 
+    <SourceDerivedSections headings={routeHeadings} paragraphs={routeParagraphs} images={routeImages} />
+    <SourceGallery images={routeImages} title={title} />
+
     <section className="apple-accordion" aria-label="More information">
       {["What’s included", "Compatibility", "Support and AppleCare"].map((item) => <div className={`apple-accordion__item ${expanded === item ? "is-open" : ""}`} key={item}><button onClick={() => setExpanded(expanded === item ? null : item)}><span>{item}</span><b>{expanded === item ? "−" : "+"}</b></button>{expanded === item && <p>Explore helpful details, compatibility notes, and support options for {title}.</p>}</div>)}
     </section>
@@ -181,13 +224,13 @@ export default function AppleRoutePage() {
   </div>;
 }
 
-function AppleComparisonPage({ title, family, routeData, routeImage }: { title: string; family: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string }) {
+function AppleComparisonPage({ title, family, routeData, routeImage, routeImages }: { title: string; family: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string; routeImages: string[] }) {
   const rows = (routeData?.headings?.slice(2, 8).filter(Boolean) ?? []).length ? routeData!.headings.slice(2, 8) : ["Performance", "Battery life", "Display", "Cameras", "Connectivity", "Privacy"];
   const products = [familyCopy[family]?.eyebrow || title, "Previous generation", "Best for you"];
-  return <div className="apple-comparison-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">Compare</p><h1>{title}</h1><p>{routeData?.paragraphs?.[0] || "See how the lineup compares, then choose the model that’s right for you."}</p></section><div className="apple-comparison-table"><div className="apple-comparison-table__head"><span>Features</span>{products.map((product) => <strong key={product}>{product}</strong>)}</div>{rows.map((row, index) => <div className="apple-comparison-table__row" key={row}><span>{row}</span>{products.map((product) => <p key={product}>{routeData?.paragraphs?.[index + 1] || (index === 0 ? "Fast and fluid" : index === 1 ? "All-day battery" : index === 2 ? "Immersive display" : index === 3 ? "Advanced system" : index === 4 ? "Seamless connection" : "Built-in privacy")}</p>)}</div>)}</div><section className="apple-store-note"><p className="apple-eyebrow">Still deciding?</p><h2>We’re here to help.</h2><p>Chat with a Specialist or visit an Apple Store for a closer look.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
+  return <div className="apple-comparison-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">Compare</p><h1>{title}</h1><p>{routeData?.paragraphs?.[0] || "See how the lineup compares, then choose the model that’s right for you."}</p></section><div className="apple-comparison-table"><div className="apple-comparison-table__head"><span>Features</span>{products.map((product) => <strong key={product}>{product}</strong>)}</div>{rows.map((row, index) => <div className="apple-comparison-table__row" key={row}><span>{row}</span>{products.map((product) => <p key={product}>{routeData?.paragraphs?.[index + 1] || (index === 0 ? "Fast and fluid" : index === 1 ? "All-day battery" : index === 2 ? "Immersive display" : index === 3 ? "Advanced system" : index === 4 ? "Seamless connection" : "Built-in privacy")}</p>)}</div>)}</div><SourceDerivedSections headings={routeData?.headings ?? []} paragraphs={routeData?.paragraphs ?? []} images={routeImages} start={8} limit={8} /><SourceGallery images={routeImages} title={title} /><section className="apple-store-note"><p className="apple-eyebrow">Still deciding?</p><h2>We’re here to help.</h2><p>Chat with a Specialist or visit an Apple Store for a closer look.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
 }
 
-function AppleEditorialPage({ title, path, routeData, routeImage }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string }) {
+function AppleEditorialPage({ title, path, routeData, routeImage, routeImages }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string; routeImages: string[] }) {
   const isSearch = path === "/us/search";
   const [query, setQuery] = useState("");
   const cards = [
@@ -195,10 +238,10 @@ function AppleEditorialPage({ title, path, routeData, routeImage }: { title: str
     { label: "Apple values", heading: routeData?.headings?.[2] || "Technology with a human touch.", copy: routeData?.paragraphs?.[2] || "Read more about the people and ideas shaping the next chapter.", image: "education-start.png" },
     { label: "Newsroom", heading: routeData?.headings?.[3] || "Stories from Apple.", copy: routeData?.paragraphs?.[3] || "Read more about the people and ideas shaping the next chapter.", image: "iphone-family.jpg" },
   ];
-  return <div className="apple-editorial-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">{isSearch ? "Search" : "Apple"}</p><h1>{isSearch ? "Search Apple.com" : title}</h1><p>{isSearch ? "Find the products, support, and stories you’re looking for." : routeData?.paragraphs?.[0] || "Discover the people, ideas, and work behind Apple."}</p>{isSearch && <form className="apple-editorial-search" onSubmit={(event) => event.preventDefault()}><input aria-label="Search Apple.com" placeholder="Search Apple.com" value={query} onChange={(event) => setQuery(event.target.value)} /><button type="submit">Search</button></form>}</section><section className="apple-editorial-grid">{cards.map((card) => <article key={card.heading}><img src={asset(card.image)} alt="" /><div><p className="apple-eyebrow">{card.label}</p><h2>{card.heading}</h2><p>{card.copy}</p><Link className="apple-text-link" href="/newsroom">Explore →</Link></div></article>)}</section><section className="apple-editorial-list"><p className="apple-eyebrow">More from Apple</p>{["Designing for everyone", "A more sustainable future", "Support that goes further"].map((item, index) => <Link key={item} href={index === 0 ? "/accessibility" : index === 1 ? "/environment" : "/retail/geniusbar"}><span>{item}</span><b>↗</b></Link>)}</section></div>;
+  return <div className="apple-editorial-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">{isSearch ? "Search" : "Apple"}</p><h1>{isSearch ? "Search Apple.com" : title}</h1><p>{isSearch ? "Find the products, support, and stories you’re looking for." : routeData?.paragraphs?.[0] || "Discover the people, ideas, and work behind Apple."}</p>{isSearch && <form className="apple-editorial-search" onSubmit={(event) => event.preventDefault()}><input aria-label="Search Apple.com" placeholder="Search Apple.com" value={query} onChange={(event) => setQuery(event.target.value)} /><button type="submit">Search</button></form>}</section><section className="apple-editorial-grid">{cards.map((card) => <article key={card.heading}><img src={asset(card.image)} alt="" /><div><p className="apple-eyebrow">{card.label}</p><h2>{card.heading}</h2><p>{card.copy}</p><Link className="apple-text-link" href="/newsroom">Explore →</Link></div></article>)}</section><SourceDerivedSections headings={routeData?.headings ?? []} paragraphs={routeData?.paragraphs ?? []} images={routeImages} start={4} limit={10} /><SourceGallery images={routeImages} title={title} /><section className="apple-editorial-list"><p className="apple-eyebrow">More from Apple</p>{["Designing for everyone", "A more sustainable future", "Support that goes further"].map((item, index) => <Link key={item} href={index === 0 ? "/accessibility" : index === 1 ? "/environment" : "/retail/geniusbar"}><span>{item}</span><b>↗</b></Link>)}</section></div>;
 }
 
-function AppleStorePage({ title, path, routeData, routeImage }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string }) {
+function AppleStorePage({ title, path, routeData, routeImage, routeImages }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string; routeImages: string[] }) {
   const [filter, setFilter] = useState("All");
   const categories = ["All", "Mac", "iPad", "iPhone", "Watch"];
   const products = [
@@ -208,7 +251,7 @@ function AppleStorePage({ title, path, routeData, routeImage }: { title: string;
     { name: "Apple Watch", category: "Watch", image: "apple-watch.jpg", price: "From $399" },
   ];
   const visible = filter === "All" ? products : products.filter((product) => product.category === filter);
-  return <div className="apple-store-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">Apple Store</p><h1>{title || "Store"}</h1><p>{routeData?.paragraphs?.[0] || "Shop the latest Apple products and get help choosing what’s right for you."}</p></section><div className="apple-store-filters">{categories.map((category) => <button className={filter === category ? "is-active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div><section className="apple-store-grid">{visible.map((product) => <article className="apple-store-card" key={product.name}><img src={asset(product.image)} alt="" /><p className="apple-eyebrow">{product.category}</p><h2>{product.name}</h2><p>{product.price}</p><Link className="apple-button apple-button--blue" href={`/products/${product.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}>Buy</Link></article>)}</section><section className="apple-store-note"><p className="apple-eyebrow">Shopping help</p><h2>Need a hand?</h2><p>Get personalized help from an Apple Specialist, or visit an Apple Store near you.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
+  return <div className="apple-store-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">Apple Store</p><h1>{title || "Store"}</h1><p>{routeData?.paragraphs?.[0] || "Shop the latest Apple products and get help choosing what’s right for you."}</p></section><div className="apple-store-filters">{categories.map((category) => <button className={filter === category ? "is-active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div><section className="apple-store-grid">{visible.map((product) => <article className="apple-store-card" key={product.name}><img src={asset(product.image)} alt="" /><p className="apple-eyebrow">{product.category}</p><h2>{product.name}</h2><p>{product.price}</p><Link className="apple-button apple-button--blue" href={`/products/${product.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}>Buy</Link></article>)}</section><SourceDerivedSections headings={routeData?.headings ?? []} paragraphs={routeData?.paragraphs ?? []} images={routeImages} start={2} limit={10} /><SourceGallery images={routeImages} title={title} /><section className="apple-store-note"><p className="apple-eyebrow">Shopping help</p><h2>Need a hand?</h2><p>Get personalized help from an Apple Specialist, or visit an Apple Store near you.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
 }
 
 export { isAppleRoute };

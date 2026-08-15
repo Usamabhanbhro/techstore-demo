@@ -12,3 +12,13 @@ The deep multi-segment route resolves to the Apple Store template and preserves 
 ## Interaction QA: `/airpods`
 
 The product route now exposes source-derived AirPods copy and headings, including AirPods Max 2, AirPods Pro 3, AirPods 4, and the comparison heading. The route’s tab controls and accordion disclosures render in the expected responsive structure; the first information accordion was targeted successfully and the page retained its layout while scrolled to the disclosure section. The hero image remains a known fidelity gap because the current local bundle does not yet include the source route’s dedicated AirPods hero asset.
+
+
+## Refreshed Mac QA
+
+The current Mac route keeps the Apple-like hierarchy across desktop and mobile: restrained shell, light gray hero, oversized title, concise promotional copy, pill CTAs, and a large product image. The mobile capture stacks copy above media without horizontal overflow, while the desktop capture uses a two-column hero with generous whitespace. The source image is intentionally soft because the captured Apple asset is itself low-detail at this viewport; layout and crop are stable.
+
+
+## Refreshed iPhone comparison QA
+
+The iPhone comparison route now presents a source-matched hero image, the original comparison title, and a readable mobile table with a fixed feature column and horizontally scrollable product columns. Desktop preserves the centered Apple-style composition and large title. Remaining differences are mostly exact Apple table density, image crop, and route-specific interaction depth rather than broken layout.

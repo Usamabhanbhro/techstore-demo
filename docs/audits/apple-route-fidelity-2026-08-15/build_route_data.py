@@ -24,14 +24,15 @@ for line in SUMMARY.read_text().splitlines():
     html_path = EVIDENCE / f"{slug}.html"
     html = html_path.read_text(errors="ignore") if html_path.exists() else ""
     soup = BeautifulSoup(html, "html.parser")
-    headings = [clean(node.get_text(" ")) for node in soup.select("h1, h2, h3") if clean(node.get_text(" "))]
+    main = soup.select_one("main") or soup
+    headings = [clean(node.get_text(" ")) for node in main.select("h1, h2, h3") if clean(node.get_text(" "))]
     paragraphs = []
-    for node in soup.select("main p, article p, section p, p"):
+    for node in main.select("p, article p, section p") or main.select("p"):
         text = clean(node.get_text(" "))
         if len(text) >= 24 and text not in paragraphs and not text.startswith("Copyright"):
             paragraphs.append(text)
     h1 = headings[0] if headings else row["route"].strip("/").replace("/", " ") or "Apple"
-    rows.append((row["route"], h1, headings[:8], paragraphs[:3]))
+    rows.append((row["route"], h1, headings[:24], paragraphs[:16]))
 
 lines = [
     "// Generated from individually captured Apple.com route DOM evidence.",

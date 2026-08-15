@@ -1,0 +1,4576 @@
+[
+  {
+    "route": "/iphone-17",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10260,
+    "asset_gap": 702,
+    "link_gap": 235,
+    "structure_gap": 137,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 135,
+    "rank": 1
+  },
+  {
+    "route": "/iphone-17-pro",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10241,
+    "asset_gap": 860,
+    "link_gap": 239,
+    "structure_gap": 158,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 135,
+    "rank": 2
+  },
+  {
+    "route": "/iphone-air",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10202,
+    "asset_gap": 766,
+    "link_gap": 230,
+    "structure_gap": 153,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 135,
+    "rank": 3
+  },
+  {
+    "route": "/iphone-17e",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10239,
+    "asset_gap": 604,
+    "link_gap": 199,
+    "structure_gap": 95,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 133.88,
+    "rank": 4
+  },
+  {
+    "route": "/macbook-pro",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10394,
+    "asset_gap": 800,
+    "link_gap": 190,
+    "structure_gap": 76,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 132.8,
+    "rank": 5
+  },
+  {
+    "route": "/environment",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10393,
+    "asset_gap": 278,
+    "link_gap": 364,
+    "structure_gap": 53,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 131,
+    "rank": 6
+  },
+  {
+    "route": "/macbook-air",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10266,
+    "asset_gap": 573,
+    "link_gap": 175,
+    "structure_gap": 62,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 131.0,
+    "rank": 7
+  },
+  {
+    "route": "/apps",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 9715,
+    "asset_gap": 1385,
+    "link_gap": 199,
+    "structure_gap": 104,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 129.88,
+    "rank": 8
+  },
+  {
+    "route": "/airpods-pro",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10265,
+    "asset_gap": 548,
+    "link_gap": 162,
+    "structure_gap": 64,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 129.44,
+    "rank": 9
+  },
+  {
+    "route": "/ipad-pro",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10310,
+    "asset_gap": 857,
+    "link_gap": 158,
+    "structure_gap": 79,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 128.96,
+    "rank": 10
+  },
+  {
+    "route": "/iphone",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 9955,
+    "asset_gap": 639,
+    "link_gap": 150,
+    "structure_gap": 107,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 128.0,
+    "rank": 11
+  },
+  {
+    "route": "/mac",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 9597,
+    "asset_gap": 259,
+    "link_gap": 147,
+    "structure_gap": 50,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 127.64,
+    "rank": 12
+  },
+  {
+    "route": "/ipad-air",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10289,
+    "asset_gap": 729,
+    "link_gap": 142,
+    "structure_gap": 54,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 127.04,
+    "rank": 13
+  },
+  {
+    "route": "/mac-studio",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10119,
+    "asset_gap": 352,
+    "link_gap": 133,
+    "structure_gap": 49,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 125.96,
+    "rank": 14
+  },
+  {
+    "route": "/apple-watch-ultra-3",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10225,
+    "asset_gap": 596,
+    "link_gap": 163,
+    "structure_gap": 85,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 125.56,
+    "rank": 15
+  },
+  {
+    "route": "/imac",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10283,
+    "asset_gap": 789,
+    "link_gap": 128,
+    "structure_gap": 61,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 125.36,
+    "rank": 16
+  },
+  {
+    "route": "/mac/mac-does-that",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10365,
+    "asset_gap": 261,
+    "link_gap": 127,
+    "structure_gap": 47,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 125.24,
+    "rank": 17
+  },
+  {
+    "route": "/apple-watch-series-11",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10229,
+    "asset_gap": 584,
+    "link_gap": 155,
+    "structure_gap": 66,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 124.6,
+    "rank": 18
+  },
+  {
+    "route": "/ipad-mini",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10077,
+    "asset_gap": 299,
+    "link_gap": 121,
+    "structure_gap": 43,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 124.52,
+    "rank": 19
+  },
+  {
+    "route": "/macbook-neo",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10336,
+    "asset_gap": 611,
+    "link_gap": 121,
+    "structure_gap": 86,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 124.52,
+    "rank": 20
+  },
+  {
+    "route": "/business",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10116,
+    "asset_gap": 316,
+    "link_gap": 154,
+    "structure_gap": 72,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 124.48,
+    "rank": 21
+  },
+  {
+    "route": "/apple-watch-se-3",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10300,
+    "asset_gap": 559,
+    "link_gap": 153,
+    "structure_gap": 79,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 124.36,
+    "rank": 22
+  },
+  {
+    "route": "/airpods-max",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10266,
+    "asset_gap": 455,
+    "link_gap": 112,
+    "structure_gap": 38,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 123.44,
+    "rank": 23
+  },
+  {
+    "route": "/mac-mini",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10412,
+    "asset_gap": 526,
+    "link_gap": 112,
+    "structure_gap": 60,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 123.44,
+    "rank": 24
+  },
+  {
+    "route": "/applecare",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 9973,
+    "asset_gap": 128,
+    "link_gap": 145,
+    "structure_gap": 42,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 123.4,
+    "rank": 25
+  },
+  {
+    "route": "/watch/why-apple-watch",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10108,
+    "asset_gap": 140,
+    "link_gap": 111,
+    "structure_gap": 37,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 122.92,
+    "rank": 26
+  },
+  {
+    "route": "/apple-fitness-plus",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 10307,
+    "asset_gap": 575,
+    "link_gap": 139,
+    "structure_gap": 48,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 122.68,
+    "rank": 27
+  },
+  {
+    "route": "/airpods-4",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10231,
+    "asset_gap": 324,
+    "link_gap": 100,
+    "structure_gap": 37,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 121.6,
+    "rank": 28
+  },
+  {
+    "route": "/ipad-11",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10381,
+    "asset_gap": 426,
+    "link_gap": 118,
+    "structure_gap": 33,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 120.56,
+    "rank": 29
+  },
+  {
+    "route": "/ipad",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 7584,
+    "asset_gap": 162,
+    "link_gap": 101,
+    "structure_gap": 35,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 120.12,
+    "rank": 30
+  },
+  {
+    "route": "/apple-intelligence",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10038,
+    "asset_gap": 397,
+    "link_gap": 114,
+    "structure_gap": 61,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 119.68,
+    "rank": 31
+  },
+  {
+    "route": "/watch",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10390,
+    "asset_gap": 151,
+    "link_gap": 103,
+    "structure_gap": 33,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 118.76,
+    "rank": 32
+  },
+  {
+    "route": "/accessibility",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 10127,
+    "asset_gap": 133,
+    "link_gap": 106,
+    "structure_gap": 43,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 118.72,
+    "rank": 33
+  },
+  {
+    "route": "/homepod-mini",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10443,
+    "asset_gap": 441,
+    "link_gap": 86,
+    "structure_gap": 35,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 118.32,
+    "rank": 34
+  },
+  {
+    "route": "/os/ipados",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10274,
+    "asset_gap": 282,
+    "link_gap": 68,
+    "structure_gap": 44,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 118.16,
+    "rank": 35
+  },
+  {
+    "route": "/os/macos",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10243,
+    "asset_gap": 268,
+    "link_gap": 63,
+    "structure_gap": 42,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 117.56,
+    "rank": 36
+  },
+  {
+    "route": "/health",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10122,
+    "asset_gap": 292,
+    "link_gap": 95,
+    "structure_gap": 37,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 117.0,
+    "rank": 37
+  },
+  {
+    "route": "/wallet",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 9740,
+    "asset_gap": 348,
+    "link_gap": 90,
+    "structure_gap": 69,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 116.8,
+    "rank": 38
+  },
+  {
+    "route": "/apple-music",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 10208,
+    "asset_gap": 237,
+    "link_gap": 87,
+    "structure_gap": 40,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 116.44,
+    "rank": 39
+  },
+  {
+    "route": "/education/k12/how-to-buy",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10177,
+    "asset_gap": 259,
+    "link_gap": 81,
+    "structure_gap": 54,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 115.72,
+    "rank": 40
+  },
+  {
+    "route": "/education/k12/products",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10177,
+    "asset_gap": 259,
+    "link_gap": 81,
+    "structure_gap": 54,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 115.72,
+    "rank": 41
+  },
+  {
+    "route": "/business/mac",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10076,
+    "asset_gap": 280,
+    "link_gap": 80,
+    "structure_gap": 44,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 115.6,
+    "rank": 42
+  },
+  {
+    "route": "/homepod-2nd-generation",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10170,
+    "asset_gap": 270,
+    "link_gap": 96,
+    "structure_gap": 30,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 115.52,
+    "rank": 43
+  },
+  {
+    "route": "/studio-display-xdr",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10227,
+    "asset_gap": 346,
+    "link_gap": 78,
+    "structure_gap": 52,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 115.36,
+    "rank": 44
+  },
+  {
+    "route": "/os/ios",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10264,
+    "asset_gap": 290,
+    "link_gap": 71,
+    "structure_gap": 45,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 114.52,
+    "rank": 45
+  },
+  {
+    "route": "/apple-creator-studio",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 9915,
+    "asset_gap": 303,
+    "link_gap": 67,
+    "structure_gap": 46,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 114.04,
+    "rank": 46
+  },
+  {
+    "route": "/safari",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 9768,
+    "asset_gap": 206,
+    "link_gap": 66,
+    "structure_gap": 46,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 113.92,
+    "rank": 47
+  },
+  {
+    "route": "/apple-watch-for-your-kids",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 9876,
+    "asset_gap": 130,
+    "link_gap": 65,
+    "structure_gap": 41,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 113.8,
+    "rank": 48
+  },
+  {
+    "route": "/business/enterprise/apple-vision-pro",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10372,
+    "asset_gap": 185,
+    "link_gap": 60,
+    "structure_gap": 46,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 113.2,
+    "rank": 49
+  },
+  {
+    "route": "/supply-chain",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10158,
+    "asset_gap": 761,
+    "link_gap": 58,
+    "structure_gap": 64,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.96,
+    "rank": 50
+  },
+  {
+    "route": "/apple-cash",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 9260,
+    "asset_gap": 192,
+    "link_gap": 57,
+    "structure_gap": 39,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.84,
+    "rank": 51
+  },
+  {
+    "route": "/final-cut-pro",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10046,
+    "asset_gap": 507,
+    "link_gap": 57,
+    "structure_gap": 53,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.84,
+    "rank": 52
+  },
+  {
+    "route": "/final-cut-pro-for-ipad",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10052,
+    "asset_gap": 507,
+    "link_gap": 57,
+    "structure_gap": 53,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.84,
+    "rank": 53
+  },
+  {
+    "route": "/logic-pro",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10034,
+    "asset_gap": 495,
+    "link_gap": 57,
+    "structure_gap": 54,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.84,
+    "rank": 54
+  },
+  {
+    "route": "/logic-pro-for-ipad",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10040,
+    "asset_gap": 495,
+    "link_gap": 57,
+    "structure_gap": 54,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.84,
+    "rank": 55
+  },
+  {
+    "route": "/pixelmator-pro",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10003,
+    "asset_gap": 335,
+    "link_gap": 52,
+    "structure_gap": 49,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.24,
+    "rank": 56
+  },
+  {
+    "route": "/apple-podcasts",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 7570,
+    "asset_gap": 136,
+    "link_gap": 55,
+    "structure_gap": 37,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.2,
+    "rank": 57
+  },
+  {
+    "route": "/os/visionos",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 8903,
+    "asset_gap": 297,
+    "link_gap": 55,
+    "structure_gap": 37,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.2,
+    "rank": 58
+  },
+  {
+    "route": "/maps",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 8992,
+    "asset_gap": 358,
+    "link_gap": 50,
+    "structure_gap": 75,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 112.0,
+    "rank": 59
+  },
+  {
+    "route": "/app-store",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 8589,
+    "asset_gap": 237,
+    "link_gap": 45,
+    "structure_gap": 41,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 111.4,
+    "rank": 60
+  },
+  {
+    "route": "/us/shop/goto/ipad/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4988,
+    "asset_gap": 620,
+    "link_gap": 74,
+    "structure_gap": 28,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 111.28,
+    "rank": 61
+  },
+  {
+    "route": "/us/shop/goto/ipad/accessories/mice_trackpads",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4988,
+    "asset_gap": 620,
+    "link_gap": 74,
+    "structure_gap": 28,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 111.28,
+    "rank": 62
+  },
+  {
+    "route": "/us/shop/goto/ipad/ipad_accessories/photography",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4988,
+    "asset_gap": 620,
+    "link_gap": 74,
+    "structure_gap": 28,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 111.28,
+    "rank": 63
+  },
+  {
+    "route": "/us/shop/goto/ipad/ipad_accessories/point_of_sale",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4988,
+    "asset_gap": 620,
+    "link_gap": 74,
+    "structure_gap": 28,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 111.28,
+    "rank": 64
+  },
+  {
+    "route": "/os/watchos",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 7759,
+    "asset_gap": 204,
+    "link_gap": 60,
+    "structure_gap": 30,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 111.2,
+    "rank": 65
+  },
+  {
+    "route": "/education-initiative",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 10191,
+    "asset_gap": 241,
+    "link_gap": 52,
+    "structure_gap": 35,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 110.24,
+    "rank": 66
+  },
+  {
+    "route": "/airpods",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10392,
+    "asset_gap": 101,
+    "link_gap": 129,
+    "structure_gap": 18,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.88,
+    "rank": 67
+  },
+  {
+    "route": "/us/shop/goto/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 68
+  },
+  {
+    "route": "/us/shop/goto/accessories/all",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 69
+  },
+  {
+    "route": "/us/shop/goto/accessories/all_accessories/photography",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 70
+  },
+  {
+    "route": "/us/shop/goto/accessories/all_accessories/point_of_sale",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 71
+  },
+  {
+    "route": "/us/shop/goto/accessories/all_accessories/wireless_chargers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 72
+  },
+  {
+    "route": "/us/shop/goto/accessories/displays_mounts",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 73
+  },
+  {
+    "route": "/us/shop/goto/accessories/printers_scanners",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 74
+  },
+  {
+    "route": "/us/shop/goto/buy_accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 75
+  },
+  {
+    "route": "/us/shop/goto/buy_accessories/networking",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 76
+  },
+  {
+    "route": "/us/shop/goto/ipad/ipad_accessories/creativity",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 77
+  },
+  {
+    "route": "/us/shop/goto/iphone/iphone_accessories/point_of_sale",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 78
+  },
+  {
+    "route": "/us/shop/goto/mac/display_mounts",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 79
+  },
+  {
+    "route": "/us/shop/goto/mac/networking",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 80
+  },
+  {
+    "route": "/us/shop/goto/tv/tv_accessories/networking",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4744,
+    "asset_gap": 589,
+    "link_gap": 82,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 109.84,
+    "rank": 81
+  },
+  {
+    "route": "/us/shop/goto/beats/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5713,
+    "asset_gap": 336,
+    "link_gap": 72,
+    "structure_gap": 25,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 108.64,
+    "rank": 82
+  },
+  {
+    "route": "/apple-pay",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 8946,
+    "asset_gap": 88,
+    "link_gap": 87,
+    "structure_gap": 32,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 107.84,
+    "rank": 83
+  },
+  {
+    "route": "/us/shop/goto/iphone/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4663,
+    "asset_gap": 760,
+    "link_gap": 78,
+    "structure_gap": 23,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 107.76,
+    "rank": 84
+  },
+  {
+    "route": "/us/shop/goto/smart_home/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4516,
+    "asset_gap": 514,
+    "link_gap": 64,
+    "structure_gap": 24,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 106.88,
+    "rank": 85
+  },
+  {
+    "route": "/us/shop/goto/tv/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4516,
+    "asset_gap": 514,
+    "link_gap": 64,
+    "structure_gap": 24,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 106.88,
+    "rank": 86
+  },
+  {
+    "route": "/us/shop/goto/mac/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3922,
+    "asset_gap": 370,
+    "link_gap": 74,
+    "structure_gap": 22,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 106.48,
+    "rank": 87
+  },
+  {
+    "route": "/education",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 6519,
+    "asset_gap": 115,
+    "link_gap": 67,
+    "structure_gap": 28,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 106.44,
+    "rank": 88
+  },
+  {
+    "route": "/apple-vision-pro",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10218,
+    "asset_gap": 424,
+    "link_gap": 73,
+    "structure_gap": 22,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 106.36,
+    "rank": 89
+  },
+  {
+    "route": "/apple-tv-4k",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 9612,
+    "asset_gap": 497,
+    "link_gap": 97,
+    "structure_gap": 22,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 105.24,
+    "rank": 90
+  },
+  {
+    "route": "/icloud",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 10061,
+    "asset_gap": 152,
+    "link_gap": 62,
+    "structure_gap": 27,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 105.04,
+    "rank": 91
+  },
+  {
+    "route": "/us/shop/goto/airpods/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4238,
+    "asset_gap": 172,
+    "link_gap": 60,
+    "structure_gap": 22,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 104.8,
+    "rank": 92
+  },
+  {
+    "route": "/us/shop/goto/vision/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3853,
+    "asset_gap": 165,
+    "link_gap": 66,
+    "structure_gap": 21,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 104.72,
+    "rank": 93
+  },
+  {
+    "route": "/us/shop/goto/watch/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4807,
+    "asset_gap": 220,
+    "link_gap": 62,
+    "structure_gap": 21,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 104.24,
+    "rank": 94
+  },
+  {
+    "route": "/racial-equity-justice-initiative",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 9558,
+    "asset_gap": 175,
+    "link_gap": 51,
+    "structure_gap": 27,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 103.72,
+    "rank": 95
+  },
+  {
+    "route": "/",
+    "family": "homepage",
+    "template": "AppleHomepage",
+    "content_gap": 4530,
+    "asset_gap": 243,
+    "link_gap": 73,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 103.36,
+    "rank": 96
+  },
+  {
+    "route": "/augmented-reality",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10218,
+    "asset_gap": 424,
+    "link_gap": 73,
+    "structure_gap": 22,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 102.36,
+    "rank": 97
+  },
+  {
+    "route": "/government",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 8618,
+    "asset_gap": 139,
+    "link_gap": 45,
+    "structure_gap": 26,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 102.2,
+    "rank": 98
+  },
+  {
+    "route": "/r/store/government",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 8618,
+    "asset_gap": 139,
+    "link_gap": 45,
+    "structure_gap": 26,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 102.2,
+    "rank": 99
+  },
+  {
+    "route": "/rss",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 5023,
+    "asset_gap": 246,
+    "link_gap": 84,
+    "structure_gap": 19,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 101.28,
+    "rank": 100
+  },
+  {
+    "route": "/us/shop/goto/watch/bands",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10801,
+    "asset_gap": 23,
+    "link_gap": 644,
+    "structure_gap": 29,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 101.25,
+    "rank": 101
+  },
+  {
+    "route": "/apple-pencil",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 9674,
+    "asset_gap": 97,
+    "link_gap": 63,
+    "structure_gap": 18,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 100.91,
+    "rank": 102
+  },
+  {
+    "route": "/apple-books",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 3534,
+    "asset_gap": 96,
+    "link_gap": 45,
+    "structure_gap": 26,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 100.8,
+    "rank": 103
+  },
+  {
+    "route": "/airpods/compare",
+    "family": "comparison/specs",
+    "template": "AppleComparisonPage",
+    "content_gap": 10467,
+    "asset_gap": 1,
+    "link_gap": 246,
+    "structure_gap": 56,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 100.35,
+    "rank": 104
+  },
+  {
+    "route": "/us/shop/goto/apple_upgrade",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10543,
+    "asset_gap": 49,
+    "link_gap": 67,
+    "structure_gap": 60,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 100.19,
+    "rank": 105
+  },
+  {
+    "route": "/airplay",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 5430,
+    "asset_gap": 189,
+    "link_gap": 48,
+    "structure_gap": 23,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 100.16,
+    "rank": 106
+  },
+  {
+    "route": "/apple-watch-hermes",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 8043,
+    "asset_gap": 124,
+    "link_gap": 50,
+    "structure_gap": 21,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 98.8,
+    "rank": 107
+  },
+  {
+    "route": "/studio-display",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 8925,
+    "asset_gap": 210,
+    "link_gap": 59,
+    "structure_gap": 19,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 98.28,
+    "rank": 108
+  },
+  {
+    "route": "/macos/continuity",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 7391,
+    "asset_gap": 136,
+    "link_gap": 49,
+    "structure_gap": 15,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 97.88,
+    "rank": 109
+  },
+  {
+    "route": "/apple-vision-pro/specs",
+    "family": "comparison/specs",
+    "template": "AppleComparisonPage",
+    "content_gap": 7541,
+    "asset_gap": 191,
+    "link_gap": 66,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 97.52,
+    "rank": 110
+  },
+  {
+    "route": "/sitemap",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 6678,
+    "asset_gap": 4,
+    "link_gap": 396,
+    "structure_gap": 69,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 97.4,
+    "rank": 111
+  },
+  {
+    "route": "/tv-home",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 5664,
+    "asset_gap": 128,
+    "link_gap": 70,
+    "structure_gap": 16,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 97.2,
+    "rank": 112
+  },
+  {
+    "route": "/healthcare",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 7259,
+    "asset_gap": 83,
+    "link_gap": 46,
+    "structure_gap": 27,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 97.17,
+    "rank": 113
+  },
+  {
+    "route": "/us/shop/goto/buy_iphone/iphone_16",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10551,
+    "asset_gap": 48,
+    "link_gap": 133,
+    "structure_gap": 24,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 96.96,
+    "rank": 114
+  },
+  {
+    "route": "/airpods-pro/hearing-health",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 7673,
+    "asset_gap": 143,
+    "link_gap": 60,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 96.0,
+    "rank": 115
+  },
+  {
+    "route": "/apple-arcade",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 7170,
+    "asset_gap": 70,
+    "link_gap": 72,
+    "structure_gap": 26,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 94.94,
+    "rank": 116
+  },
+  {
+    "route": "/home-app",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 4741,
+    "asset_gap": 112,
+    "link_gap": 61,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 92.12,
+    "rank": 117
+  },
+  {
+    "route": "/displays",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 5783,
+    "asset_gap": 84,
+    "link_gap": 60,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 90.4,
+    "rank": 118
+  },
+  {
+    "route": "/ipad-keyboards",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 5472,
+    "asset_gap": 56,
+    "link_gap": 52,
+    "structure_gap": 22,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 88.44,
+    "rank": 119
+  },
+  {
+    "route": "/us/shop/goto/airtag/accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2519,
+    "asset_gap": 82,
+    "link_gap": 56,
+    "structure_gap": 21,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 87.41,
+    "rank": 120
+  },
+  {
+    "route": "/iphone/switch",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 10138,
+    "asset_gap": 0,
+    "link_gap": 125,
+    "structure_gap": 34,
+    "flags": [
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 87.2,
+    "rank": 121
+  },
+  {
+    "route": "/apple-card",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 9225,
+    "asset_gap": 8,
+    "link_gap": 117,
+    "structure_gap": 36,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 86.64,
+    "rank": 122
+  },
+  {
+    "route": "/diversity",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 9027,
+    "asset_gap": 52,
+    "link_gap": 47,
+    "structure_gap": 27,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 86.44,
+    "rank": 123
+  },
+  {
+    "route": "/accessibility/assistive-technologies",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 6100,
+    "asset_gap": 4,
+    "link_gap": 109,
+    "structure_gap": 43,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 85.48,
+    "rank": 124
+  },
+  {
+    "route": "/apple-tv",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 6398,
+    "asset_gap": 14,
+    "link_gap": 68,
+    "structure_gap": 43,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 84.06,
+    "rank": 125
+  },
+  {
+    "route": "/apple-events",
+    "family": "news/events",
+    "template": "AppleEditorialPage",
+    "content_gap": 3530,
+    "asset_gap": 50,
+    "link_gap": 51,
+    "structure_gap": 23,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 83.02,
+    "rank": 126
+  },
+  {
+    "route": "/us/shop/goto/trade_in",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10497,
+    "asset_gap": 3,
+    "link_gap": 53,
+    "structure_gap": 41,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 82.41,
+    "rank": 127
+  },
+  {
+    "route": "/apple-news",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 7886,
+    "asset_gap": 26,
+    "link_gap": 60,
+    "structure_gap": 31,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 82.1,
+    "rank": 128
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/cases_protection",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 6066,
+    "asset_gap": 2,
+    "link_gap": 278,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 129
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/chargers_adapters",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 6279,
+    "asset_gap": 2,
+    "link_gap": 273,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 130
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/content_creation",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5287,
+    "asset_gap": 2,
+    "link_gap": 245,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 131
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/headphones_speakers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5547,
+    "asset_gap": 2,
+    "link_gap": 257,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 132
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/made_by_apple",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5870,
+    "asset_gap": 2,
+    "link_gap": 266,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 133
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/new_arrivals",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5403,
+    "asset_gap": 2,
+    "link_gap": 243,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 134
+  },
+  {
+    "route": "/us/shop/goto/accessories/all_accessories/creativity",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5287,
+    "asset_gap": 2,
+    "link_gap": 245,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 135
+  },
+  {
+    "route": "/us/shop/goto/accessories/all_accessories/headphones_speakers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5547,
+    "asset_gap": 2,
+    "link_gap": 257,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 136
+  },
+  {
+    "route": "/us/shop/goto/accessories/all_accessories/made_by_apple",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5870,
+    "asset_gap": 2,
+    "link_gap": 266,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 137
+  },
+  {
+    "route": "/us/shop/goto/accessories/all_accessories/whats_new",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5403,
+    "asset_gap": 2,
+    "link_gap": 243,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 138
+  },
+  {
+    "route": "/us/shop/goto/accessories/cases_protection",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 6066,
+    "asset_gap": 2,
+    "link_gap": 278,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 139
+  },
+  {
+    "route": "/us/shop/goto/accessories/power_cables",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 6279,
+    "asset_gap": 2,
+    "link_gap": 273,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 140
+  },
+  {
+    "route": "/us/shop/goto/payment_plan",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10675,
+    "asset_gap": 18,
+    "link_gap": 55,
+    "structure_gap": 28,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 141
+  },
+  {
+    "route": "/us/shop/goto/tv/tv_accessories/power_cables",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 6279,
+    "asset_gap": 2,
+    "link_gap": 273,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 142
+  },
+  {
+    "route": "/us/shop/goto/watch_accessories/cases_protection",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 6066,
+    "asset_gap": 2,
+    "link_gap": 278,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 80.3,
+    "rank": 143
+  },
+  {
+    "route": "/mac/compare",
+    "family": "comparison/specs",
+    "template": "AppleComparisonPage",
+    "content_gap": 9284,
+    "asset_gap": 1,
+    "link_gap": 496,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.95,
+    "rank": 144
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/homekit",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4191,
+    "asset_gap": 2,
+    "link_gap": 201,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.42,
+    "rank": 145
+  },
+  {
+    "route": "/us/shop/goto/accessories/homekit",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4191,
+    "asset_gap": 2,
+    "link_gap": 201,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.42,
+    "rank": 146
+  },
+  {
+    "route": "/us/shop/goto/ipad_accessories/homekit",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4191,
+    "asset_gap": 2,
+    "link_gap": 201,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.42,
+    "rank": 147
+  },
+  {
+    "route": "/us/shop/goto/iphone_accessories/homekit",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4191,
+    "asset_gap": 2,
+    "link_gap": 201,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.42,
+    "rank": 148
+  },
+  {
+    "route": "/us/shop/goto/watch_accessories/homekit",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4191,
+    "asset_gap": 2,
+    "link_gap": 201,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.42,
+    "rank": 149
+  },
+  {
+    "route": "/iphone/buy",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 9764,
+    "asset_gap": 0,
+    "link_gap": 126,
+    "structure_gap": 24,
+    "flags": [
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.32,
+    "rank": 150
+  },
+  {
+    "route": "/product-red",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 2279,
+    "asset_gap": 84,
+    "link_gap": 55,
+    "structure_gap": 18,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.19,
+    "rank": 151
+  },
+  {
+    "route": "/privacy",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 10255,
+    "asset_gap": 0,
+    "link_gap": 68,
+    "structure_gap": 53,
+    "flags": [
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.16,
+    "rank": 152
+  },
+  {
+    "route": "/ipad/compare",
+    "family": "comparison/specs",
+    "template": "AppleComparisonPage",
+    "content_gap": 10339,
+    "asset_gap": 1,
+    "link_gap": 405,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.15,
+    "rank": 153
+  },
+  {
+    "route": "/iphone/compare",
+    "family": "comparison/specs",
+    "template": "AppleComparisonPage",
+    "content_gap": 9008,
+    "asset_gap": 1,
+    "link_gap": 1070,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.15,
+    "rank": 154
+  },
+  {
+    "route": "/watch/compare",
+    "family": "comparison/specs",
+    "template": "AppleComparisonPage",
+    "content_gap": 10362,
+    "asset_gap": 1,
+    "link_gap": 580,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 79.15,
+    "rank": 155
+  },
+  {
+    "route": "/us/shop/goto/accessories/magsafe",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3998,
+    "asset_gap": 2,
+    "link_gap": 190,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 78.1,
+    "rank": 156
+  },
+  {
+    "route": "/icloud/find-my",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 9189,
+    "asset_gap": 4,
+    "link_gap": 47,
+    "structure_gap": 39,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 78.04,
+    "rank": 157
+  },
+  {
+    "route": "/us/shop/goto/mac/power_cables",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4337,
+    "asset_gap": 2,
+    "link_gap": 184,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 77.38,
+    "rank": 158
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/mice_keyboards",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4605,
+    "asset_gap": 2,
+    "link_gap": 181,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 77.02,
+    "rank": 159
+  },
+  {
+    "route": "/us/shop/goto/buy_accessories/mice_keyboards",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4605,
+    "asset_gap": 2,
+    "link_gap": 181,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 77.02,
+    "rank": 160
+  },
+  {
+    "route": "/apple-tv-app",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 3833,
+    "asset_gap": 4,
+    "link_gap": 54,
+    "structure_gap": 35,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 76.88,
+    "rank": 161
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/office",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4300,
+    "asset_gap": 2,
+    "link_gap": 175,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 76.3,
+    "rank": 162
+  },
+  {
+    "route": "/watch/close-your-rings",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 5506,
+    "asset_gap": 4,
+    "link_gap": 44,
+    "structure_gap": 30,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 75.68,
+    "rank": 163
+  },
+  {
+    "route": "/us/shop/goto/ipad/power_cables",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3680,
+    "asset_gap": 2,
+    "link_gap": 160,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 74.5,
+    "rank": 164
+  },
+  {
+    "route": "/us/shop/goto/mac/mac_accessories/mac_components",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4032,
+    "asset_gap": 2,
+    "link_gap": 155,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 73.9,
+    "rank": 165
+  },
+  {
+    "route": "/us/shop/goto/mac/printers_scanners",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 4032,
+    "asset_gap": 2,
+    "link_gap": 155,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 73.9,
+    "rank": 166
+  },
+  {
+    "route": "/researchkit",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 4967,
+    "asset_gap": 57,
+    "link_gap": 26,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 73.67,
+    "rank": 167
+  },
+  {
+    "route": "/entertainment",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 2227,
+    "asset_gap": 68,
+    "link_gap": 58,
+    "structure_gap": 18,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 73.43,
+    "rank": 168
+  },
+  {
+    "route": "/services",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 2227,
+    "asset_gap": 68,
+    "link_gap": 58,
+    "structure_gap": 18,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 73.43,
+    "rank": 169
+  },
+  {
+    "route": "/us/shop/goto/mac/storage",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3464,
+    "asset_gap": 2,
+    "link_gap": 151,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 73.06,
+    "rank": 170
+  },
+  {
+    "route": "/us/shop/goto/accessories/accessibility",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3307,
+    "asset_gap": 2,
+    "link_gap": 162,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 72.81,
+    "rank": 171
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/accessibility",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3307,
+    "asset_gap": 2,
+    "link_gap": 162,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 72.81,
+    "rank": 172
+  },
+  {
+    "route": "/us/shop/goto/ipad/ipad_accessories/accessibility",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3307,
+    "asset_gap": 2,
+    "link_gap": 162,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 72.81,
+    "rank": 173
+  },
+  {
+    "route": "/us/shop/goto/iphone/iphone_accessories/accessibility",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3307,
+    "asset_gap": 2,
+    "link_gap": 162,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 72.81,
+    "rank": 174
+  },
+  {
+    "route": "/us/shop/goto/mac/mac_accessories/accessibility",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3307,
+    "asset_gap": 2,
+    "link_gap": 162,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 72.81,
+    "rank": 175
+  },
+  {
+    "route": "/contact",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 4855,
+    "asset_gap": 0,
+    "link_gap": 69,
+    "structure_gap": 29,
+    "flags": [
+      "content",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 72.48,
+    "rank": 176
+  },
+  {
+    "route": "/us/shop/goto/iphone/cases_protection",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3237,
+    "asset_gap": 2,
+    "link_gap": 157,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.51,
+    "rank": 177
+  },
+  {
+    "route": "/today",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 7954,
+    "asset_gap": 4,
+    "link_gap": 307,
+    "structure_gap": 5,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.4,
+    "rank": 178
+  },
+  {
+    "route": "/today/calendar",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 8359,
+    "asset_gap": 4,
+    "link_gap": 307,
+    "structure_gap": 5,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.4,
+    "rank": 179
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/drives_storage",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3360,
+    "asset_gap": 2,
+    "link_gap": 145,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.3,
+    "rank": 180
+  },
+  {
+    "route": "/us/shop/goto/buy_accessories/storage",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3360,
+    "asset_gap": 2,
+    "link_gap": 145,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.3,
+    "rank": 181
+  },
+  {
+    "route": "/watch/battery",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 8579,
+    "asset_gap": 4,
+    "link_gap": 33,
+    "structure_gap": 26,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.16,
+    "rank": 182
+  },
+  {
+    "route": "/us/shop/goto/ipad/case_protection",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3343,
+    "asset_gap": 2,
+    "link_gap": 145,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.13,
+    "rank": 183
+  },
+  {
+    "route": "/us/shop/goto/edu_store",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10798,
+    "asset_gap": 4,
+    "link_gap": 92,
+    "structure_gap": 17,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.04,
+    "rank": 184
+  },
+  {
+    "route": "/us/shop/goto/educationrouting",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10798,
+    "asset_gap": 4,
+    "link_gap": 92,
+    "structure_gap": 17,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 71.04,
+    "rank": 185
+  },
+  {
+    "route": "/airtag",
+    "family": "products",
+    "template": "AppleProductPage",
+    "content_gap": 9385,
+    "asset_gap": 2,
+    "link_gap": 54,
+    "structure_gap": 23,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 70.58,
+    "rank": 186
+  },
+  {
+    "route": "/apple-one",
+    "family": "services",
+    "template": "AppleServicePage",
+    "content_gap": 7606,
+    "asset_gap": 4,
+    "link_gap": 60,
+    "structure_gap": 26,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 70.4,
+    "rank": 187
+  },
+  {
+    "route": "/us/shop/goto/store",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10808,
+    "asset_gap": 2,
+    "link_gap": 99,
+    "structure_gap": 16,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 70.38,
+    "rank": 188
+  },
+  {
+    "route": "/apple-watch-nike",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 6531,
+    "asset_gap": 33,
+    "link_gap": 46,
+    "structure_gap": 15,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 70.07,
+    "rank": 189
+  },
+  {
+    "route": "/us/shop/goto/mac/mac_accessories/headphones_speakers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3201,
+    "asset_gap": 2,
+    "link_gap": 147,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 69.95,
+    "rank": 190
+  },
+  {
+    "route": "/us/shop/goto/iphone/iphone_accessories/wireless_chargers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3063,
+    "asset_gap": 2,
+    "link_gap": 155,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 69.53,
+    "rank": 191
+  },
+  {
+    "route": "/us/shop/goto/iphone/power_cables",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 3063,
+    "asset_gap": 2,
+    "link_gap": 155,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 69.53,
+    "rank": 192
+  },
+  {
+    "route": "/ios/carplay",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 7991,
+    "asset_gap": 4,
+    "link_gap": 45,
+    "structure_gap": 27,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 69.4,
+    "rank": 193
+  },
+  {
+    "route": "/us/shop/goto/buy_mac",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10413,
+    "asset_gap": 2,
+    "link_gap": 80,
+    "structure_gap": 17,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 68.9,
+    "rank": 194
+  },
+  {
+    "route": "/us/shop/goto/buy_ipad",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10412,
+    "asset_gap": 2,
+    "link_gap": 77,
+    "structure_gap": 17,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 68.54,
+    "rank": 195
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/gaming",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2976,
+    "asset_gap": 2,
+    "link_gap": 152,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 68.3,
+    "rank": 196
+  },
+  {
+    "route": "/us/shop/goto/accessories/toys_hobbies",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2976,
+    "asset_gap": 2,
+    "link_gap": 152,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 68.3,
+    "rank": 197
+  },
+  {
+    "route": "/us/shop/goto/ipad/toys_hobbies",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2976,
+    "asset_gap": 2,
+    "link_gap": 152,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 68.3,
+    "rank": 198
+  },
+  {
+    "route": "/careers/us",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 4036,
+    "asset_gap": 4,
+    "link_gap": 75,
+    "structure_gap": 21,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 68.2,
+    "rank": 199
+  },
+  {
+    "route": "/us/shop/goto/buy_iphone",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10748,
+    "asset_gap": 2,
+    "link_gap": 75,
+    "structure_gap": 15,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 66.7,
+    "rank": 200
+  },
+  {
+    "route": "/us/shop/goto/buy_watch",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10405,
+    "asset_gap": 2,
+    "link_gap": 71,
+    "structure_gap": 15,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 66.22,
+    "rank": 201
+  },
+  {
+    "route": "/us/shop/goto/product/MW5G3",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 6112,
+    "asset_gap": 4,
+    "link_gap": 58,
+    "structure_gap": 16,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 66.16,
+    "rank": 202
+  },
+  {
+    "route": "/retail/geniusbar",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 3389,
+    "asset_gap": 17,
+    "link_gap": 46,
+    "structure_gap": 18,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 65.76,
+    "rank": 203
+  },
+  {
+    "route": "/feedback",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 2754,
+    "asset_gap": 4,
+    "link_gap": 142,
+    "structure_gap": 17,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 65.58,
+    "rank": 204
+  },
+  {
+    "route": "/us/shop/goto/mac/mac_accessories/creativity",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2751,
+    "asset_gap": 2,
+    "link_gap": 129,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 63.29,
+    "rank": 205
+  },
+  {
+    "route": "/us/shop/goto/mac/mac_accessories/photography",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2751,
+    "asset_gap": 2,
+    "link_gap": 129,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 63.29,
+    "rank": 206
+  },
+  {
+    "route": "/leadership",
+    "family": "corporate/values",
+    "template": "AppleCorporatePage",
+    "content_gap": 1848,
+    "asset_gap": 4,
+    "link_gap": 60,
+    "structure_gap": 38,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 63.08,
+    "rank": 207
+  },
+  {
+    "route": "/us/shop/goto/ipad/ipad_accessories/headphones_speakers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2689,
+    "asset_gap": 2,
+    "link_gap": 132,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 63.03,
+    "rank": 208
+  },
+  {
+    "route": "/us/shop/goto/iphone/iphone_accessories/creativity",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2640,
+    "asset_gap": 2,
+    "link_gap": 136,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 63.02,
+    "rank": 209
+  },
+  {
+    "route": "/us/shop/goto/iphone/iphone_accessories/photography",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2640,
+    "asset_gap": 2,
+    "link_gap": 136,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 63.02,
+    "rank": 210
+  },
+  {
+    "route": "/us/shop/goto/buy_homepod/homepod_mini",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10837,
+    "asset_gap": 5,
+    "link_gap": 53,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 62.71,
+    "rank": 211
+  },
+  {
+    "route": "/us/shop/goto/buy_tv/apple_tv_4k",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 8713,
+    "asset_gap": 4,
+    "link_gap": 49,
+    "structure_gap": 13,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 62.68,
+    "rank": 212
+  },
+  {
+    "route": "/us/shop/goto/buy_vision",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 5742,
+    "asset_gap": 2,
+    "link_gap": 47,
+    "structure_gap": 14,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 62.54,
+    "rank": 213
+  },
+  {
+    "route": "/us/shop/goto/buy_homepod/homepod",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10842,
+    "asset_gap": 5,
+    "link_gap": 50,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 62.35,
+    "rank": 214
+  },
+  {
+    "route": "/us/shop/goto/ipad/keyboards",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2852,
+    "asset_gap": 2,
+    "link_gap": 110,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 62.02,
+    "rank": 215
+  },
+  {
+    "route": "/us/shop/goto/iphone/iphone_accessories/headphones_speakers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2505,
+    "asset_gap": 2,
+    "link_gap": 137,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 61.79,
+    "rank": 216
+  },
+  {
+    "route": "/us/shop/goto/watch/power_cables",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2685,
+    "asset_gap": 2,
+    "link_gap": 122,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 61.79,
+    "rank": 217
+  },
+  {
+    "route": "/us/shop/goto/watch/stands",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2685,
+    "asset_gap": 2,
+    "link_gap": 122,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 61.79,
+    "rank": 218
+  },
+  {
+    "route": "/us/shop/goto/watch/watch_accessories/wireless_chargers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2685,
+    "asset_gap": 2,
+    "link_gap": 122,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 61.79,
+    "rank": 219
+  },
+  {
+    "route": "/us/shop/goto/mac/cases_protection",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2653,
+    "asset_gap": 2,
+    "link_gap": 119,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 61.11,
+    "rank": 220
+  },
+  {
+    "route": "/itunes",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 5217,
+    "asset_gap": 4,
+    "link_gap": 50,
+    "structure_gap": 15,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 60.4,
+    "rank": 221
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/software",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2640,
+    "asset_gap": 2,
+    "link_gap": 113,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 60.26,
+    "rank": 222
+  },
+  {
+    "route": "/us/shop/goto/buy_accessories/software",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2640,
+    "asset_gap": 2,
+    "link_gap": 113,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 60.26,
+    "rank": 223
+  },
+  {
+    "route": "/financing",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 2907,
+    "asset_gap": 38,
+    "link_gap": 37,
+    "structure_gap": 9,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 60.01,
+    "rank": 224
+  },
+  {
+    "route": "/us/shop/goto/buy_iphone/carrier_offers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 10576,
+    "asset_gap": 1,
+    "link_gap": 42,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 59.99,
+    "rank": 225
+  },
+  {
+    "route": "/us/shop/goto/help",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2673,
+    "asset_gap": 2,
+    "link_gap": 57,
+    "structure_gap": 19,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 59.47,
+    "rank": 226
+  },
+  {
+    "route": "/us/shop/goto/accessories/all/health_fitness",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2370,
+    "asset_gap": 2,
+    "link_gap": 128,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 59.36,
+    "rank": 227
+  },
+  {
+    "route": "/us/shop/goto/accessories/health_fitness",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2370,
+    "asset_gap": 2,
+    "link_gap": 128,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 59.36,
+    "rank": 228
+  },
+  {
+    "route": "/us/shop/goto/ipad/health_fitness",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2370,
+    "asset_gap": 2,
+    "link_gap": 128,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 59.36,
+    "rank": 229
+  },
+  {
+    "route": "/us/shop/goto/giftcards",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2725,
+    "asset_gap": 18,
+    "link_gap": 48,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 58.91,
+    "rank": 230
+  },
+  {
+    "route": "/choose-country-region",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 1894,
+    "asset_gap": 4,
+    "link_gap": 173,
+    "structure_gap": 14,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 58.3,
+    "rank": 231
+  },
+  {
+    "route": "/us/shop/goto/special_deals",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2758,
+    "asset_gap": 2,
+    "link_gap": 58,
+    "structure_gap": 16,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 58.04,
+    "rank": 232
+  },
+  {
+    "route": "/us/shop/goto/iphone/fitness_sport_accessories",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2212,
+    "asset_gap": 2,
+    "link_gap": 117,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 56.46,
+    "rank": 233
+  },
+  {
+    "route": "/legal/internet-services/terms/site.html",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 9539,
+    "asset_gap": 4,
+    "link_gap": 28,
+    "structure_gap": 13,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 56.16,
+    "rank": 234
+  },
+  {
+    "route": "/batteries/maximizing-performance",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 10059,
+    "asset_gap": 4,
+    "link_gap": 46,
+    "structure_gap": 8,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 54.32,
+    "rank": 235
+  },
+  {
+    "route": "/us/shop/goto/help/sales_refunds",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 9224,
+    "asset_gap": 5,
+    "link_gap": 30,
+    "structure_gap": 3,
+    "flags": [
+      "assets",
+      "content coverage",
+      "heading structure",
+      "links"
+    ],
+    "priority": 52.75,
+    "rank": 236
+  },
+  {
+    "route": "/us/shop/goto/mac/mice_keyboards",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2031,
+    "asset_gap": 2,
+    "link_gap": 97,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 52.25,
+    "rank": 237
+  },
+  {
+    "route": "/us/shop/goto/ipad/accessories/displays_stands",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1954,
+    "asset_gap": 2,
+    "link_gap": 99,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 51.72,
+    "rank": 238
+  },
+  {
+    "route": "/us/shop/goto/watch/watch_accessories/headphones_speakers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1899,
+    "asset_gap": 2,
+    "link_gap": 99,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 51.17,
+    "rank": 239
+  },
+  {
+    "route": "/us/shop/goto/iphone_accessories/toys_hobbies",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1635,
+    "asset_gap": 2,
+    "link_gap": 102,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 48.89,
+    "rank": 240
+  },
+  {
+    "route": "/us/shop/goto/iphone/iphone_upgrade_program",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 2428,
+    "asset_gap": 1,
+    "link_gap": 33,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 48.19,
+    "rank": 241
+  },
+  {
+    "route": "/us/shop/goto/tv/tv_accessories/headphones_speakers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1640,
+    "asset_gap": 2,
+    "link_gap": 85,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 46.9,
+    "rank": 242
+  },
+  {
+    "route": "/us/shop/goto/shipping_pickup",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1928,
+    "asset_gap": 1,
+    "link_gap": 34,
+    "structure_gap": 15,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 45.71,
+    "rank": 243
+  },
+  {
+    "route": "/us/shop/goto/mac/software",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1600,
+    "asset_gap": 2,
+    "link_gap": 76,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 45.42,
+    "rank": 244
+  },
+  {
+    "route": "/us/shop/goto/watch/health_fitness",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1525,
+    "asset_gap": 2,
+    "link_gap": 81,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 45.27,
+    "rank": 245
+  },
+  {
+    "route": "/us/shop/goto/engraving_giftwrap",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1464,
+    "asset_gap": 9,
+    "link_gap": 42,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 42.43,
+    "rank": 246
+  },
+  {
+    "route": "/legal",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 2066,
+    "asset_gap": 4,
+    "link_gap": 23,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 40.42,
+    "rank": 247
+  },
+  {
+    "route": "/us/shop/goto/tv/tv_accessories/gaming",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1100,
+    "asset_gap": 2,
+    "link_gap": 64,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 38.98,
+    "rank": 248
+  },
+  {
+    "route": "/us/shop/goto/tv/tv_accessories/mounts",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1100,
+    "asset_gap": 2,
+    "link_gap": 64,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 38.98,
+    "rank": 249
+  },
+  {
+    "route": "/us/shop/goto/tv/tv_accessories/remotes_controllers",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1100,
+    "asset_gap": 2,
+    "link_gap": 64,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 38.98,
+    "rank": 250
+  },
+  {
+    "route": "/us/shop/goto/personal_setup",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1247,
+    "asset_gap": 4,
+    "link_gap": 38,
+    "structure_gap": 12,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 38.03,
+    "rank": 251
+  },
+  {
+    "route": "/us/shop/goto/eppstore/veteransandmilitary",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1652,
+    "asset_gap": 1,
+    "link_gap": 32,
+    "structure_gap": 9,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 37.91,
+    "rank": 252
+  },
+  {
+    "route": "/retail",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 1419,
+    "asset_gap": 4,
+    "link_gap": 46,
+    "structure_gap": 13,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 37.51,
+    "rank": 253
+  },
+  {
+    "route": "/us_epp_55499/store",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1477,
+    "asset_gap": 1,
+    "link_gap": 31,
+    "structure_gap": 8,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 35.24,
+    "rank": 254
+  },
+  {
+    "route": "/us_epp_67909/store",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 1477,
+    "asset_gap": 1,
+    "link_gap": 31,
+    "structure_gap": 8,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 35.24,
+    "rank": 255
+  },
+  {
+    "route": "/retail/business",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 1394,
+    "asset_gap": 4,
+    "link_gap": 53,
+    "structure_gap": 9,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 34.9,
+    "rank": 256
+  },
+  {
+    "route": "/today/groups",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 1261,
+    "asset_gap": 4,
+    "link_gap": 40,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 33.61,
+    "rank": 257
+  },
+  {
+    "route": "/compliance",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 1620,
+    "asset_gap": 4,
+    "link_gap": 36,
+    "structure_gap": 7,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 33.52,
+    "rank": 258
+  },
+  {
+    "route": "/working-with-apple-services",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 1386,
+    "asset_gap": 4,
+    "link_gap": 47,
+    "structure_gap": 7,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 32.5,
+    "rank": 259
+  },
+  {
+    "route": "/promo",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 1358,
+    "asset_gap": 3,
+    "link_gap": 41,
+    "structure_gap": 4,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 28.75,
+    "rank": 260
+  },
+  {
+    "route": "/us/shop/goto/bag",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 422,
+    "asset_gap": 2,
+    "link_gap": 30,
+    "structure_gap": 8,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 24.92,
+    "rank": 261
+  },
+  {
+    "route": "/newsroom",
+    "family": "news/events",
+    "template": "AppleEditorialPage",
+    "content_gap": 475,
+    "asset_gap": 4,
+    "link_gap": 33,
+    "structure_gap": 11,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 24.91,
+    "rank": 262
+  },
+  {
+    "route": "/today/camp",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 621,
+    "asset_gap": 4,
+    "link_gap": 39,
+    "structure_gap": 7,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 23.89,
+    "rank": 263
+  },
+  {
+    "route": "/tv-pr",
+    "family": "news/events",
+    "template": "AppleEditorialPage",
+    "content_gap": 459,
+    "asset_gap": 4,
+    "link_gap": 35,
+    "structure_gap": 9,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 23.39,
+    "rank": 264
+  },
+  {
+    "route": "/us/search",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 526,
+    "asset_gap": 1,
+    "link_gap": 33,
+    "structure_gap": 9,
+    "flags": [
+      "assets",
+      "content",
+      "heading structure",
+      "links"
+    ],
+    "priority": 22.77,
+    "rank": 265
+  },
+  {
+    "route": "/us/shop/goto/account",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 0,
+    "asset_gap": 2,
+    "link_gap": 34,
+    "structure_gap": 3,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 17.18,
+    "rank": 266
+  },
+  {
+    "route": "/us/shop/goto/account/home",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 0,
+    "asset_gap": 2,
+    "link_gap": 34,
+    "structure_gap": 3,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 17.18,
+    "rank": 267
+  },
+  {
+    "route": "/us/shop/goto/order/list",
+    "family": "store",
+    "template": "AppleStorePage",
+    "content_gap": 0,
+    "asset_gap": 2,
+    "link_gap": 34,
+    "structure_gap": 3,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 17.18,
+    "rank": 268
+  },
+  {
+    "route": "/usergroups",
+    "family": "other",
+    "template": "AppleUtilityPage",
+    "content_gap": 164,
+    "asset_gap": 3,
+    "link_gap": 34,
+    "structure_gap": 5,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 16.77,
+    "rank": 269
+  },
+  {
+    "route": "/legal/privacy",
+    "family": "legal/utility",
+    "template": "AppleLegalPage",
+    "content_gap": 279,
+    "asset_gap": 4,
+    "link_gap": 16,
+    "structure_gap": 1,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 12.91,
+    "rank": 270
+  },
+  {
+    "route": "/retail/instore-shopping-session/session-selection",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 0,
+    "asset_gap": 4,
+    "link_gap": 32,
+    "structure_gap": 2,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 12.84,
+    "rank": 271
+  },
+  {
+    "route": "/support/exchange_repair",
+    "family": "support/store-services",
+    "template": "AppleSupportPage",
+    "content_gap": 0,
+    "asset_gap": 4,
+    "link_gap": 1,
+    "structure_gap": 4,
+    "flags": [
+      "assets",
+      "heading structure",
+      "links"
+    ],
+    "priority": 10.72,
+    "rank": 272
+  }
+]

@@ -2,7 +2,8 @@
 
 **Audit date:** 2026-08-15  
 **Source:** [Apple public sitemap](https://www.apple.com/sitemap/) and each same-origin route listed in the captured inventory  
-**Clone:** `techstore-demo` at `/home/ubuntu/webstore-demo`
+**Clone:** `techstore-demo` at `/home/ubuntu/webstore-demo`  
+**Repository:** [Usamabhanbhro/techstore-demo](https://github.com/Usamabhanbhro/techstore-demo)
 
 ## Scope
 
@@ -10,13 +11,30 @@ The audit covered all **272 normalized same-origin Apple routes** found in the s
 
 The latest collection completed with **272/272 original routes returning HTTP 200**, **272/272 clone routes rendering successfully**, and the independent HTTP route smoke test passing **272/272**.
 
+In addition to the route-driven Apple page clone, the project now includes a complete **Apple Store demo experience**. It is intentionally local and illustrative: no real payment credentials or financial transactions are processed.
+
 ## Implemented corrections
 
 The clone now uses route-specific source-derived headings and meaningful paragraphs generated from the individual original DOM captures, scoped to each page’s main content region rather than the global footer. The Apple route template consumes that data for product, comparison, editorial, utility, and store families while preserving the existing commerce routes.
 
 The implementation renders captured route-specific sections and long-form copy blocks in addition to the shared hero, feature, accordion, comparison, editorial, and store compositions. The section blocks preserve heading hierarchy and associate captured paragraphs with the corresponding source-derived sections; they are not a single flattened text dump. Where available, up to five local Apple source images per route are displayed as controlled hero and gallery media. The generated route asset map currently provides source imagery for **144 of 272 routes**.
 
-The shared Apple shell, deep multi-segment routing, store filters, comparison tables, editorial search form, product tabs, accordions, source-derived galleries, and responsive image layouts remain functional. Representative desktop and mobile QA captures were refreshed for Mac, iPhone comparison, store, Newsroom, and product routes. The Mac, iPhone comparison, deep accessories-store filter, and AirPods accordion interactions were exercised directly.
+The commerce layer has been refocused from a generic lifestyle inventory into an Apple Store catalog of **34 Apple products** across iPhone, Mac, iPad, Apple Watch, AirPods, Apple Vision Pro, TV & Home, and Accessories. Product records include Apple-style names, illustrative current pricing, variants, availability, category metadata, related products, locally captured Apple imagery, and explanatory product details.
+
+The Apple Store shell now includes a compact Apple-style navigation bar with product-family links, search, a bag count badge, a responsive mobile menu, and a five-group footer covering Shop and Learn, Services, Apple Store, For Business, and Apple Values. The commerce routes include the following functional surfaces.
+
+| Surface | Implemented behavior |
+|---|---|
+| Shop and collections | Product-family navigation, collection banners, category shortcuts, availability filtering, price filtering, sorting, empty-filter state, and comparison CTA. |
+| Product detail | Multi-image gallery, breadcrumbs, variant selection, quantity controls, delivery promise, product accordions, wishlist toggle, related products, recently viewed state, and add-to-bag feedback. |
+| Bag and checkout | LocalStorage-backed cart, quantity controls, removal, delivery calculation, order summary, demo provider selection, address form, outcome selector, and explicit no-money-moved messaging. |
+| Promo logic | `APPLE10` applies a 10% demo discount and updates the summary total. |
+| Order confirmation | Local `lastOrder` state supports confirmation rendering after a successful or pending demo checkout; direct confirmation was not submitted during final QA because checkout submission is a transactional browser action. |
+| Search | Query-string initialization, local product search over names, descriptions, categories, collections, tags, and details, clear action, category chips, and empty state. |
+| Compare | Family tabs for iPhone, Mac, iPad, Apple Watch, and AirPods, four-product comparison columns, price links, and feature rows. |
+| Account and wishlist | Existing account and hybrid wishlist routes remain preserved, with local commerce state integrated into the storefront experience. |
+
+The shared Apple shell, deep multi-segment routing, store filters, comparison tables, editorial search form, product tabs, accordions, source-derived galleries, and responsive image layouts remain functional. Representative desktop and mobile QA captures were refreshed for the commerce Shop, product detail, bag, and Compare routes.
 
 ## Before-versus-after improvement
 
@@ -50,10 +68,26 @@ The route-level comparator intentionally reports discrepancies because Apple’s
 | Routes with H1/content mismatch | 7 |
 | Routes with content-coverage discrepancy | 55 |
 | Routes marked fully verified | 0 |
+| Apple Store catalog products | 34 |
+| Responsive commerce QA routes captured | 4 |
+
+## Browser QA and responsive evidence
+
+The remaining commerce routes were exercised directly in the browser. `/collections/mac` rendered its Mac banner and six-product scoped list, and its **Compare models** action navigated to `/compare`. `/compare` rendered the iPhone comparison by default and switched successfully to the Mac comparison table through the family tabs. `/search?q=Mac` initialized the search field from the query string and returned eight Mac-related results, including Mac accessories. `/checkout` rendered the demo address form, simulated payment-provider choices, demo outcome selector, and order summary; entering `APPLE10` displayed the 10% demo discount and reduced the MacBook Air total from `$999` to `$899`.
+
+The interactive desktop flow also verified that adding MacBook Air to the bag updated the navigation badge, `/cart` persisted the MacBook Air line item and selected 13-inch variant, free delivery, `$999` subtotal, `$999` total, and the Continue to checkout action. No real payment or financial credential was entered.
+
+Responsive captures were taken at **1440px desktop** and **390px mobile** for `/shop`, `/products/macbook-air`, `/cart`, and `/compare`. The mobile Shop screenshot confirmed the collapsed Apple Store header, wrapped family filters, stacked selects, and two-column product grid. The mobile product-detail screenshot confirmed gallery reflow and readable breadcrumbs/title hierarchy. The mobile Compare screenshot confirmed the dense table is contained in a horizontally scrollable wrapper. The mobile cart screenshot was taken in a fresh headless context and therefore records the intentional empty-bag state; the populated bag state was verified interactively in the desktop browser.
+
+| Evidence | Location |
+|---|---|
+| Responsive screenshots | `docs/design-references/apple-store-scope-2026-08-15/` |
+| Responsive QA notes | `docs/design-references/apple-store-scope-2026-08-15/QA_FINDINGS.md` |
+| 272-route smoke output | `docs/audits/apple-store-scope-2026-08-15/SMOKE_TEST.txt` |
 
 ## Regression verification
 
-Representative existing commerce routes remained available after the Apple fidelity changes. The local HTTP regression check returned `200` for `/shop`, `/products`, `/search`, `/cart`, `/account`, `/wishlist`, `/about`, and `/journal`.
+Representative existing commerce routes remained available after the Apple fidelity and commerce changes. The local HTTP regression check returned `200` for `/shop`, `/products`, `/search`, `/cart`, `/account`, `/wishlist`, `/about`, and `/journal`. The final route inventory smoke test returned `200` for all 272 routes.
 
 The final codebase passed:
 
@@ -63,15 +97,15 @@ pnpm run build
 python3 docs/research/apple-com-7b1a/site-inventory/smoke_routes.py
 ```
 
-The smoke test result was `routes=272 passed=272 failed=0`. The production build completed successfully with only the existing analytics-placeholder and bundle-size warnings.
+The smoke test result was `routes=272 passed=272 failed=0`. The TypeScript check completed successfully. The production build completed successfully with only the existing analytics-placeholder and bundle-size warnings.
 
 ## Interpretation and limitations
 
-The work satisfies the requested **individual route inspection and evidence collection** requirement and demonstrates measurable improvement in source-derived content coverage. It fixes the highest-leverage shared issues: route resolution, source-derived page copy, main-content extraction, representative interaction behavior, route-specific media loading, source-derived feature sections, longer structured details, and responsive image presentation.
+The work satisfies the requested **individual route inspection and evidence collection** requirement and demonstrates measurable improvement in source-derived content coverage. It also provides a functional Apple Store showcase with real Apple product families, illustrative pricing, responsive navigation, product detail, comparison, search, cart, checkout, promo-code logic, local order state, account/wishlist preservation, and explicit demo-only payment messaging.
 
 It does not claim pixel-perfect parity for every route. The remaining gap is primarily Apple’s page-specific production composition: many original routes contain bespoke hero art direction, multiple galleries, video tiles, product-specific comparison systems, dense navigation structures, dynamic motion, and route-specific link architectures that cannot be represented faithfully by one reusable family template without implementing each page family as its own bespoke system.
 
-The persistent route tracker intentionally leaves all `Verified` fields unchecked. A route should only be marked verified after a human visual comparison at desktop, tablet, and mobile widths confirms its bespoke layout and interaction behavior.
+The persistent route tracker intentionally leaves all `Verified` fields unchecked. A route should only be marked verified after a human visual comparison at desktop, tablet, and mobile widths confirms its bespoke layout and interaction behavior. The final QA did not submit the Place demo order button because that action is a transactional browser operation, even though the flow and local order-state implementation are present and the checkout screen was verified through promo calculation.
 
 ## Evidence files
 
@@ -85,4 +119,6 @@ The persistent route tracker intentionally leaves all `Verified` fields unchecke
 - `client/src/data/appleRouteAuditData.ts` — generated route-specific copy and section data.
 - `client/src/data/appleRouteAssets.ts` — generated first-source-image mapping.
 - `client/src/data/appleRouteAssetSets.ts` — generated multi-image route map.
-- `docs/design-references/apple-com-7b1a/site-inventory/` — representative desktop and mobile captures.
+- `docs/design-references/apple-com-7b1a/site-inventory/` — representative Apple route captures.
+- `docs/design-references/apple-store-scope-2026-08-15/` — commerce responsive QA captures and notes.
+- `docs/audits/apple-store-scope-2026-08-15/SMOKE_TEST.txt` — final 272-route smoke-test output.

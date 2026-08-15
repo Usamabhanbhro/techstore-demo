@@ -1,11 +1,9 @@
-/* Usamabhanbhro route shell: image-led editorial commerce with restrained interaction and explicit demo boundaries. */
-// Usamabhanbhro application routing: every visible destination resolves to a client-facing page or a styled 404 state.
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import { CommerceProvider } from "@/lib/commerce";
 import { StorefrontLayout } from "@/components/Storefront";
 import Home from "@/pages/Home";
 import AppleRoutePage from "@/pages/AppleRoutePage";
-import { AboutPage, AccountPage, ArticlePage, CartPage, CheckoutPage, CollectionsPage, ConfirmationPage, ContactPage, JournalPage, NotFoundPage, ProductPage, SearchPage, ShopPage } from "@/pages/CommercePages";
+import { AboutPage, AccountPage, ArticlePage, CartPage, CheckoutPage, CollectionsPage, ComparePage, ConfirmationPage, ContactPage, JournalPage, NotFoundPage, ProductPage, SearchPage, ShopPage } from "@/pages/CommercePages";
 import { AccountPortalPage, HybridWishlistPage } from "@/pages/AccountPortal";
 
 function Router() { return <Switch>
@@ -14,6 +12,7 @@ function Router() { return <Switch>
   <Route path="/collections" component={CollectionsPage} />
   <Route path="/collections/:slug" component={({ params }) => <ShopPage collectionSlug={params.slug} />} />
   <Route path="/products/:slug" component={ProductPage} />
+  <Route path="/compare" component={ComparePage} />
   <Route path="/search" component={SearchPage} />
   <Route path="/cart" component={CartPage} />
   <Route path="/checkout" component={CheckoutPage} />
@@ -24,6 +23,11 @@ function Router() { return <Switch>
   <Route path="/journal/:slug" component={ArticlePage} />
   <Route path="/about" component={AboutPage} />
   <Route path="/contact" component={ContactPage} />
+  <Route path="/us/shop/goto/store" component={() => <ShopPage />} />
+  <Route path="/us/shop/goto/accessories" component={() => <ShopPage collectionSlug="accessories" />} />
+  <Route path="/us/shop/goto/buy_accessories" component={() => <ShopPage collectionSlug="accessories" />} />
+  <Route path="/us/shop/goto/bag" component={CartPage} />
+  <Route path="/us/search" component={SearchPage} />
   <Route path="/*" component={AppleRoutePage} />
   <Route component={NotFoundPage} />
 </Switch>; }

@@ -4,6 +4,10 @@ Usamabhanbhro is an original premium fashion-and-objects storefront demonstratio
 
 > **Demo boundary.** All checkout results, order references, account data, payment outcomes, and stock behavior are simulated. The project does not accept card numbers, merchant credentials, or provider tokens, and it must not be used to collect real payment information.
 
+## Design system
+
+The permanent storefront design contract lives in [`docs/design.md`](docs/design.md). It defines the semantic colors, system typography, spacing, layout, product presentation, interaction states, responsive breakpoints, accessibility expectations, and motion rules used across the application.
+
 ## Experience and routes
 
 | Route | Experience |

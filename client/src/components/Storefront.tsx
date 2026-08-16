@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Apple, ChevronRight, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useCommerce } from "@/lib/commerce";
+import { assetUrl } from "@/lib/assetUrl";
 
 const appleNavItems = [
   ["Store", "/shop"], ["Mac", "/collections/mac"], ["iPad", "/collections/ipad"], ["iPhone", "/collections/iphone"],
@@ -14,7 +15,7 @@ const footerGroups = [
   { title: "Services", links: [["Product guides", "/journal"], ["Contact support", "/contact"], ["About this demo", "/about"], ["Order confirmation", "/order-confirmation"]] },
   { title: "Apple Store", links: [["Your account", "/account"], ["Saved products", "/wishlist"], ["Your bag", "/cart"], ["Checkout", "/checkout"], ["Find a Store", "/contact"]] },
   { title: "For Business", links: [["Apple and Business", "/collections/mac"], ["Shop for Business", "/shop"], ["For Education", "/collections/ipad"], ["Get help choosing", "/contact"]] },
-  { title: "Apple Values", links: [["Accessibility", "/contact"], ["Education", "/collections/ipad"], ["Environment", "/about"], ["Privacy", "/about"], ["Inclusion and Diversity", "/contact"], ["Legal", "/about"]] },
+  { title: "Apple Values", links: [["Accessibility", "/contact"], ["Education", "/collections/ipad"], ["Environment", "/about"], ["Privacy", "/privacy"], ["Inclusion and Diversity", "/contact"], ["Legal", "/terms"]] },
 ] as const;
 
 function AppleNav() {
@@ -77,12 +78,12 @@ function AppleFooter() {
         <ul id={panelId}>{group.links.map(([label, href]) => <li key={`${href}-${label}`}><Link href={href} onClick={() => setOpen(null)}>{label}</Link></li>)}</ul>
       </section>; })}
     </div>
-    <div className="apple-footer__bottom"><span>Copyright © 2026 Apple Store Demo. All rights reserved.</span><div><Link href="/about">Privacy & demo terms</Link><Link href="/contact">Support</Link><Link href="/sitemap">Site Map</Link></div><span>United States</span></div>
+    <div className="apple-footer__bottom"><span>Copyright © 2026 Apple Store Demo. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/contact">Support</Link><a href={assetUrl("/sitemap.xml")}>Site Map</a></div><span>Demo storefront</span></div>
   </footer>;
 }
 
 export function StorefrontLayout({ children }: { children: ReactNode }) {
-  return <div className="apple-shell"><AppleNav /><main>{children}</main><AppleFooter /></div>;
+  return <div className="apple-shell"><a className="skip-link" href="#main-content">Skip to content</a><AppleNav /><main id="main-content">{children}</main><AppleFooter /></div>;
 }
 
 export const PageIntro = ({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) => <section className="page-intro"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{body && <p>{body}</p>}</section>;

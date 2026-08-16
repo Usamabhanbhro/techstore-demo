@@ -4,7 +4,7 @@ import { StorefrontLayout } from "@/components/Storefront";
 import { SeoMeta } from "@/components/SeoMeta";
 import Home from "@/pages/Home";
 import AppleRoutePage from "@/pages/AppleRoutePage";
-import { AboutPage, AccountPage, ArticlePage, CartPage, CheckoutPage, CollectionsPage, ComparePage, ConfirmationPage, ContactPage, JournalPage, NotFoundPage, ProductPage, SearchPage, ShopPage } from "@/pages/CommercePages";
+import { AboutPage, AccountPage, ArticlePage, CartPage, CheckoutPage, CollectionsPage, ComparePage, ConfirmationPage, ContactPage, JournalPage, NotFoundPage, PrivacyPage, ProductPage, SearchPage, ShopPage, TermsPage } from "@/pages/CommercePages";
 import { AccountPortalPage, HybridWishlistPage } from "@/pages/AccountPortal";
 
 function Router() { return <Switch>
@@ -24,6 +24,8 @@ function Router() { return <Switch>
   <Route path="/journal/:slug" component={ArticlePage} />
   <Route path="/about" component={AboutPage} />
   <Route path="/contact" component={ContactPage} />
+  <Route path="/privacy" component={PrivacyPage} />
+  <Route path="/terms" component={TermsPage} />
   <Route path="/us/shop/goto/store" component={() => <ShopPage />} />
   <Route path="/us/shop/goto/accessories" component={() => <ShopPage collectionSlug="accessories" />} />
   <Route path="/us/shop/goto/buy_accessories" component={() => <ShopPage collectionSlug="accessories" />} />

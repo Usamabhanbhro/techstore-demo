@@ -20,11 +20,11 @@ function PillLink({ href = "/shop", children, secondary = false }: { href?: stri
 }
 
 function FeatureHero({ id, className, title, subtitle, image, imageAlt, children }: { id: string; className?: string; title: string; subtitle: string; image: string; imageAlt: string; children?: ReactNode }) {
-  return <section id={id} className={`apple-feature ${className ?? ""}`}><div className="apple-feature__copy"><h2>{title}</h2><p>{subtitle}</p><div className="apple-feature__links">{children}</div></div><img src={`${asset}/${image}`} alt={imageAlt} loading="lazy" /></section>;
+  return <section id={id} className={`apple-feature ${className ?? ""}`}><div className="apple-feature__copy"><h2>{title}</h2><p>{subtitle}</p><div className="apple-feature__links">{children}</div></div><img src={`${asset}/${image}`} alt={imageAlt} width={1600} height={900} loading="lazy" decoding="async" /></section>;
 }
 
 function PromoTile({ id, className, title, subtitle, image, imageAlt, children }: { id: string; className?: string; title: ReactNode; subtitle: string; image?: string; imageAlt?: string; children: ReactNode }) {
-  return <article id={id} className={`apple-promo ${className ?? ""}`}><div className="apple-promo__copy"><h3>{title}</h3><p>{subtitle}</p><div className="apple-promo__links">{children}</div></div>{image && <img src={`${asset}/${image}`} alt={imageAlt ?? ""} loading="lazy" />}</article>;
+  return <article id={id} className={`apple-promo ${className ?? ""}`}><div className="apple-promo__copy"><h3>{title}</h3><p>{subtitle}</p><div className="apple-promo__links">{children}</div></div>{image && <img src={`${asset}/${image}`} alt={imageAlt ?? ""} width={1000} height={1000} loading="lazy" decoding="async" />}</article>;
 }
 
 export default function Home() {
@@ -33,7 +33,7 @@ export default function Home() {
   useEffect(() => { if (!playing) return; const timer = window.setInterval(() => setActive((index) => (index + 1) % gallery.length), 4200); return () => window.clearInterval(timer); }, [playing]);
   const current = gallery[active];
   return <>
-    <section className="apple-education" id="apple-store"><div className="apple-education__copy"><h1>College, sorted.</h1><p>Get a gift card from $100 to $150<sup>*</sup> when you buy Mac or iPad with education savings.</p><PillLink href="/shop">Shop</PillLink></div><img src={`${asset}/education-hero.jpg`} alt="Students carrying Apple devices and creative supplies" /></section>
+    <section className="apple-education" id="apple-store"><div className="apple-education__copy"><h1>College, sorted.</h1><p>Get a gift card from $100 to $150<sup>*</sup> when you buy Mac or iPad with education savings.</p><PillLink href="/shop">Shop</PillLink></div><img src={`${asset}/education-hero.jpg`} alt="Students carrying Apple devices and creative supplies" width={1920} height={1080} loading="eager" decoding="async" /></section>
 
     <FeatureHero id="iphone" className="apple-feature--iphone" title="iPhone" subtitle="Meet the latest iPhone lineup." image="iphone-family.jpg" imageAlt="The latest iPhone lineup"><PillLink href="/collections/iphone">Learn more</PillLink><PillLink href="/collections/iphone" secondary>Shop iPhone</PillLink></FeatureHero>
     <FeatureHero id="macbook-air" className="apple-feature--air" title="MacBook Air" subtitle="Now supercharged by M5." image="macbook-air.jpg" imageAlt="MacBook Air"><PillLink href="/products/macbook-air">Learn more</PillLink><PillLink href="/products/macbook-air" secondary>Buy</PillLink></FeatureHero>

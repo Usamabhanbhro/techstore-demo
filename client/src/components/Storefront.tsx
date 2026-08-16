@@ -1,30 +1,20 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { Apple, ChevronRight, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useCommerce } from "@/lib/commerce";
-import { isAppleRoute } from "@/pages/AppleRoutePage";
-
-const wordmarkAsset = "/manus-storage/usamabhanbhro-wordmark-clean_c3a17930.png";
 
 const appleNavItems = [
-  ["Store", "/shop"],
-  ["Mac", "/collections/mac"],
-  ["iPad", "/collections/ipad"],
-  ["iPhone", "/collections/iphone"],
-  ["Watch", "/collections/apple-watch"],
-  ["Vision", "/collections/vision"],
-  ["AirPods", "/collections/airpods"],
-  ["TV & Home", "/collections/tv-home"],
-  ["Entertainment", "/entertainment"],
-  ["Accessories", "/collections/accessories"],
-  ["Support", "/contact"],
+  ["Store", "/shop"], ["Mac", "/collections/mac"], ["iPad", "/collections/ipad"], ["iPhone", "/collections/iphone"],
+  ["Watch", "/collections/apple-watch"], ["Vision", "/collections/vision"], ["AirPods", "/collections/airpods"],
+  ["TV & Home", "/collections/tv-home"], ["Accessories", "/collections/accessories"], ["Support", "/contact"],
 ] as const;
 
 const footerGroups = [
-  { title: "Shop and Learn", links: [["Store", "/shop"], ["Mac", "/collections/mac"], ["iPad", "/collections/ipad"], ["iPhone", "/collections/iphone"], ["Watch", "/collections/apple-watch"], ["Vision", "/collections/vision"], ["AirPods", "/collections/airpods"], ["TV & Home", "/collections/tv-home"], ["Accessories", "/collections/accessories"], ["Gift Cards", "/contact"]] },
-  { title: "Services", links: [["Apple Music", "/apple-music"], ["Apple TV+", "/apple-tv"], ["Apple Fitness+", "/apple-fitness-plus"], ["Apple Arcade", "/apple-arcade"], ["iCloud+", "/icloud"], ["Apple One", "/apple-one"], ["Apple Pay", "/apple-pay"], ["Apple Books", "/apple-books"]] },
-  { title: "Apple Store", links: [["Find a Store", "/retail"], ["Genius Bar", "/retail/geniusbar"], ["Today at Apple", "/today"], ["Apple Camp", "/today/camp"], ["Certified Refurbished", "/contact"], ["Financing", "/financing"], ["Order Status", "/account"]] },
-  { title: "For Business", links: [["Apple and Business", "/business"], ["Shop for Business", "/retail/business"], ["For Education", "/education"], ["For Government", "/government"]] },
-  { title: "Apple Values", links: [["Accessibility", "/accessibility"], ["Education", "/education-initiative"], ["Environment", "/environment"], ["Privacy", "/privacy"], ["Inclusion and Diversity", "/diversity"], ["Legal", "/legal"]] },
+  { title: "Shop and Learn", links: [["Store", "/shop"], ["Mac", "/collections/mac"], ["iPad", "/collections/ipad"], ["iPhone", "/collections/iphone"], ["Watch", "/collections/apple-watch"], ["AirPods", "/collections/airpods"], ["Vision", "/collections/vision"], ["TV & Home", "/collections/tv-home"], ["Accessories", "/collections/accessories"], ["Compare products", "/compare"]] },
+  { title: "Services", links: [["Product guides", "/journal"], ["Contact support", "/contact"], ["About this demo", "/about"], ["Order confirmation", "/order-confirmation"]] },
+  { title: "Apple Store", links: [["Your account", "/account"], ["Saved products", "/wishlist"], ["Your bag", "/cart"], ["Checkout", "/checkout"], ["Find a Store", "/contact"]] },
+  { title: "For Business", links: [["Apple and Business", "/collections/mac"], ["Shop for Business", "/shop"], ["For Education", "/collections/ipad"], ["Get help choosing", "/contact"]] },
+  { title: "Apple Values", links: [["Accessibility", "/contact"], ["Education", "/collections/ipad"], ["Environment", "/about"], ["Privacy", "/about"], ["Inclusion and Diversity", "/contact"], ["Legal", "/about"]] },
 ] as const;
 
 function AppleNav() {
@@ -36,15 +26,20 @@ function AppleNav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") { setMenu(false); setSearch(false); } };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("keydown", onKeyDown);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("keydown", onKeyDown); };
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = menu ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menu]);
 
   const closeMenu = () => setMenu(false);
   const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const query = String(form.get("q") ?? "").trim();
+    const query = String(new FormData(event.currentTarget).get("q") ?? "").trim();
     navigate(query ? `/search?q=${encodeURIComponent(query)}` : "/search");
     setSearch(false);
     closeMenu();
@@ -52,19 +47,20 @@ function AppleNav() {
 
   return <header className={`apple-nav ${scrolled ? "apple-nav--scrolled" : ""}`}>
     <div className="apple-nav__inner">
-      <button className="apple-nav__menu" onClick={() => setMenu((value) => !value)} aria-expanded={menu} aria-label={menu ? "Close navigation" : "Open navigation"}>{menu ? "×" : "☰"}</button>
-      <Link className="apple-nav__logo" href="/" aria-label="Apple Store home"><span aria-hidden="true">●</span></Link>
-      <nav className={`apple-nav__links ${menu ? "is-open" : ""}`} aria-label="Apple Store primary navigation">
+      <button type="button" className="apple-nav__menu" onClick={() => setMenu((value) => !value)} aria-expanded={menu} aria-controls="primary-navigation" aria-label={menu ? "Close navigation" : "Open navigation"}>{menu ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}</button>
+      <Link className="apple-nav__logo" href="/" aria-label="Apple Store home"><Apple size={17} strokeWidth={1.8} aria-hidden="true" /></Link>
+      <nav id="primary-navigation" className={`apple-nav__links ${menu ? "is-open" : ""}`} aria-label="Apple Store primary navigation">
         {appleNavItems.map(([label, href]) => <Link key={href} href={href} onClick={closeMenu}>{label}</Link>)}
       </nav>
       <div className="apple-nav__actions">
-        <button aria-label={search ? "Close search" : "Open search"} onClick={() => setSearch((value) => !value)}>{search ? "×" : "⌕"}</button>
-        <button aria-label={`Shopping bag with ${cartCount} items`} onClick={() => navigate("/cart")}>▢{cartCount > 0 && <span className="apple-nav__count">{cartCount}</span>}</button>
+        <button type="button" aria-label={search ? "Close search" : "Open search"} aria-expanded={search} aria-controls="global-search" onClick={() => setSearch((value) => !value)}>{search ? <X size={16} aria-hidden="true" /> : <Search size={16} aria-hidden="true" />}</button>
+        <button type="button" className="apple-nav__bag" aria-label={`Shopping bag with ${cartCount} ${cartCount === 1 ? "item" : "items"}`} onClick={() => navigate("/cart")}><ShoppingBag size={16} aria-hidden="true" />{cartCount > 0 && <span className="apple-nav__count" aria-live="polite">{cartCount}</span>}</button>
       </div>
     </div>
-    {search && <form className="apple-nav__search" onSubmit={submitSearch}>
+    {search && <form id="global-search" className="apple-nav__search" onSubmit={submitSearch}>
       <label className="sr-only" htmlFor="apple-search">Search products</label>
-      <input autoFocus name="q" id="apple-search" placeholder="Search Apple products and accessories" />
+      <Search size={18} aria-hidden="true" />
+      <input autoFocus autoComplete="off" name="q" id="apple-search" placeholder="Search Apple products and accessories" />
       <button type="submit">Search</button>
     </form>}
   </header>;
@@ -74,21 +70,19 @@ function AppleFooter() {
   const [open, setOpen] = useState<string | null>(null);
   return <footer className="apple-footer" id="footer">
     <p className="apple-footer__note">* Demo storefront. Prices and availability are illustrative. No real transactions are processed.</p>
-    <div className="apple-footer__crumb"><Link href="/">Apple Store</Link><span>›</span><span>Shop online</span></div>
+    <div className="apple-footer__crumb"><Link href="/">Apple Store</Link><ChevronRight size={14} aria-hidden="true" /><span>Shop online</span></div>
     <div className="apple-footer__groups">
-      {footerGroups.map((group) => <section className={`apple-footer__group ${open === group.title ? "is-open" : ""}`} key={group.title}>
-        <button onClick={() => setOpen(open === group.title ? null : group.title)}>{group.title}<span>+</span></button>
-        <ul>{group.links.map(([label, href]) => <li key={`${href}-${label}`}><Link href={href}>{label}</Link></li>)}</ul>
-      </section>)}
+      {footerGroups.map((group) => { const panelId = `footer-${group.title.toLowerCase().replaceAll(" ", "-")}`; return <section className={`apple-footer__group ${open === group.title ? "is-open" : ""}`} key={group.title}>
+        <button type="button" onClick={() => setOpen(open === group.title ? null : group.title)} aria-expanded={open === group.title} aria-controls={panelId}>{group.title}<span aria-hidden="true">{open === group.title ? <X size={14} /> : <span className="footer-plus">+</span>}</span></button>
+        <ul id={panelId}>{group.links.map(([label, href]) => <li key={`${href}-${label}`}><Link href={href} onClick={() => setOpen(null)}>{label}</Link></li>)}</ul>
+      </section>; })}
     </div>
-    <div className="apple-footer__bottom"><span>Copyright © 2026 Apple Store Demo. All rights reserved.</span><div><Link href="/legal/privacy">Privacy Policy</Link><Link href="/legal/internet-services/terms/site.html">Terms of Use</Link><Link href="/legal">Legal</Link><Link href="/sitemap">Site Map</Link></div><span>United States</span></div>
+    <div className="apple-footer__bottom"><span>Copyright © 2026 Apple Store Demo. All rights reserved.</span><div><Link href="/about">Privacy & demo terms</Link><Link href="/contact">Support</Link><Link href="/sitemap">Site Map</Link></div><span>United States</span></div>
   </footer>;
 }
 
 export function StorefrontLayout({ children }: { children: ReactNode }) {
-  const [location] = useLocation();
-  const appleShell = isAppleRoute(location) || location === "/" || location.startsWith("/shop") || location.startsWith("/collections") || location.startsWith("/products") || location.startsWith("/search") || location.startsWith("/cart") || location.startsWith("/checkout") || location.startsWith("/order-confirmation") || location.startsWith("/account") || location.startsWith("/wishlist") || location.startsWith("/journal") || location.startsWith("/about") || location.startsWith("/contact");
-  return appleShell ? <div className="apple-shell"><AppleNav /><main>{children}</main><AppleFooter /></div> : <div className="apple-shell"><AppleNav /><main>{children}</main><AppleFooter /></div>;
+  return <div className="apple-shell"><AppleNav /><main>{children}</main><AppleFooter /></div>;
 }
 
 export const PageIntro = ({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) => <section className="page-intro"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{body && <p>{body}</p>}</section>;

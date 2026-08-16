@@ -1,11 +1,13 @@
 export type ProductFlag = "featured" | "new-arrival" | "best-seller" | "editorial" | "giftable";
 
-export type ProductVariant = { label: string; value: string; available: boolean; stock: number };
+export type ProductVariant = { label: string; value: string; available: boolean; stock: number; price?: number };
+export type ProductSpecification = { label: string; value: string };
 
 export type Product = {
   id: string;
   slug: string;
   name: string;
+  family: string;
   subtitle: string;
   price: number;
   compareAtPrice?: number;
@@ -14,6 +16,11 @@ export type Product = {
   collections: string[];
   description: string;
   details: string[];
+  features: string[];
+  specifications: ProductSpecification[];
+  compatibility: string[];
+  compatibilityProductIds: string[];
+  whatsIncluded: string[];
   care: string;
   images: string[];
   variants: ProductVariant[];
@@ -24,6 +31,7 @@ export type Product = {
   rating: null;
   reviewCount: 0;
   relatedProductIds: string[];
+  accessories: string[];
 };
 
 type AssetSet = string[];
@@ -145,7 +153,9 @@ const commonDetails = ["Free delivery or Apple Store pickup", "Apple support and
 
 const variant = (label: string, values: string[], unavailable: string[] = []): ProductVariant[] => values.map((value, index) => ({ label, value, available: !unavailable.includes(value), stock: unavailable.includes(value) ? 0 : Math.max(3, 12 - index * 2) }));
 
-const seeds: Array<Omit<Product, "id" | "collections" | "relatedProductIds" | "rating" | "reviewCount">> = [
+type ProductSeed = Omit<Product, "id" | "family" | "collections" | "relatedProductIds" | "rating" | "reviewCount" | "features" | "specifications" | "compatibility" | "compatibilityProductIds" | "whatsIncluded" | "accessories"> & Partial<Pick<Product, "family" | "features" | "specifications" | "compatibility" | "compatibilityProductIds" | "whatsIncluded" | "accessories">>;
+
+const seeds: ProductSeed[] = [
   { slug: "iphone-17-pro", name: "iPhone 17 Pro", subtitle: "The ultimate iPhone.", price: 1099, category: "iPhone", collection: "iPhone", description: "iPhone 17 Pro delivers pro camera control, fast performance, and an advanced titanium design.", details: ["Pro camera system", "All-day battery life", "USB-C connectivity", ...commonDetails], care: "Use a soft, lint-free cloth and a compatible case for daily protection.", images: routeAssets.iphone17pro, variants: variant("Storage", ["256GB", "512GB", "1TB"]), tags: ["iphone", "pro", "camera", "apple intelligence"], flags: ["featured", "new-arrival"], availability: "in-stock", stock: 18 },
   { slug: "iphone-17", name: "iPhone 17", subtitle: "A new standard for iPhone.", price: 799, category: "iPhone", collection: "iPhone", description: "iPhone 17 combines a bright display, powerful camera system, and the smooth everyday performance of Apple silicon.", details: ["A18 chip", "Next-generation camera", "Ceramic Shield front", ...commonDetails], care: "Use a soft, lint-free cloth and avoid abrasive cleaners.", images: routeAssets.iphone17, variants: variant("Storage", ["256GB", "512GB"]), tags: ["iphone", "everyday", "apple intelligence"], flags: ["featured", "best-seller"], availability: "in-stock", stock: 22 },
   { slug: "iphone-air", name: "iPhone Air", subtitle: "The thinnest iPhone ever.", price: 999, category: "iPhone", collection: "iPhone", description: "iPhone Air brings a light, impossibly thin design together with a vivid display and all-day capability.", details: ["Lightweight design", "All-day battery", "Apple Intelligence", ...commonDetails], care: "Use a compatible MagSafe case for added protection.", images: routeAssets.iphoneAir, variants: variant("Storage", ["256GB", "512GB"]), tags: ["iphone", "thin", "lightweight"], flags: ["new-arrival"], availability: "in-stock", stock: 15 },
@@ -180,21 +190,70 @@ const seeds: Array<Omit<Product, "id" | "collections" | "relatedProductIds" | "r
   { slug: "apple-watch-sport-band", name: "Apple Watch Sport Band", subtitle: "Soft, breathable, and made to move.", price: 49, category: "Accessories", collection: "Apple Watch Accessories", description: "The Sport Band is made from a durable fluoroelastomer and closes with a pin-and-tuck fastener.", details: ["Soft fluoroelastomer", "Pin-and-tuck closure", "Multiple sizes", ...commonDetails], care: "Rinse and dry after workouts or water exposure.", images: routeAssets.watch, variants: variant("Color", ["Black", "Starlight", "Ultramarine", "Plum"]), tags: ["apple watch", "band", "fitness"], flags: ["best-seller"], availability: "in-stock", stock: 31 },
   { slug: "beats-studio-pro", name: "Beats Studio Pro", subtitle: "Premium wireless over-ear headphones.", price: 349, category: "Accessories", collection: "Beats", description: "Beats Studio Pro bring rich sound, Active Noise Cancelling, and comfortable all-day listening.", details: ["Active Noise Cancelling", "Transparency mode", "USB-C lossless audio", ...commonDetails], care: "Store in the included case and wipe ear cushions gently.", images: routeAssets.airpodsMax, variants: variant("Color", ["Black", "Sandstone", "Deep Brown", "Navy"]), tags: ["beats", "headphones", "audio"], flags: ["best-seller"], availability: "in-stock", stock: 8 },
   { slug: "apple-usb-c-cable", name: "USB-C Charge Cable", subtitle: "Charge and connect.", price: 19, category: "Accessories", collection: "Cables & Adapters", description: "A woven USB-C charge cable for connecting and charging Apple devices.", details: ["USB-C connectors", "Durable woven design", "Available in multiple lengths", ...commonDetails], care: "Coil loosely and keep connectors free of debris.", images: routeAssets.accessories, variants: variant("Length", ["1 metre", "2 metres"]), tags: ["cable", "usb-c", "charger"], flags: ["giftable"], availability: "in-stock", stock: 45 },
+  { slug: "iphone-16-silicone-case", name: "iPhone 16 Silicone Case with MagSafe", subtitle: "A soft touch of protection.", price: 49, category: "Accessories", collection: "iPhone Accessories", description: "The iPhone 16 Silicone Case with MagSafe protects iPhone while keeping wireless charging simple.", details: ["MagSafe compatible", "Soft-touch silicone exterior", "Microfiber lining", ...commonDetails], care: "Remove occasionally to clean the case and iPhone.", images: routeAssets.iphone, variants: variant("Color", ["Black", "Stone Gray", "Lake Green", "Ultramarine"]), tags: ["case", "iphone", "magsafe", "protection"], flags: ["best-seller"], availability: "in-stock", stock: 26 },
+  { slug: "iphone-16e-silicone-case", name: "iPhone 16e Silicone Case with MagSafe", subtitle: "Protection made for iPhone 16e.", price: 49, category: "Accessories", collection: "iPhone Accessories", description: "A slim silicone case designed for iPhone 16e with a soft microfiber lining and MagSafe support.", details: ["Designed for iPhone 16e", "MagSafe compatible", "Soft-touch silicone exterior", ...commonDetails], care: "Remove occasionally to clean the case and iPhone.", images: routeAssets.iphone17, variants: variant("Color", ["Black", "Cloud Blue", "Fuchsia", "Winter Blue"]), tags: ["case", "iphone 16e", "magsafe", "protection"], flags: ["new-arrival"], availability: "in-stock", stock: 20 },
+  { slug: "magsafe-wallet", name: "iPhone FineWoven Wallet with MagSafe", subtitle: "Cards, right on iPhone.", price: 59, category: "Accessories", collection: "iPhone Accessories", description: "The FineWoven Wallet with MagSafe is an easy way to keep cards close while using a compatible iPhone.", details: ["MagSafe compatible", "Holds cards", "Find My support", ...commonDetails], care: "Keep away from abrasive surfaces and prolonged moisture.", images: routeAssets.accessories, variants: variant("Color", ["Black", "Deep Blue", "Pacific Blue", "Mulberry"]), tags: ["wallet", "iphone", "magsafe"], flags: ["giftable"], availability: "in-stock", stock: 18 },
+  { slug: "35w-dual-usb-c-power-adapter", name: "35W Dual USB-C Port Power Adapter", subtitle: "Charge two devices at once.", price: 59, category: "Accessories", collection: "Power Adapters", description: "The 35W Dual USB-C Port Power Adapter lets you charge two devices at the same time at home, in the office, or on the go.", details: ["Two USB-C ports", "Compact design", "Works with compatible USB-C charging cables", ...commonDetails], care: "Unplug before cleaning and keep the adapter dry.", images: routeAssets.accessories, variants: variant("Finish", ["White"]), tags: ["power adapter", "charger", "usb-c", "iphone", "ipad", "mac"], flags: ["best-seller"], availability: "in-stock", stock: 24 },
+  { slug: "140w-usb-c-power-adapter", name: "140W USB-C Power Adapter", subtitle: "Power for your biggest workflows.", price: 99, category: "Accessories", collection: "Power Adapters", description: "The 140W USB-C Power Adapter is designed for fast charging with compatible MacBook Pro models and USB-C devices.", details: ["USB-C power delivery", "High-wattage charging", "Works with compatible USB-C cables", ...commonDetails], care: "Keep the adapter ventilated and unplug when not in use.", images: routeAssets.mac, variants: variant("Finish", ["White"]), tags: ["power adapter", "charger", "usb-c", "macbook pro", "mac"], flags: ["editorial"], availability: "in-stock", stock: 12 },
+  { slug: "magic-trackpad", name: "Magic Trackpad", subtitle: "A whole new way to control Mac.", price: 149, category: "Accessories", collection: "Mac Accessories", description: "Magic Trackpad brings a full set of Multi-Touch gestures to your Mac in a rechargeable wireless design.", details: ["Multi-Touch surface", "Force Touch", "Rechargeable battery", ...commonDetails], care: "Clean the surface with a soft, dry cloth.", images: routeAssets.mac, variants: variant("Color", ["White", "Black"]), tags: ["magic trackpad", "mac", "mouse", "keyboard", "accessory"], flags: ["featured"], availability: "in-stock", stock: 13 },
+  { slug: "ipad-air-magic-keyboard", name: "Magic Keyboard for iPad Air", subtitle: "A great leap forward for iPad Air.", price: 269, category: "Accessories", collection: "iPad Accessories", description: "Magic Keyboard for iPad Air delivers a comfortable typing experience and a protective floating design for supported iPad Air models.", details: ["Backlit keys", "Trackpad", "USB-C charging port", ...commonDetails], care: "Keep the keyboard closed while transporting and clean with a soft cloth.", images: routeAssets.ipadAir, variants: variant("Size", ["11-inch", "13-inch"]), tags: ["ipad", "magic keyboard", "keyboard", "ipad air"], flags: ["new-arrival"], availability: "in-stock", stock: 9 },
+  { slug: "smart-folio-ipad-air", name: "Smart Folio for iPad Air", subtitle: "Protection that fits your flow.", price: 79, category: "Accessories", collection: "iPad Accessories", description: "Smart Folio for iPad Air protects the front and back of your iPad Air and folds into useful viewing and reading positions.", details: ["Designed for iPad Air", "Supports multiple positions", "Slim, lightweight design", ...commonDetails], care: "Wipe with a soft, lint-free cloth.", images: routeAssets.ipadAir, variants: variant("Color", ["Black", "Denim", "Sage", "White"]), tags: ["ipad", "folio", "ipad air", "case"], flags: ["giftable"], availability: "in-stock", stock: 15 },
+  { slug: "apple-pencil-usb-c", name: "Apple Pencil (USB-C)", subtitle: "Draw, write, and annotate.", price: 79, category: "Accessories", collection: "iPad Accessories", description: "Apple Pencil (USB-C) is a precise, versatile tool for notes, sketches, and markups on supported iPad models.", details: ["Pixel-perfect precision", "Low latency", "USB-C pairing and charging", ...commonDetails], care: "Attach the cap securely and keep the tip clean.", images: routeAssets.ipad, variants: variant("Finish", ["White"]), tags: ["apple pencil", "ipad", "stylus", "usb-c"], flags: ["best-seller", "giftable"], availability: "in-stock", stock: 22 },
+  { slug: "apple-watch-magnetic-charger", name: "Apple Watch Magnetic Fast Charger to USB-C Cable", subtitle: "A faster way to charge.", price: 29, category: "Accessories", collection: "Apple Watch Accessories", description: "The Apple Watch Magnetic Fast Charger to USB-C Cable makes charging simple with a sealed, floating design.", details: ["Magnetic charging", "USB-C connector", "Fast charging on supported models", ...commonDetails], care: "Keep the charging surface clean and dry.", images: routeAssets.watch, variants: variant("Length", ["1 metre"]), tags: ["apple watch", "charger", "cable", "usb-c"], flags: ["best-seller"], availability: "in-stock", stock: 27 },
+  { slug: "airpods-pro-ear-tips", name: "AirPods Pro Ear Tips", subtitle: "Find your fit.", price: 7, category: "Accessories", collection: "AirPods Accessories", description: "Replacement ear tips for AirPods Pro help you find a comfortable fit and a secure seal.", details: ["Multiple sizes", "Designed for AirPods Pro", "Soft silicone", ...commonDetails], care: "Remove and clean gently before replacing.", images: routeAssets.airpodsPro, variants: variant("Size", ["Small", "Medium", "Large"]), tags: ["airpods", "airpods pro", "ear tips", "audio"], flags: ["giftable"], availability: "in-stock", stock: 40 },
+  { slug: "usb-c-digital-av-adapter", name: "USB-C Digital AV Multiport Adapter", subtitle: "Connect to more.", price: 69, category: "Accessories", collection: "Cables & Adapters", description: "The USB-C Digital AV Multiport Adapter connects a USB-C Mac or iPad to an HDMI display and other accessories.", details: ["HDMI output", "USB-A port", "USB-C charging", ...commonDetails], care: "Keep ports covered when storing and avoid bending the cable.", images: routeAssets.mac, variants: variant("Finish", ["White"]), tags: ["adapter", "usb-c", "hdmi", "mac", "ipad"], flags: ["best-seller"], availability: "in-stock", stock: 16 },
+  { slug: "thunderbolt-4-pro-cable", name: "Thunderbolt 4 Pro Cable", subtitle: "High-performance connectivity.", price: 69, category: "Accessories", collection: "Cables & Adapters", description: "Thunderbolt 4 Pro Cable connects compatible Mac computers, displays, and storage devices for high-performance workflows.", details: ["Thunderbolt connectivity", "USB-C connectors", "Available in multiple lengths", ...commonDetails], care: "Coil loosely and protect the connectors when not in use.", images: routeAssets.mac, variants: variant("Length", ["1.8 metres", "3 metres"]), tags: ["thunderbolt", "cable", "usb-c", "mac", "display"], flags: ["editorial"], availability: "in-stock", stock: 10 },
+  { slug: "airtag-loop", name: "AirTag Loop", subtitle: "Keep track, in style.", price: 29, category: "Accessories", collection: "AirTag", description: "AirTag Loop keeps AirTag securely attached to your everyday items while adding a pop of color.", details: ["Designed for AirTag", "Secure attachment", "Lightweight design", ...commonDetails], care: "Wipe with a soft, dry cloth and keep away from sharp edges.", images: routeAssets.airtag, variants: variant("Color", ["White", "Black", "Electric Orange", "Deep Navy"]), tags: ["airtag", "loop", "find my", "travel"], flags: ["giftable"], availability: "in-stock", stock: 21 },
 ];
 
 const inventory: Product[] = seeds.map((seed, index) => ({
   ...seed,
   id: `apple-${String(index + 1).padStart(3, "0")}`,
+  family: seed.family ?? seed.category,
+  features: seed.features ?? seed.details.filter((detail) => !commonDetails.includes(detail)).slice(0, 3),
+  specifications: seed.specifications ?? [{ label: seed.variants[0]?.label ?? "Configuration", value: seed.variants.map((item) => item.value).join(" · ") }],
+  compatibility: seed.compatibility ?? (seed.category === "Accessories" ? [seed.collection.replace(" Accessories", "")] : []),
+  compatibilityProductIds: seed.compatibilityProductIds ?? [],
+  whatsIncluded: seed.whatsIncluded ?? [seed.name, "Documentation"],
+  accessories: seed.accessories ?? [],
   collections: [seed.collection.toLowerCase().replaceAll(" ", "-"), seed.category.toLowerCase().replaceAll(" ", "-")],
   rating: null,
   reviewCount: 0,
   relatedProductIds: [],
 }));
-
-export const products: Product[] = inventory.map((product) => ({
-  ...product,
-  relatedProductIds: inventory.filter((candidate) => candidate.id !== product.id && (candidate.category === product.category || candidate.collection === product.collection)).slice(0, 4).map((candidate) => candidate.id),
-}));
+const bySlug = new Map(inventory.map((product) => [product.slug, product]));
+const relationSlugs: Record<string, { compatible?: string[]; accessories?: string[]; related?: string[] }> = {
+  "iphone-17-pro": { accessories: ["iphone-17-pro-clear-case", "magsafe-charger", "apple-usb-c-cable", "airpods-pro-3", "apple-watch-series-11"] },
+  "iphone-17": { accessories: ["magsafe-charger", "apple-usb-c-cable", "airtag", "airpods-4"] },
+  "iphone-16": { accessories: ["iphone-16-silicone-case", "magsafe-charger", "35w-dual-usb-c-power-adapter", "airpods-4"] },
+  "iphone-16e": { accessories: ["iphone-16e-silicone-case", "apple-usb-c-cable", "35w-dual-usb-c-power-adapter", "airtag"] },
+  "macbook-air": { accessories: ["magic-mouse", "magic-keyboard", "magic-trackpad", "usb-c-digital-av-adapter", "studio-display", "thunderbolt-4-pro-cable"] },
+  "macbook-pro": { accessories: ["magic-mouse", "magic-keyboard", "usb-c-digital-av-adapter", "140w-usb-c-power-adapter", "studio-display", "thunderbolt-4-pro-cable"] },
+  "mac-mini": { accessories: ["magic-keyboard", "magic-mouse", "magic-trackpad", "studio-display", "usb-c-digital-av-adapter"] },
+  "ipad-pro": { accessories: ["apple-pencil-pro", "ipad-air-magic-keyboard", "smart-folio-ipad-air", "usb-c-digital-av-adapter"] },
+  "ipad-air": { accessories: ["apple-pencil-pro", "ipad-air-magic-keyboard", "smart-folio-ipad-air", "apple-pencil-usb-c"] },
+  "ipad": { accessories: ["apple-pencil-usb-c", "smart-folio-ipad-air", "usb-c-digital-av-adapter"] },
+  "ipad-mini": { accessories: ["apple-pencil-usb-c", "smart-folio-ipad-air", "apple-usb-c-cable"] },
+  "apple-watch-series-11": { accessories: ["apple-watch-sport-band", "apple-watch-magnetic-charger", "airpods-4"] },
+  "apple-watch-se-3": { accessories: ["apple-watch-sport-band", "apple-watch-magnetic-charger"] },
+  "apple-watch-ultra-3": { accessories: ["apple-watch-sport-band", "apple-watch-magnetic-charger", "airpods-pro-3"] },
+  "airpods-pro-3": { accessories: ["airpods-pro-ear-tips", "apple-usb-c-cable", "magsafe-charger"] },
+  "airpods-4": { accessories: ["apple-usb-c-cable", "magsafe-charger"] },
+  "apple-vision-pro": { accessories: ["apple-usb-c-cable", "35w-dual-usb-c-power-adapter", "airpods-pro-3"] },
+};
+export const products: Product[] = inventory.map((product) => {
+  const relation = relationSlugs[product.slug] ?? {};
+  const sameFamily = inventory.filter((candidate) => candidate.id !== product.id && candidate.category === product.category).slice(0, 4).map((candidate) => candidate.id);
+  const relatedSlugs = relation.related ?? sameFamily;
+  const accessories = (relation.accessories ?? []).map((slug) => bySlug.get(slug)?.id).filter(Boolean) as string[];
+  return {
+    ...product,
+    accessories,
+    compatibilityProductIds: accessories,
+    compatibility: accessories.map((id) => bySlug.get(id)?.name).filter(Boolean) as string[],
+    relatedProductIds: relatedSlugs.map((slug) => bySlug.get(slug)?.id ?? slug).filter((id) => id !== product.id),
+  };
+});
 
 const collectionImage = (key: keyof typeof routeAssets) => routeAssets[key][0] ?? routeAssets.accessories[0];
 

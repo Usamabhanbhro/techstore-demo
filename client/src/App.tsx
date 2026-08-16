@@ -1,6 +1,7 @@
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import { CommerceProvider } from "@/lib/commerce";
 import { StorefrontLayout } from "@/components/Storefront";
+import { SeoMeta } from "@/components/SeoMeta";
 import Home from "@/pages/Home";
 import AppleRoutePage from "@/pages/AppleRoutePage";
 import { AboutPage, AccountPage, ArticlePage, CartPage, CheckoutPage, CollectionsPage, ComparePage, ConfirmationPage, ContactPage, JournalPage, NotFoundPage, ProductPage, SearchPage, ShopPage } from "@/pages/CommercePages";
@@ -34,4 +35,4 @@ function Router() { return <Switch>
 
 const routerBase = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
 
-export default function App() { return <CommerceProvider><WouterRouter base={routerBase}><StorefrontLayout><Router /></StorefrontLayout></WouterRouter></CommerceProvider>; }
+export default function App() { return <CommerceProvider><WouterRouter base={routerBase}><SeoMeta /><StorefrontLayout><Router /></StorefrontLayout></WouterRouter></CommerceProvider>; }

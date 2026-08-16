@@ -6,26 +6,27 @@ import { DemoCommerceService } from "./demoCommerce";
 const address = {
   label: "Studio",
   recipient: "Demo Customer",
-  phone: "+92 300 0000000",
-  line1: "12 Studio Lane",
-  city: "Karachi",
+  phone: "+1 408 555 0100",
+  line1: "1 Apple Park Way",
+  city: "Cupertino",
   country: "Pakistan" as const,
 };
 
 describe("CatalogService", () => {
-  it("returns the expanded catalog and supports collection-aware search", () => {
-    expect(CatalogService.listProducts()).toHaveLength(36);
-    expect(CatalogService.listProducts({ collection: "travel" }).every((product) => product.collections.includes("travel"))).toBe(true);
-    expect(CatalogService.listProducts({ query: "passport" })[0]?.slug).toBe("ledger-passport-holder");
+  it("returns the expanded Apple catalog and supports collection-aware search", () => {
+    expect(CatalogService.listProducts()).toHaveLength(48);
+    expect(CatalogService.listProducts({ collection: "iphone" }).every((product) => product.collections.includes("iphone"))).toBe(true);
+    expect(CatalogService.listProducts({ query: "charger" })[0]?.slug).toBe("magsafe-charger");
   });
 });
 
 describe("DemoCommerceService", () => {
-  it("recalculates totals from server catalog prices and protects payment idempotency", () => {
-    const order = DemoCommerceService.createOrder(11, "demo@example.com", [{ productId: "ub-001", quantity: 1 }], address);
-    expect(order.subtotalPkr).toBe(48500);
-    expect(order.shippingPkr).toBe(0);
-    expect(order.totalPkr).toBe(48500);
+  it("recalculates totals from the current catalog and protects payment idempotency", () => {
+    const order = DemoCommerceService.createOrder(11, "demo@example.com", [{ productId: "iphone-17-pro", quantity: 1 }], address);
+    expect(order.lines[0]?.productId).toBe("apple-001");
+    expect(order.subtotalPkr).toBe(1099);
+    expect(order.shippingPkr).toBe(650);
+    expect(order.totalPkr).toBe(1749);
 
     const input = { orderId: order.id, method: "sadapay" as const, idempotencyKey: "00000000-0000-4000-8000-000000000001", demoOutcome: "success" as const };
     const first = DemoCommerceService.createPayment(11, input);
@@ -36,7 +37,7 @@ describe("DemoCommerceService", () => {
   });
 
   it("keeps COD and bank transfer in pending collection state and reports failures safely", () => {
-    const order = DemoCommerceService.createOrder(12, "demo2@example.com", [{ productId: "ub-002", quantity: 1 }], address);
+    const order = DemoCommerceService.createOrder(12, "demo2@example.com", [{ productId: "iphone-17", quantity: 1 }], address);
     const cod = DemoCommerceService.createPayment(12, { orderId: order.id, method: "cod", idempotencyKey: "00000000-0000-4000-8000-000000000002" });
     expect(cod.status).toBe("pending");
     const failed = DemoCommerceService.createPayment(12, { orderId: order.id, method: "jazzcash", idempotencyKey: "00000000-0000-4000-8000-000000000003", demoOutcome: "failure" });
@@ -47,9 +48,9 @@ describe("DemoCommerceService", () => {
 
 describe("CartService", () => {
   it("stores canonical product lines durably when available and rejects duplicate or unavailable cart input", async () => {
-    await expect(CartService.replace(91, [{ productId: "ub-001", quantity: 2 }])).resolves.toEqual([{ productId: "ub-001", variantId: undefined, quantity: 2 }]);
+    await expect(CartService.replace(91, [{ productId: "iphone-17-pro", quantity: 2 }])).resolves.toEqual([{ productId: "apple-001", variantId: undefined, quantity: 2 }]);
     await expect(CartService.list(91)).resolves.toHaveLength(1);
-    expect(() => CartService.replace(91, [{ productId: "ub-001", quantity: 1 }, { productId: "ub-001", quantity: 1 }])).toThrow("Duplicate cart lines");
+    expect(() => CartService.replace(91, [{ productId: "iphone-17-pro", quantity: 1 }, { productId: "apple-001", quantity: 1 }])).toThrow("Duplicate cart lines");
     expect(() => CartService.replace(91, [{ productId: "missing-product", quantity: 1 }])).toThrow("cart products are unavailable");
   });
 

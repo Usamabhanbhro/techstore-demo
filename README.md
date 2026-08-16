@@ -64,11 +64,19 @@ Use the platform migration process only after reviewing the generated SQL. Never
 
 ## GitHub Pages static demo
 
-Run `pnpm build:pages` to create a static artifact rooted at `/e-commerce/`. `.github/workflows/ci.yml` validates pushes and pull requests with type checking, linting, tests, a full-stack build, and a Pages build. `.github/workflows/github-pages.yml` repeats the validation gates before it uploads the Pages artifact and deploys only when an administrator explicitly selects the **publish** option. A Pages-safe `404.html` restores direct nested SPA routes under `/e-commerce/` without affecting local development.
+The public static demo is deployed from the `master` branch by [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) to [https://usamabhanbhro.github.io/techstore-demo/](https://usamabhanbhro.github.io/techstore-demo/). The workflow installs the locked pnpm environment, runs type checking and tests, builds the Vite artifact with `GITHUB_PAGES=true`, uploads `dist/public`, and deploys that artifact through the official GitHub Pages Actions.
 
-Set the public build-time variable `VITE_API_URL` only when the static storefront should call a separately hosted API. Its value is an origin such as `https://api.example.com`, never a credential; the client then uses `${VITE_API_URL}/api/trpc`. The managed full-stack runtime leaves it unset and uses the relative `/api/trpc` endpoint.
+Build the same Pages artifact locally with:
 
-GitHub Pages cannot run the Node server, tRPC APIs, database, OAuth session, or secure payment code. Use it for the visual/catalog demo only; use a Node-compatible environment for the full-stack build.
+```bash
+pnpm run build:pages
+```
+
+The Pages build uses the `/techstore-demo/` Vite base path. The committed `client/public/404.html` restores direct nested SPA routes such as `/shop`, `/products/macbook-air`, `/checkout`, and `/journal` after GitHub Pages returns its static 404 document. Local development continues to use `/`.
+
+Set the public build-time variable `VITE_API_URL` only when the static storefront should call a separately hosted API. Its value is an origin such as `https://api.example.com`, never a credential; the client then uses `${VITE_API_URL}/api/trpc`. Without that variable, the Pages demo remains client-side and local-only for cart, wishlist, checkout simulation, and order confirmation.
+
+GitHub Pages cannot run the Node server, tRPC APIs, database, OAuth session, or secure payment code. The public deployment is therefore a visual/catalog and local-commerce demonstration. Use a Node-compatible environment for authenticated persistence, server APIs, and any future production payment adapters.
 
 ## Current limitations
 

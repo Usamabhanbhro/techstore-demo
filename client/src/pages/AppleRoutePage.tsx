@@ -3,8 +3,9 @@ import { Link, useLocation } from "wouter";
 import { appleRouteAuditData } from "@/data/appleRouteAuditData";
 import { appleRouteAssets } from "@/data/appleRouteAssets";
 import { appleRouteAssetSets } from "@/data/appleRouteAssetSets";
+import { assetUrl } from "@/lib/assetUrl";
 
-const asset = (name: string) => `/sites/apple-com-7b1a/homepage-6a2c/${name}`;
+const asset = (name: string) => assetUrl(`/sites/apple-com-7b1a/homepage-6a2c/${name}`);
 
 const pageLabels: Record<string, string> = {
   "/mac": "Mac",
@@ -161,8 +162,8 @@ export default function AppleRoutePage() {
   const family = familyFor(path);
   const copy = familyCopy[family];
   const routeData = appleRouteAuditData[path];
-  const routeImage = appleRouteAssets[path] || asset(copy.image);
-  const routeImages = appleRouteAssetSets[path]?.length ? appleRouteAssetSets[path] : [routeImage];
+  const routeImage = appleRouteAssets[path] ? assetUrl(appleRouteAssets[path]) : asset(copy.image);
+  const routeImages = appleRouteAssetSets[path]?.length ? appleRouteAssetSets[path].map(assetUrl) : [routeImage];
   const routeHeadings = routeData?.headings ?? [];
   const routeParagraphs = routeData?.paragraphs ?? [];
   const title = routeData?.h1 || pageLabels[path] || humanize(path);

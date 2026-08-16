@@ -13,8 +13,17 @@ export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 // with "invalid oauth state". It returns void by design, so there is no URL to
 // stash across renders.
 export const startLogin = () => {
+  if (import.meta.env.BASE_URL !== "/") {
+    window.alert("Secure sign-in is available in the full-stack demo only. This GitHub Pages build keeps account data local to your browser.");
+    return;
+  }
+
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL;
   const appId = import.meta.env.VITE_APP_ID;
+  if (!oauthPortalUrl || !appId) {
+    window.alert("Secure sign-in is not configured in this demo environment.");
+    return;
+  }
   const redirectUri = `${window.location.origin}/api/oauth/callback`;
 
   const nonce = crypto.randomUUID();

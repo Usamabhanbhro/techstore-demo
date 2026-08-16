@@ -1,8 +1,9 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Pause, Play } from "lucide-react";
 import { Link } from "wouter";
+import { assetUrl } from "@/lib/assetUrl";
 
-const asset = "/sites/apple-com-7b1a/homepage-6a2c";
+const asset = assetUrl("/sites/apple-com-7b1a/homepage-6a2c");
 
 type GalleryItem = { title: string; eyebrow: string; copy: string; action: string; tone: string };
 

@@ -2,6 +2,7 @@ import { Heart, ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
 import { useCommerce } from "@/lib/commerce";
 import { money, type Product } from "@/lib/catalog";
+import { assetUrl } from "@/lib/assetUrl";
 
 function availabilityLabel(product: Product) {
   if (product.availability === "out-of-stock") return "Currently unavailable";
@@ -15,8 +16,8 @@ export function ProductCard({ product }: { product: Product }) {
   return <article className="catalog-card">
     <div className="catalog-card__media">
       <Link href={`/products/${product.slug}`} aria-label={`View ${product.name}`}>
-        <img className="material-image" src={product.images[0]} alt={`${product.name} — ${product.subtitle}`} loading="lazy" decoding="async" sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 25vw" />
-        <img className="catalog-card__hover material-image" src={product.images[1] ?? product.images[0]} alt="" aria-hidden="true" loading="lazy" decoding="async" sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 25vw" />
+        <img className="material-image" src={assetUrl(product.images[0])} alt={`${product.name} — ${product.subtitle}`} loading="lazy" decoding="async" sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 25vw" />
+        <img className="catalog-card__hover material-image" src={assetUrl(product.images[1] ?? product.images[0])} alt="" aria-hidden="true" loading="lazy" decoding="async" sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 25vw" />
       </Link>
       <span className="material-mark" aria-hidden="true">Apple Store</span>
       <button type="button" className={`wishlist-button ${saved ? "is-saved" : ""}`} onClick={() => toggleWishlist(product.id)} aria-pressed={saved} aria-label={saved ? `Remove ${product.name} from wishlist` : `Save ${product.name} to wishlist`}><Heart size={18} fill={saved ? "currentColor" : "none"} strokeWidth={1.7} /></button>

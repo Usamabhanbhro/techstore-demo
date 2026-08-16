@@ -17,6 +17,7 @@ export function useAuth(options?: UseAuthOptions) {
   const utils = trpc.useUtils();
 
   const meQuery = trpc.auth.me.useQuery(undefined, {
+    enabled: import.meta.env.BASE_URL === "/",
     retry: false,
     refetchOnWindowFocus: false,
   });

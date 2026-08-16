@@ -154,7 +154,7 @@ const plugins = [react(), tailwindcss(), vitePluginManusRuntime(), vitePluginMan
 
 export default defineConfig({
   plugins,
-  base: process.env.GITHUB_PAGES === "true" ? "/e-commerce/" : "/",
+  base: process.env.GITHUB_PAGES === "true" ? "/techstore-demo/" : "/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

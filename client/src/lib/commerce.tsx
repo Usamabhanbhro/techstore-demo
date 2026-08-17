@@ -1,4 +1,4 @@
-// Local commerce state for the transparent Apple Store showcase. It never handles real payments.
+// Local commerce state for the transparent Mehronex Store showcase. It never handles real payments.
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { findProduct, products, type Product } from "./catalog";
 

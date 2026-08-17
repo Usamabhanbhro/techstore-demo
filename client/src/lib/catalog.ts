@@ -149,7 +149,7 @@ const routeAssets: Record<string, AssetSet> = {
   ],
 };
 
-const commonDetails = ["Free delivery or Apple Store pickup", "Apple support and setup included", "Financing options available at checkout"];
+const commonDetails = ["Free delivery or Mehronex Store pickup", "Apple support and setup included", "Financing options available at checkout"];
 
 const variant = (label: string, values: string[], unavailable: string[] = []): ProductVariant[] => values.map((value, index) => ({ label, value, available: !unavailable.includes(value), stock: unavailable.includes(value) ? 0 : Math.max(3, 12 - index * 2) }));
 
@@ -269,10 +269,10 @@ export const collections = [
 ] as const;
 
 export const journals = [
-  { slug: "why-iphone", title: "Why iPhone", type: "Apple Store guide", date: "Updated 2026", excerpt: "A practical guide to choosing the right iPhone, comparing models, and moving your data.", image: collectionImage("iphone17") },
-  { slug: "choose-your-mac", title: "Choose your Mac", type: "Apple Store guide", date: "Updated 2026", excerpt: "Compare MacBook Air, MacBook Pro, Mac mini, iMac, Mac Studio, and Studio Display.", image: collectionImage("macbookPro") },
-  { slug: "ipad-accessories", title: "The iPad setup", type: "Apple Store guide", date: "Updated 2026", excerpt: "Build an iPad setup with Apple Pencil Pro, Magic Keyboard, and the right case.", image: collectionImage("ipadAir") },
-  { slug: "make-it-yours", title: "Make it yours", type: "Apple Store guide", date: "Updated 2026", excerpt: "Personalize your Apple devices with engraving, bands, cases, and accessories.", image: collectionImage("watch") },
+  { slug: "why-iphone", title: "Why iPhone", type: "Mehronex Store guide", date: "Updated 2026", excerpt: "A practical guide to choosing the right iPhone, comparing models, and moving your data.", image: collectionImage("iphone17") },
+  { slug: "choose-your-mac", title: "Choose your Mac", type: "Mehronex Store guide", date: "Updated 2026", excerpt: "Compare MacBook Air, MacBook Pro, Mac mini, iMac, Mac Studio, and Studio Display.", image: collectionImage("macbookPro") },
+  { slug: "ipad-accessories", title: "The iPad setup", type: "Mehronex Store guide", date: "Updated 2026", excerpt: "Build an iPad setup with Apple Pencil Pro, Magic Keyboard, and the right case.", image: collectionImage("ipadAir") },
+  { slug: "make-it-yours", title: "Make it yours", type: "Mehronex Store guide", date: "Updated 2026", excerpt: "Personalize your Apple devices with engraving, bands, cases, and accessories.", image: collectionImage("watch") },
 ];
 
 export const money = (value: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(value);

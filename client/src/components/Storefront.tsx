@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Apple, ChevronRight, Menu, Search, ShoppingBag, X } from "lucide-react";
+import { ChevronRight, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useCommerce } from "@/lib/commerce";
 import { assetUrl } from "@/lib/assetUrl";
@@ -13,7 +13,7 @@ const appleNavItems = [
 const footerGroups = [
   { title: "Shop and Learn", links: [["Store", "/shop"], ["Mac", "/collections/mac"], ["iPad", "/collections/ipad"], ["iPhone", "/collections/iphone"], ["Watch", "/collections/apple-watch"], ["AirPods", "/collections/airpods"], ["Vision", "/collections/vision"], ["TV & Home", "/collections/tv-home"], ["Accessories", "/collections/accessories"], ["Compare products", "/compare"]] },
   { title: "Services", links: [["Product guides", "/journal"], ["Contact support", "/contact"], ["About this demo", "/about"], ["Order confirmation", "/order-confirmation"]] },
-  { title: "Apple Store", links: [["Your account", "/account"], ["Saved products", "/wishlist"], ["Your bag", "/cart"], ["Checkout", "/checkout"], ["Find a Store", "/contact"]] },
+  { title: "Mehronex Store", links: [["Your account", "/account"], ["Saved products", "/wishlist"], ["Your bag", "/cart"], ["Checkout", "/checkout"], ["Find a Store", "/contact"]] },
   { title: "For Business", links: [["Apple and Business", "/collections/mac"], ["Shop for Business", "/shop"], ["For Education", "/collections/ipad"], ["Get help choosing", "/contact"]] },
   { title: "Apple Values", links: [["Accessibility", "/contact"], ["Education", "/collections/ipad"], ["Environment", "/about"], ["Privacy", "/privacy"], ["Inclusion and Diversity", "/contact"], ["Legal", "/terms"]] },
 ] as const;
@@ -63,8 +63,8 @@ function AppleNav() {
   return <header className={`apple-nav ${scrolled ? "apple-nav--scrolled" : ""}`}>
     <div className="apple-nav__inner">
       <button ref={menuButtonRef} type="button" className="apple-nav__menu" onClick={toggleMenu} aria-expanded={menu} aria-controls="primary-navigation" aria-label={menu ? "Close navigation" : "Open navigation"}>{menu ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}</button>
-      <Link className="apple-nav__logo" href="/" aria-label="Apple Store home"><Apple size={17} strokeWidth={1.8} aria-hidden="true" /></Link>
-      <nav id="primary-navigation" className={`apple-nav__links ${menu ? "is-open" : ""}`} aria-label="Apple Store primary navigation">
+      <Link className="apple-nav__logo" href="/" aria-label="Mehronex Store home"><span className="mehronex-wordmark">Mehronex</span></Link>
+      <nav id="primary-navigation" className={`apple-nav__links ${menu ? "is-open" : ""}`} aria-label="Mehronex Store primary navigation">
         {appleNavItems.map(([label, href], index) => <Link ref={index === 0 ? firstMenuLinkRef : undefined} key={href} href={href} onClick={closeMenu}>{label}</Link>)}
       </nav>
       <div className="apple-nav__actions">
@@ -75,7 +75,7 @@ function AppleNav() {
     {searchMounted && <form id="global-search" className={`apple-nav__search ${search ? "is-open" : ""}`} aria-hidden={!search} aria-label="Site search" onSubmit={submitSearch}>
       <label className="sr-only" htmlFor="apple-search">Search products</label>
       <Search size={18} aria-hidden="true" />
-      <input autoFocus={searchMounted} tabIndex={search ? 0 : -1} autoComplete="off" name="q" id="apple-search" placeholder="Search Apple products and accessories" />
+      <input autoFocus={searchMounted} tabIndex={search ? 0 : -1} autoComplete="off" name="q" id="apple-search" placeholder="Search Mehronex for Apple products" />
       <button type="submit" tabIndex={search ? 0 : -1}>Search</button>
     </form>}
   </header>;
@@ -85,14 +85,14 @@ function AppleFooter() {
   const [open, setOpen] = useState<string | null>(null);
   return <footer className="apple-footer" id="footer">
     <p className="apple-footer__note">* Demo storefront. Prices and availability are illustrative. No real transactions are processed.</p>
-    <div className="apple-footer__crumb"><Link href="/">Apple Store</Link><ChevronRight size={14} aria-hidden="true" /><span>Shop online</span></div>
+    <div className="apple-footer__crumb"><Link href="/">Mehronex Store</Link><ChevronRight size={14} aria-hidden="true" /><span>Shop online</span></div>
     <div className="apple-footer__groups">
       {footerGroups.map((group) => { const panelId = `footer-${group.title.toLowerCase().replaceAll(" ", "-")}`; return <section className={`apple-footer__group ${open === group.title ? "is-open" : ""}`} key={group.title}>
         <button type="button" onClick={() => setOpen(open === group.title ? null : group.title)} aria-expanded={open === group.title} aria-controls={panelId}>{group.title}<span aria-hidden="true">{open === group.title ? <X size={14} /> : <span className="footer-plus">+</span>}</span></button>
         <div className="footer-links-shell"><ul id={panelId}>{group.links.map(([label, href]) => <li key={`${href}-${label}`}><Link href={href} onClick={() => setOpen(null)}>{label}</Link></li>)}</ul></div>
       </section>; })}
     </div>
-    <div className="apple-footer__bottom"><span>Copyright © 2026 Apple Store Demo. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/contact">Support</Link><a href={assetUrl("/sitemap.xml")}>Site Map</a></div><span>Demo storefront</span></div>
+    <div className="apple-footer__bottom"><span>Copyright © 2026 Mehronex Store. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/contact">Support</Link><a href={assetUrl("/sitemap.xml")}>Site Map</a></div><span>Demo storefront</span></div>
   </footer>;
 }
 

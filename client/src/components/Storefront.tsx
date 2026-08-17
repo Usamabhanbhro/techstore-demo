@@ -84,7 +84,7 @@ function AppleFooter() {
     <div className="apple-footer__groups">
       {footerGroups.map((group) => { const panelId = `footer-${group.title.toLowerCase().replaceAll(" ", "-")}`; return <section className={`apple-footer__group ${open === group.title ? "is-open" : ""}`} key={group.title}>
         <button type="button" onClick={() => setOpen(open === group.title ? null : group.title)} aria-expanded={open === group.title} aria-controls={panelId}>{group.title}<span aria-hidden="true">{open === group.title ? <X size={14} /> : <span className="footer-plus">+</span>}</span></button>
-        <ul id={panelId}>{group.links.map(([label, href]) => <li key={`${href}-${label}`}><Link href={href} onClick={() => setOpen(null)}>{label}</Link></li>)}</ul>
+        <div className="footer-links-shell"><ul id={panelId}>{group.links.map(([label, href]) => <li key={`${href}-${label}`}><Link href={href} onClick={() => setOpen(null)}>{label}</Link></li>)}</ul></div>
       </section>; })}
     </div>
     <div className="apple-footer__bottom"><span>Copyright © 2026 Apple Store Demo. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/contact">Support</Link><a href={assetUrl("/sitemap.xml")}>Site Map</a></div><span>Demo storefront</span></div>

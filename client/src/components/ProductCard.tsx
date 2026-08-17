@@ -35,6 +35,6 @@ export function ProductCard({ product }: { product: Product }) {
   </article>;
 }
 
-export function ProductGrid({ items }: { items: Product[] }) {
-  return <div className="catalog-grid">{items.map((product) => <ProductCard key={product.id} product={product} />)}</div>;
+export function ProductGrid({ items, className }: { items: Product[]; className?: string }) {
+  return <div className={`catalog-grid ${className ?? ""}`.trim()}>{items.map((product) => <ProductCard key={product.id} product={product} />)}</div>
 }

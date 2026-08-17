@@ -23,3 +23,9 @@ The study does not copy Apple branding, pricing, promotional claims, navigation 
 ## Search surface
 
 Apple’s search page keeps the input, Submit control, category tabs, and empty-state recovery together. The empty result state is direct and actionable rather than theatrical: “Sorry, no matches were found. Please try a different search.” TechStore should preserve instant local search, keep the input focused, and animate only the result-state handoff; the empty state itself should remain still and readable.
+
+## Second-pass adaptation notes — 2026-08-17
+
+The second pass retains the earlier Apple-inspired principles but makes the hierarchy more explicit. The compact navigation remains a calm orientation surface, while the TechStore mobile drawer now has enough time to establish presence before its links settle. Search is treated as an attached surface with a 300ms open and 240ms close rather than a one-shot keyframe. Product gallery timing is intentionally slower than control feedback because imagery is the primary content, while payment selection and wishlist remain restrained because they are frequent decisions.
+
+These are adaptation decisions, not a claim that TechStore reproduces Apple’s implementation. The work preserves the project’s local-demo disclosure, routes, content truth, and non-financial commerce behavior.

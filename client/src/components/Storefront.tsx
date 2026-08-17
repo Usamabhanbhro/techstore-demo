@@ -21,6 +21,8 @@ const footerGroups = [
 function AppleNav() {
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
+  const [searchMounted, setSearchMounted] = useState(false);
+  const searchCloseTimer = useRef<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
@@ -30,7 +32,7 @@ function AppleNav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
-    const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") { setMenu(false); setSearch(false); } };
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") { setMenu(false); setSearch(false); setSearchMounted(false); } };
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("keydown", onKeyDown);
     return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("keydown", onKeyDown); };
@@ -46,12 +48,15 @@ function AppleNav() {
   }, [menu]);
 
   const closeMenu = () => setMenu(false);
-  const toggleMenu = () => { setSearch(false); setMenu((value) => !value); };
+  const closeSearch = () => { setSearch(false); if (searchCloseTimer.current !== null) window.clearTimeout(searchCloseTimer.current); searchCloseTimer.current = window.setTimeout(() => setSearchMounted(false), 240); };
+  const openSearch = () => { if (searchCloseTimer.current !== null) window.clearTimeout(searchCloseTimer.current); setSearchMounted(true); window.requestAnimationFrame(() => setSearch(true)); };
+  const toggleSearch = () => { setMenu(false); if (search) closeSearch(); else openSearch(); };
+  const toggleMenu = () => { closeSearch(); setMenu((value) => !value); };
   const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const query = String(new FormData(event.currentTarget).get("q") ?? "").trim();
     navigate(query ? `/search?q=${encodeURIComponent(query)}` : "/search");
-    setSearch(false);
+    closeSearch();
     closeMenu();
   };
 
@@ -63,15 +68,15 @@ function AppleNav() {
         {appleNavItems.map(([label, href], index) => <Link ref={index === 0 ? firstMenuLinkRef : undefined} key={href} href={href} onClick={closeMenu}>{label}</Link>)}
       </nav>
       <div className="apple-nav__actions">
-        <button type="button" aria-label={search ? "Close search" : "Open search"} aria-expanded={search} aria-controls="global-search" onClick={() => { setMenu(false); setSearch((value) => !value); }}>{search ? <X size={16} aria-hidden="true" /> : <Search size={16} aria-hidden="true" />}</button>
+        <button type="button" aria-label={search ? "Close search" : "Open search"} aria-expanded={search} aria-controls="global-search" onClick={toggleSearch}>{search ? <X size={16} aria-hidden="true" /> : <Search size={16} aria-hidden="true" />}</button>
         <button type="button" className="apple-nav__bag" aria-label={`Shopping bag with ${cartCount} ${cartCount === 1 ? "item" : "items"}`} onClick={() => navigate("/cart")}><ShoppingBag size={16} aria-hidden="true" />{cartCount > 0 && <span className="apple-nav__count" aria-live="polite">{cartCount}</span>}</button>
       </div>
     </div>
-    {search && <form id="global-search" className="apple-nav__search" aria-label="Site search" onSubmit={submitSearch}>
+    {searchMounted && <form id="global-search" className={`apple-nav__search ${search ? "is-open" : ""}`} aria-hidden={!search} aria-label="Site search" onSubmit={submitSearch}>
       <label className="sr-only" htmlFor="apple-search">Search products</label>
       <Search size={18} aria-hidden="true" />
-      <input autoFocus autoComplete="off" name="q" id="apple-search" placeholder="Search Apple products and accessories" />
-      <button type="submit">Search</button>
+      <input autoFocus={searchMounted} tabIndex={search ? 0 : -1} autoComplete="off" name="q" id="apple-search" placeholder="Search Apple products and accessories" />
+      <button type="submit" tabIndex={search ? 0 : -1}>Search</button>
     </form>}
   </header>;
 }

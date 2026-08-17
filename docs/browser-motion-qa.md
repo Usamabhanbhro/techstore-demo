@@ -42,3 +42,9 @@ Responsive Playwright checks on `/products/macbook-air` reported no horizontal o
 | 768px | 768px | No | Visible | Hidden |
 | 1024px | 1024px | No | Hidden | Hidden |
 | 1440px | 1440px | No | Hidden | Hidden |
+
+## Second-pass validation addendum — 2026-08-17
+
+The second pass added screenshot-led QA in `docs/second-pass-visual-qa.md`. It validated homepage, product, bag, populated checkout, confirmation, search open/close, intermediate-width composition, and a preserved route fallback. Search now opens with a mounted 300ms surface transition, autofocuses its textbox, closes through a 240ms exit, and removes the form after the exit settles. Cart and confirmation snapshots showed separated label/value regions, payment options showed structured provider rows, and the 390/430/768/820/1024/1280/1440 breakpoint probe reported no horizontal overflow.
+
+Final automated checks passed: `pnpm run check`, all 14 existing tests, `pnpm run build`, `pnpm run build:pages`, the Impeccable detector with an empty findings array, `git diff --check`, and `python3 docs/research/apple-com-7b1a/site-inventory/smoke_routes.py` with `routes=272 passed=272 failed=0`. The final Playwright console check reported 0 errors and 0 warnings.

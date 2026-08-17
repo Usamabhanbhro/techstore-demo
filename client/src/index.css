@@ -39,10 +39,15 @@
   --ease-out: cubic-bezier(.23, 1, .32, 1);
   --ease-drawer: cubic-bezier(.32, .72, 0, 1);
   --duration-instant: 0ms;
-  --duration-fast: 150ms;
+  --duration-fast: 170ms;
   --duration-standard: 220ms;
-  --duration-emphasis: 260ms;
-  --duration-gallery: 280ms;
+  --duration-emphasis: 300ms;
+  --duration-surface: 300ms;
+  --duration-disclosure: 340ms;
+  --duration-drawer: 400ms;
+  --duration-gallery: 450ms;
+  --duration-result: 360ms;
+  --duration-major: 600ms;
   color: var(--color-text-primary);
   background: var(--color-background);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
@@ -590,4 +595,137 @@ main { min-height: 50vh; }
 @media (prefers-reduced-motion: reduce) {
   .apple-nav__links, .apple-nav__links a, .apple-nav__search, .product-gallery img, .cart-line, .product-sticky-cta, .animated-disclosure__panel-inner { animation-delay: 0ms !important; transition-delay: 0ms !important; transform: none !important; }
   .apple-gallery__content, .catalog-grid--animated, .form-success, .field-error, .promo-success, .promo-error, .payment-result, .confirmation-mark, .not-found, .empty-state, .product-price--animated, .summary-number { animation-delay: 0ms !important; }
+}
+
+
+/* Second motion pass: static composition fixes first, then deliberate timing hierarchy. */
+.search-section .filter-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-5); }
+.search-box input { min-width: 0; flex: 1 1 auto; }
+.search-box button { flex: 0 0 auto; white-space: nowrap; }
+.promo-field > div { display: grid; gap: var(--space-2); }
+.search-section .filter-buttons button { transition: background-color 220ms var(--ease-standard), color 220ms var(--ease-standard), border-color 220ms var(--ease-standard), transform 150ms var(--ease-out); }
+.search-section .result-count { margin-top: var(--space-6); }
+
+.cart-line__info { min-width: 0; }
+.cart-line__info > .availability { display: inline-flex; }
+.cart-line__actions { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-3); }
+.cart-line__controls { min-width: 112px; }
+.cart-line__controls > strong { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cart-line__controls > div { gap: var(--space-2); }
+.summary-items { display: grid; gap: 2px; margin-bottom: var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border-subtle); }
+.summary-row { min-height: 32px; align-items: baseline; }
+.summary-row > span { min-width: 0; }
+.summary-row > strong { flex: 0 0 auto; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
+.summary-row--item { color: var(--color-text-primary); font-size: 13px; }
+.summary-row--item > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.order-summary__total { display: flex; justify-content: space-between; gap: var(--space-4); }
+
+.checkout-form fieldset { gap: var(--space-5); }
+.checkout-form legend { letter-spacing: -.02em; }
+.delivery-choice { display: grid !important; gap: var(--space-3); }
+.delivery-choice__heading { color: var(--color-text-secondary); font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; }
+.delivery-choice__options { display: grid; gap: var(--space-2); }
+.delivery-choice__options label { display: grid !important; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: var(--space-3); padding: var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); color: var(--color-text-primary) !important; }
+.delivery-choice__options label:has(input:checked) { border-color: var(--color-accent); background: #f5faff; }
+.delivery-choice__options label > span { display: grid; gap: 2px; }
+.delivery-choice__options label strong { font-size: 14px; }
+.delivery-choice__options label small { color: var(--color-text-secondary); font-size: 13px; font-weight: 400; }
+.delivery-choice__options input { width: 18px; min-height: 18px; margin-top: 1px; padding: 0; accent-color: var(--color-accent); }
+.payment-options { display: grid; gap: var(--space-2); }
+.payment-option { display: grid; grid-template-columns: 18px minmax(0, 1fr) 22px; align-items: center; gap: var(--space-3); min-height: 68px; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-background); color: var(--color-text-primary) !important; cursor: pointer; transition: border-color 240ms var(--ease-standard), background-color 240ms var(--ease-standard), box-shadow 240ms var(--ease-standard), transform 150ms var(--ease-out); }
+.payment-option:hover { border-color: var(--color-accent); }
+.payment-option.is-selected { border-color: var(--color-accent); box-shadow: inset 0 0 0 1px var(--color-accent); background: #f5faff; }
+.payment-option:active { transform: scale(.995); }
+.payment-option input { width: 18px; min-height: 18px; margin: 0; padding: 0; accent-color: var(--color-accent); }
+.payment-option > span:not(.payment-option__mark) { display: grid; gap: 2px; min-width: 0; }
+.payment-option strong { font-size: 15px; font-weight: 600; }
+.payment-option small { color: var(--color-text-secondary); font-size: 13px; line-height: 1.35; }
+.payment-option__mark { display: inline-flex; width: 22px; height: 22px; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-accent); }
+.demo-outcome { margin-top: var(--space-2); }
+.demo-outcome select { margin-top: var(--space-2); }
+
+.confirmation-page { padding-top: var(--space-7); }
+.confirmation-page > .commerce-state__stamp { margin-bottom: var(--space-5); }
+.confirmation-mark { margin-bottom: var(--space-4); }
+.confirmation-lede { max-width: 58ch; margin: var(--space-5) 0 var(--space-7); padding: 0; color: var(--color-text-secondary); }
+.confirmation-page h1 { margin: var(--space-3) 0 0; font-size: clamp(40px, 6vw, 64px); font-weight: 600; letter-spacing: -.035em; line-height: 1.04; }
+.confirmation-card { margin-top: var(--space-7); background: var(--color-surface); }
+.confirmation-card > dl { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--color-border-subtle); }
+.confirmation-card > dl > div { min-width: 0; padding: var(--space-4); background: var(--color-surface); }
+.confirmation-card dt { margin: 0; font-size: 12px; letter-spacing: .03em; text-transform: uppercase; }
+.confirmation-card dd { display: grid; gap: var(--space-2); min-width: 0; overflow-wrap: anywhere; }
+.confirmation-card dd .plain-link { width: fit-content; font-size: 13px; }
+.confirmation-reference { overflow-wrap: anywhere; }
+.confirmation-items { margin-top: var(--space-7); }
+.confirmation-actions { margin-top: var(--space-5); }
+
+/* Hierarchical timing: frequent controls are quick; surfaces and major compositions breathe. */
+.apple-nav__search { opacity: 0; transform: translateY(-8px); animation: none; transition: opacity var(--duration-surface) var(--ease-out), transform var(--duration-surface) var(--ease-out); }
+.apple-nav__search.is-open { opacity: 1; transform: translateY(0); transition-duration: var(--duration-surface); }
+.apple-nav__search:not(.is-open) { transition-duration: 240ms; }
+.apple-nav__links { transition-duration: var(--duration-drawer); }
+.apple-footer__group > button svg { transition-duration: 240ms; }
+.footer-links-shell { transition-duration: var(--duration-disclosure); }
+.apple-footer__group ul { transition-duration: 240ms; }
+.animated-disclosure__trigger svg { transition-duration: 240ms; }
+.animated-disclosure__panel { transition-duration: var(--duration-disclosure), 240ms; }
+.animated-disclosure__panel-inner { transition-duration: var(--duration-disclosure); }
+.catalog-grid--animated { animation-duration: var(--duration-result); }
+.catalog-card__media img { transition-duration: 360ms; }
+.wishlist-button { transition-duration: 190ms; }
+.wishlist-button.is-saved { animation-duration: 190ms; }
+.product-actions__add { transition-duration: 280ms; }
+.payment-result { animation-duration: 340ms; }
+.not-found, .empty-state { animation-duration: 420ms; }
+.product-price--animated, .summary-number { animation-duration: 240ms; }
+.confirmation-page > .confirmation-mark { animation-duration: 420ms; animation-delay: 80ms; }
+.confirmation-page > h1 { animation: state-enter 420ms var(--ease-out) 180ms both; }
+.confirmation-page > .confirmation-lede { animation: state-enter 420ms var(--ease-out) 260ms both; }
+.confirmation-page > .confirmation-card { animation: state-enter 420ms var(--ease-out) 340ms both; }
+.confirmation-page > .confirmation-items { animation: state-enter 420ms var(--ease-out) 420ms both; }
+.confirmation-page > .confirmation-actions { animation: state-enter 420ms var(--ease-out) 500ms both; }
+.apple-education__copy, .apple-feature__copy { animation: hero-copy-in var(--duration-major) var(--ease-out) both; }
+
+@keyframes hero-copy-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 920px) and (min-width: 801px) {
+  .apple-nav__menu { display: inline-flex; }
+  .apple-nav__links { position: absolute; top: 52px; right: 0; left: 0; display: flex; flex-direction: column; align-items: stretch; gap: 0; max-height: calc(100svh - 52px); overflow-y: auto; padding: 8px 24px 24px; border-bottom: 1px solid var(--color-border); background: rgb(255 255 255 / 98%); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px); transform-origin: top center; transition: opacity var(--duration-drawer) var(--ease-out), transform var(--duration-drawer) var(--ease-drawer), visibility var(--duration-instant) linear var(--duration-drawer); }
+  .apple-nav__links.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+  .apple-nav__links a { display: flex; min-height: 52px; align-items: center; border-bottom: 1px solid var(--color-border-subtle); font-size: 16px; opacity: 0; transform: translateY(-4px); transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out); }
+  .apple-nav__links.is-open a { opacity: 1; transform: translateY(0); }
+  .apple-nav__links.is-open a:nth-child(n + 2) { transition-delay: 30ms; }
+  .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .filter-bar { align-items: stretch; flex-direction: column; }
+  .filter-selects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sort-control { justify-content: space-between; }
+  .product-detail__grid, .cart-layout, .checkout-layout { grid-template-columns: 1fr; gap: var(--space-8); }
+  .order-summary { position: static; }
+  .apple-feature, .apple-education { min-height: 560px; }
+}
+
+@media (max-width: 800px) {
+  .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .apple-feature, .apple-education { min-height: 560px; }
+}
+
+@media (max-width: 560px) {
+  .apple-education, .apple-feature { min-height: 520px; }
+  .apple-education__copy, .apple-feature__copy { bottom: 28px; }
+  .apple-education__copy p, .apple-feature__copy p { font-size: 16px; }
+  .cart-line { grid-template-columns: 84px minmax(0, 1fr); align-items: start; }
+  .cart-line__controls { grid-column: 2; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: var(--space-3); width: 100%; }
+  .cart-line__controls > strong { justify-self: end; }
+  .cart-line__actions { margin-top: var(--space-2); }
+  .summary-row { gap: var(--space-3); }
+  .confirmation-page { padding-top: var(--space-5); }
+  .confirmation-card > dl { grid-template-columns: 1fr; }
+  .confirmation-card > dl > div { padding: var(--space-3); }
+  .confirmation-actions { align-items: stretch; flex-direction: column; }
+  .confirmation-actions .button { width: 100%; }
+  .payment-option { min-height: 64px; padding-inline: var(--space-3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apple-education__copy, .apple-feature__copy, .confirmation-page > h1, .confirmation-page > .confirmation-lede, .confirmation-page > .confirmation-card, .confirmation-page > .confirmation-items, .confirmation-page > .confirmation-actions { animation-delay: 0ms !important; }
 }

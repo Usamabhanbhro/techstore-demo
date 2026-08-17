@@ -36,3 +36,19 @@
 ## Deliberate rejections
 
 The audit rejects scroll-jacking, parallax, particle effects, animated gradients, product rotation, giant heart explosions, fake loading delays, full-screen spinners for local state, and animation on every page section. These would increase visual noise, compete with product imagery, or make fast local interactions feel slower without adding understanding.
+
+## Second-pass audit — 2026-08-17
+
+The first pass made the storefront functional and motion-aware, but the screenshot-driven review found two classes of remaining defects: **hierarchy was too compressed** and several commerce surfaces were structurally too flat. The second pass therefore changed static markup before timing.
+
+| Priority | Surface | Finding | Second-pass decision |
+|---|---|---|---|
+| High | Confirmation | Bare `div/span/strong` metadata allowed label/value collisions and a large empty composition | Use a semantic `dl` grid, tighten the hero-to-card rhythm, and sequence the success surface without blocking use |
+| High | Payment | Provider names and descriptions read as one string; radio controls inherited oversized input treatment | Use full-row option cards with 18px controls, primary/secondary type, and selected-state border/background |
+| High | Cart | Product metadata, Remove, quantity, and price compressed into adjacent regions | Split info/actions/controls and use explicit summary rows with tabular price alignment |
+| High | Responsive | 768–820px could remain too desktop-oriented for the available width | Use a two-column catalog, overlay navigation, stacked filter bar, and single-column commerce layout at the intermediate breakpoint |
+| Medium | Search | Keyframe-style open behavior was too immediate and had no real exit phase | Keep the form mounted for a 300ms open / 240ms close transition and remove it after the exit settles |
+| Medium | Navigation/disclosures | Shared timings made surfaces feel mechanically identical | Use 400ms drawer, 340ms disclosure, 450ms gallery, and 600ms major-state tiers |
+| Medium | Cart removal | JavaScript removed the row before the 340ms visual exit completed | Align the state lifetime to the transition duration |
+
+Rejected in this pass: fake provider delays, full-screen loaders for local state, per-card page-load choreography, scroll-jacking, parallax, animated gradients, giant wishlist celebrations, product rotation, layout-heavy animation, and any motion intended to disguise a static layout defect.

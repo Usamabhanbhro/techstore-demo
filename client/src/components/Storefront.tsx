@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Apple, ChevronRight, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useCommerce } from "@/lib/commerce";
@@ -22,6 +22,9 @@ function AppleNav() {
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
+  const wasMenuOpen = useRef(false);
   const [, navigate] = useLocation();
   const { cartCount } = useCommerce();
 
@@ -36,8 +39,14 @@ function AppleNav() {
     document.body.style.overflow = menu ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menu]);
+  useEffect(() => {
+    if (menu) firstMenuLinkRef.current?.focus();
+    else if (wasMenuOpen.current) menuButtonRef.current?.focus();
+    wasMenuOpen.current = menu;
+  }, [menu]);
 
   const closeMenu = () => setMenu(false);
+  const toggleMenu = () => { setSearch(false); setMenu((value) => !value); };
   const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const query = String(new FormData(event.currentTarget).get("q") ?? "").trim();
@@ -48,17 +57,17 @@ function AppleNav() {
 
   return <header className={`apple-nav ${scrolled ? "apple-nav--scrolled" : ""}`}>
     <div className="apple-nav__inner">
-      <button type="button" className="apple-nav__menu" onClick={() => setMenu((value) => !value)} aria-expanded={menu} aria-controls="primary-navigation" aria-label={menu ? "Close navigation" : "Open navigation"}>{menu ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}</button>
+      <button ref={menuButtonRef} type="button" className="apple-nav__menu" onClick={toggleMenu} aria-expanded={menu} aria-controls="primary-navigation" aria-label={menu ? "Close navigation" : "Open navigation"}>{menu ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}</button>
       <Link className="apple-nav__logo" href="/" aria-label="Apple Store home"><Apple size={17} strokeWidth={1.8} aria-hidden="true" /></Link>
       <nav id="primary-navigation" className={`apple-nav__links ${menu ? "is-open" : ""}`} aria-label="Apple Store primary navigation">
-        {appleNavItems.map(([label, href]) => <Link key={href} href={href} onClick={closeMenu}>{label}</Link>)}
+        {appleNavItems.map(([label, href], index) => <Link ref={index === 0 ? firstMenuLinkRef : undefined} key={href} href={href} onClick={closeMenu}>{label}</Link>)}
       </nav>
       <div className="apple-nav__actions">
-        <button type="button" aria-label={search ? "Close search" : "Open search"} aria-expanded={search} aria-controls="global-search" onClick={() => setSearch((value) => !value)}>{search ? <X size={16} aria-hidden="true" /> : <Search size={16} aria-hidden="true" />}</button>
+        <button type="button" aria-label={search ? "Close search" : "Open search"} aria-expanded={search} aria-controls="global-search" onClick={() => { setMenu(false); setSearch((value) => !value); }}>{search ? <X size={16} aria-hidden="true" /> : <Search size={16} aria-hidden="true" />}</button>
         <button type="button" className="apple-nav__bag" aria-label={`Shopping bag with ${cartCount} ${cartCount === 1 ? "item" : "items"}`} onClick={() => navigate("/cart")}><ShoppingBag size={16} aria-hidden="true" />{cartCount > 0 && <span className="apple-nav__count" aria-live="polite">{cartCount}</span>}</button>
       </div>
     </div>
-    {search && <form id="global-search" className="apple-nav__search" onSubmit={submitSearch}>
+    {search && <form id="global-search" className="apple-nav__search" aria-label="Site search" onSubmit={submitSearch}>
       <label className="sr-only" htmlFor="apple-search">Search products</label>
       <Search size={18} aria-hidden="true" />
       <input autoFocus autoComplete="off" name="q" id="apple-search" placeholder="Search Apple products and accessories" />

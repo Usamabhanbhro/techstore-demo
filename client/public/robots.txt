@@ -1,9 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /techstore-demo/cart
-Disallow: /techstore-demo/checkout
-Disallow: /techstore-demo/account
-Disallow: /techstore-demo/wishlist
-Disallow: /techstore-demo/order-confirmation
-
-Sitemap: https://usamabhanbhro.github.io/techstore-demo/sitemap.xml
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /wishlist
+Disallow: /order-confirmation

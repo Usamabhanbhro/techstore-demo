@@ -7,7 +7,7 @@ This matrix records the audited storefront’s final state. It distinguishes ret
 | Search | Yes | Yes — preserved route/query behavior and empty-state recovery | No | No | Search is a core catalog task; the pass keeps it visible and recoverable without analytics. |
 | Sticky header | Partial | Yes — compact scroll-aware shell behavior and restrained border/shadow treatment | No | No | Retains Apple-inspired orientation without creating a large floating header. |
 | Skip link | No | No | Yes — `Skip to content` targets `#main-content` | No | Required for keyboard users to bypass repeated navigation. |
-| Keyboard navigation | Partial | Yes — visible focus treatment, Escape-close mobile menu, disclosure semantics, and landmark target | No | No | Reduces navigation friction without changing the information architecture. |
+| Keyboard navigation | Partial | Yes — visible focus treatment, mobile menu focus entry, Escape close, focus restoration, disclosure semantics, and landmark target | No | No | Reduces navigation friction without changing the information architecture. |
 | Product CTA | Yes | Yes — honest demo copy and mobile continuity | Yes — context-aware mobile sticky purchase bar | No | Keeps purchase action available on long product pages while hiding it when the native action is visible. |
 | Metadata | Partial | Yes — route-aware title, description, canonical, Open Graph, robots, and schema | Yes — OG image and JSON-LD | No | Improves discoverability and sharing using only catalog-backed data. |
 | Sitemap | Partial | Yes — footer now points to the real asset | Yes — truthful `sitemap.xml` | No | Gives crawlers a valid public route inventory without exposing internal demo states. |
@@ -15,7 +15,7 @@ This matrix records the audited storefront’s final state. It distinguishes ret
 | Analytics | No | No | No | Yes | No tracking backend exists or is needed; privacy is clearer without analytics. |
 | Cookie banner | No | No | No | Yes | No cookies or tracking consent flow is required for this local demo. |
 | Product detail UX | Yes | Yes — delivery wording, image loading semantics, mobile purchase continuity, and support reassurance | No | No | Product configuration and accessory/related-product flows remain intact. |
-| Search navigation | Yes | Yes — accessible global search and route-preserving interaction retained | No | No | Search remains available from the shared shell without adding a new visual system. |
+| Search navigation | Yes | Yes — accessible global search, explicit submit behavior, URL-synchronized query state, clear recovery, and live result count | No | No | Search remains available from the shared shell without adding a new visual system. |
 | Mobile menu | Yes | Yes — labeled expanded state, Escape handling, body-scroll restoration, and focus-visible controls | No | No | Improves small-screen navigation while preserving the compact Apple-inspired pattern. |
 | Loading states | Limited | No functional loading state was necessary | No | Yes — no decorative loader | The local catalog renders synchronously; decorative motion would add noise. |
 | Hover states | Yes | Yes — existing restrained transitions remain token-based | No | No | Preserves tactile feedback without gradients or decorative animation. |
@@ -25,7 +25,7 @@ This matrix records the audited storefront’s final state. It distinguishes ret
 | Missing product / 404 | Yes | Yes — recovery actions include search, home, shop, and category paths | No | No | A bounded recovery surface is more useful than a dead end. |
 | Error states | Yes | Yes — checkout validation and payment failures expose actionable inline messages and alerts | No | No | Errors remain recoverable and accessible without modal interruption. |
 | Success states | Yes | Yes — confirmation disclosure, next actions, and copy-reference affordance | Yes — order-reference copy action | No | Copying a reference is the only copy task with a clear user benefit. |
-| Forms | Yes | Yes — labels, groups, validation, invalid states, success/error messaging, and contact feedback | No | No | Maintains commerce flow while improving form comprehension. |
+| Forms | Yes | Yes — labels, groups, autocomplete, field-level validation, associated invalid states, focus recovery, success/error messaging, and contact feedback | No | No | Maintains commerce flow while improving form comprehension. |
 | Password visibility | No password form exists | Not applicable | No | Yes | There are no password fields in the local demo. |
 | UTM tracking | No | No | No | Yes | No campaign-attribution requirement or analytics service exists. |
 | Trust pages | Partial | Yes — transparent demo limitations are separated from policy content | Yes — `/privacy` and `/terms` with last-updated dates | No | Users can inspect what is stored and what the demonstration does not promise. |
@@ -41,7 +41,7 @@ This matrix records the audited storefront’s final state. It distinguishes ret
 | Privacy | Partial | No | Yes — dedicated transparent privacy page | No | Explains local storage, no tracking, and no real payment handling without legal invention. |
 | Terms | Partial | No | Yes — dedicated transparent demo terms page | No | States illustrative pricing/availability and demo limitations without fabricated jurisdiction or business claims. |
 | Compressed images | Mixed | Yes — stable dimensions, `loading`, and decoding priorities added to key surfaces | No bulk conversion | Yes — no speculative mass re-encoding | Layout stability and request priority had measurable value; broad conversion required asset-level measurement not available in scope. |
-| Canonical URLs | Yes | Yes — base-aware, query-stripped canonical values retained | No | No | Preserves GitHub Pages `/techstore-demo/` compatibility. |
+| Canonical URLs | Yes | Yes — base-aware, query-stripped runtime canonical values retained | Yes — build-time robots/sitemap generation accepts `PUBLIC_SITE_URL` and GitHub Pages base configuration | No | Keeps preview output correct without baking the preview domain into application source. |
 | Breadcrumbs | Product only | Yes — exact collection slugs used in product schema | Yes — BreadcrumbList JSON-LD on product/collection routes | No | Makes structured navigation truthful against the catalog definitions. |
 | Error recovery | Partial | Yes — support, checkout, search, and missing-route next actions | No | No | Each tested error state offers a clear retry or continuation path. |
 | Back-to-top | No | No | No | Yes | Normal storefront pages do not require another persistent control. |
@@ -54,6 +54,6 @@ This matrix records the audited storefront’s final state. It distinguishes ret
 
 ## Validation summary
 
-`pnpm run check`, `pnpm run build`, `pnpm run build:pages`, the 272-route smoke test, and all 14 Vitest tests passed after the final changes. Responsive browser QA covered 390, 768, 1024, and 1440px, including navigation, product purchase continuity, trust routes, cart/promo, checkout validation, demo payment, confirmation, copy-reference, and account persistence. The responsive browser session reported zero console errors and zero warnings.
+`pnpm run check`, `pnpm run build`, `pnpm run build:pages`, the 272-route smoke test, and all 14 Vitest tests passed after the final changes. Responsive browser QA covered the required 390px mobile surface plus desktop shell and product/search/contact flows; the browser session reported zero console errors and zero warnings. The 390px snapshot verified 44px navigation controls, 48px primary actions, product purchase continuity, menu focus entry and Escape restoration, URL-synchronized search, and actionable contact-form errors.
 
 The implementation deliberately does **not** add analytics, cookie consent, UTM persistence, payment processing, fabricated physical-business claims, a password system, decorative loaders, scroll progress, a floating contact widget, a print stylesheet, or a confirmation modal. These omissions preserve the local-demo trust model, avoid unnecessary obstruction, and remain faithful to the canonical design system.

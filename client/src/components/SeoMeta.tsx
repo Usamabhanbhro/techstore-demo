@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { collections, findCollection, findJournal, findProduct } from "@/lib/catalog";
 import { assetUrl } from "@/lib/assetUrl";
+import { isAppleRoute } from "@/pages/AppleRoutePage";
 
 const staticMeta: Record<string, { title: string; description: string }> = {
   "/": { title: "Mehronex Store — Shop iPhone, Mac, iPad and more", description: "Explore an Apple-inspired storefront for iPhone, Mac, iPad, Apple Watch, AirPods, Vision Pro, TV & Home, and accessories." },
@@ -18,6 +19,10 @@ const staticMeta: Record<string, { title: string; description: string }> = {
   "/contact": { title: "Support — Mehronex Store", description: "Find demo storefront support, product guidance, and contact information." },
   "/privacy": { title: "Privacy — Mehronex Store", description: "Learn what the local Mehronex Store demonstration stores in your browser and what it does not collect." },
   "/terms": { title: "Terms — Mehronex Store", description: "Read the plain-language terms and limits for using the local Mehronex Store demonstration." },
+  "/order-confirmation": { title: "Order confirmation — Mehronex Store", description: "Review your local demo order confirmation, items, totals, and next steps. No real purchase is created." },
+  "/us/search": { title: "Search Apple products — Mehronex Store", description: "Search the Mehronex Store catalog for Apple products, accessories, support topics, and guides." },
+  "/us/shop/goto/store": { title: "Store — Mehronex Store", description: "Browse Apple products and accessories in the Mehronex Store catalog." },
+  "/us/shop/goto/bag": { title: "Your bag — Mehronex Store", description: "Review selected Apple products in your Mehronex Store demo bag." },
 };
 
 function setMeta(name: string, content: string) {
@@ -45,18 +50,23 @@ export function SeoMeta() {
     const product = cleanPath.startsWith("/products/") ? findProduct(cleanPath.split("/")[2]) : undefined;
     const collection = cleanPath.startsWith("/collections/") ? findCollection(cleanPath.split("/")[2]) : undefined;
     const article = cleanPath.startsWith("/journal/") ? findJournal(cleanPath.split("/")[2]) : undefined;
+    const knownRoute = product || collection || article || staticMeta[cleanPath] || isAppleRoute(cleanPath);
     const metadata = product
       ? { title: `${product.name} — Mehronex Store`, description: `${product.subtitle} ${product.description}` }
       : collection
         ? { title: `${collection.name} — Mehronex Store`, description: collection.description }
         : article
           ? { title: `${article.title} — Mehronex Store`, description: article.excerpt }
-          : staticMeta[cleanPath] ?? { title: "Mehronex Store — Considered technology, made for use", description: "Explore an Apple-inspired ecommerce storefront with transparent demo shopping and checkout." };
+          : staticMeta[cleanPath]
+            ? staticMeta[cleanPath]
+            : knownRoute
+              ? { title: "Mehronex Store — Considered technology, made for use", description: "Explore an Apple-inspired ecommerce storefront with transparent demo shopping and checkout." }
+              : { title: "404 | Mehronex Store", description: "The page you’re looking for doesn’t exist or may have moved. Browse the Mehronex Store catalog or return home." };
     const base = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
     const canonicalUrl = `${window.location.origin}${base}${cleanPath}`;
     const ogImagePath = product?.images[0] ?? collection?.image ?? "/sites/apple-com-7b1a/homepage-6a2c/education-hero.jpg";
     const ogImage = `${window.location.origin}${assetUrl(ogImagePath)}`;
-    const privateRoute = ["/cart", "/checkout", "/account", "/wishlist", "/order-confirmation"].some((path) => cleanPath === path || cleanPath.startsWith(`${path}/`));
+    const privateRoute = !knownRoute || ["/cart", "/checkout", "/account", "/wishlist", "/order-confirmation"].some((path) => cleanPath === path || cleanPath.startsWith(`${path}/`));
     document.title = metadata.title;
     setMeta("description", metadata.description);
     setMeta("robots", privateRoute ? "noindex, nofollow" : "index, follow");

@@ -735,11 +735,11 @@ export default function ComponentsShowcase() {
                 <Separator />
                 <div className="space-y-2">
                   <Label>Pagination</Label>
-                  <Pagination>
+                  <Pagination id="component-pagination">
                     <PaginationContent>
                       <PaginationItem>
                         <PaginationPrevious
-                          href="#"
+                          href="#component-pagination"
                           onClick={e => {
                             e.preventDefault();
                             setCurrentPage(Math.max(1, currentPage - 1));
@@ -749,7 +749,7 @@ export default function ComponentsShowcase() {
                       {[1, 2, 3, 4, 5].map(page => (
                         <PaginationItem key={page}>
                           <PaginationLink
-                            href="#"
+                            href="#component-pagination"
                             isActive={currentPage === page}
                             onClick={e => {
                               e.preventDefault();
@@ -762,7 +762,7 @@ export default function ComponentsShowcase() {
                       ))}
                       <PaginationItem>
                         <PaginationNext
-                          href="#"
+                          href="#component-pagination"
                           onClick={e => {
                             e.preventDefault();
                             setCurrentPage(Math.min(5, currentPage + 1));
@@ -851,9 +851,7 @@ export default function ComponentsShowcase() {
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                        <BreadcrumbLink href="/components">
-                          Components
-                        </BreadcrumbLink>
+                        <BreadcrumbPage>Components</BreadcrumbPage>
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>

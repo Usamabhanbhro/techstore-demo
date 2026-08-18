@@ -1,11 +1,17 @@
-import { Route, Router as WouterRouter, Switch } from "wouter";
+import { Route, Router as WouterRouter, Switch, useLocation } from "wouter";
 import { CommerceProvider } from "@/lib/commerce";
 import { StorefrontLayout } from "@/components/Storefront";
 import { SeoMeta } from "@/components/SeoMeta";
 import Home from "@/pages/Home";
-import AppleRoutePage from "@/pages/AppleRoutePage";
+import AppleRoutePage, { isAppleRoute } from "@/pages/AppleRoutePage";
 import { AboutPage, AccountPage, ArticlePage, CartPage, CheckoutPage, CollectionsPage, ComparePage, ConfirmationPage, ContactPage, JournalPage, NotFoundPage, PrivacyPage, ProductPage, SearchPage, ShopPage, TermsPage } from "@/pages/CommercePages";
 import { AccountPortalPage, HybridWishlistPage } from "@/pages/AccountPortal";
+
+function FallbackRoute() {
+  const [location] = useLocation();
+  const path = location.split("?")[0].replace(/\/$/, "") || "/";
+  return isAppleRoute(path) ? <AppleRoutePage /> : <NotFoundPage />;
+}
 
 function Router() { return <Switch>
   <Route path="/" component={Home} />
@@ -31,8 +37,7 @@ function Router() { return <Switch>
   <Route path="/us/shop/goto/buy_accessories" component={() => <ShopPage collectionSlug="accessories" />} />
   <Route path="/us/shop/goto/bag" component={CartPage} />
   <Route path="/us/search" component={SearchPage} />
-  <Route path="/*" component={AppleRoutePage} />
-  <Route component={NotFoundPage} />
+  <Route path="/*" component={FallbackRoute} />
 </Switch>; }
 
 const routerBase = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");

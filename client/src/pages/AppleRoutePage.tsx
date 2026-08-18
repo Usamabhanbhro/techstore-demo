@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { Link, useLocation } from "wouter";
 import { appleRouteAuditData } from "@/data/appleRouteAuditData";
 import { appleRouteAssets } from "@/data/appleRouteAssets";
@@ -76,7 +76,7 @@ const familyCopy: Record<string, { eyebrow: string; body: string; image: string 
   watch: { eyebrow: "Apple Watch", body: "A healthier, more connected day is closer than ever.", image: "apple-watch.jpg" },
   airpods: { eyebrow: "AirPods", body: "Immersive sound, intelligent features, and effortless connection.", image: "airpods-hero.jpg" },
   tv: { eyebrow: "TV & Home", body: "Entertainment and smart home experiences, all in one place.", image: "education-hero.jpg" },
-  service: { eyebrow: "Apple Services", body: "More ways to enjoy the things you love, across every Apple device.", image: "education-start.png" },
+  service: { eyebrow: "Apple Services", body: "More ways to enjoy the things you love, across every Apple device.", image: "education-start.webp" },
 };
 
 const routeFamilies = ["mac", "ipad", "iphone", "watch", "airpods", "tv", "service"];
@@ -111,9 +111,15 @@ function isEditorial(path: string) {
   return ["/newsroom", "/apple-events", "/tv-pr", "/leadership", "/careers/us", "/contact", "/environment", "/privacy", "/accessibility", "/legal", "/sitemap"].includes(path);
 }
 
+const capturedRoutes = new Set([
+  ...Object.keys(appleRouteAuditData),
+  ...Object.keys(appleRouteAssets),
+  ...Object.keys(appleRouteAssetSets),
+  ...Object.keys(pageLabels),
+]);
+
 function isAppleRoute(path: string) {
-  const commerce = ["/shop", "/collections", "/products", "/search", "/cart", "/checkout", "/account", "/wishlist", "/journal", "/about", "/order-confirmation"];
-  return path === "/" || (!commerce.some((route) => path === route || path.startsWith(`${route}/`)) && path !== "");
+  return capturedRoutes.has(path);
 }
 
 type SourceSectionProps = {
@@ -233,26 +239,31 @@ function AppleComparisonPage({ title, family, routeData, routeImage, routeImages
 
 function AppleEditorialPage({ title, path, routeData, routeImage, routeImages }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string; routeImages: string[] }) {
   const isSearch = path === "/us/search";
+  const [, navigate] = useLocation();
   const [query, setQuery] = useState("");
   const cards = [
     { label: "Apple", heading: routeData?.headings?.[1] || "The future is bright.", copy: routeData?.paragraphs?.[1] || "Read more about the people and ideas shaping the next chapter.", image: "education-hero.jpg" },
-    { label: "Apple values", heading: routeData?.headings?.[2] || "Technology with a human touch.", copy: routeData?.paragraphs?.[2] || "Read more about the people and ideas shaping the next chapter.", image: "education-start.png" },
+    { label: "Apple values", heading: routeData?.headings?.[2] || "Technology with a human touch.", copy: routeData?.paragraphs?.[2] || "Read more about the people and ideas shaping the next chapter.", image: "education-start.webp" },
     { label: "Newsroom", heading: routeData?.headings?.[3] || "Stories from Apple.", copy: routeData?.paragraphs?.[3] || "Read more about the people and ideas shaping the next chapter.", image: "iphone-family.jpg" },
   ];
-  return <div className="apple-editorial-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">{isSearch ? "Search" : "Apple"}</p><h1>{isSearch ? "Search Mehronex for Apple products" : title}</h1><p>{isSearch ? "Find the products, support, and stories you’re looking for." : routeData?.paragraphs?.[0] || "Discover the people, ideas, and work behind Apple."}</p>{isSearch && <form className="apple-editorial-search" onSubmit={(event) => event.preventDefault()}><input aria-label="Search Mehronex for Apple products" placeholder="Search Mehronex for Apple products" value={query} onChange={(event) => setQuery(event.target.value)} /><button type="submit">Search</button></form>}</section><section className="apple-editorial-grid">{cards.map((card) => <article key={card.heading}><img src={asset(card.image)} alt="" /><div><p className="apple-eyebrow">{card.label}</p><h2>{card.heading}</h2><p>{card.copy}</p><Link className="apple-text-link" href="/newsroom">Explore →</Link></div></article>)}</section><SourceDerivedSections headings={routeData?.headings ?? []} paragraphs={routeData?.paragraphs ?? []} images={routeImages} start={4} limit={16} /><SourceGallery images={routeImages} title={title} /><section className="apple-editorial-list"><p className="apple-eyebrow">More from Apple</p>{["Designing for everyone", "A more sustainable future", "Support that goes further"].map((item, index) => <Link key={item} href={index === 0 ? "/accessibility" : index === 1 ? "/environment" : "/retail/geniusbar"}><span>{item}</span><b>↗</b></Link>)}</section></div>;
+  const submitSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    navigate(query.trim() ? `/us/search?q=${encodeURIComponent(query.trim())}` : "/us/search");
+  };
+  return <div className="apple-editorial-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">{isSearch ? "Search" : "Apple"}</p><h1>{isSearch ? "Search Mehronex for Apple products" : title}</h1><p>{isSearch ? "Find the products, support, and stories you’re looking for." : routeData?.paragraphs?.[0] || "Discover the people, ideas, and work behind Apple."}</p>{isSearch && <form className="apple-editorial-search" onSubmit={submitSearch}><input aria-label="Search Mehronex for Apple products" placeholder="Search Mehronex for Apple products" value={query} onChange={(event) => setQuery(event.target.value)} /><button type="submit">Search</button></form>}</section><section className="apple-editorial-grid">{cards.map((card) => <article key={card.heading}><img src={asset(card.image)} alt="" /><div><p className="apple-eyebrow">{card.label}</p><h2>{card.heading}</h2><p>{card.copy}</p><Link className="apple-text-link" href="/newsroom">Explore →</Link></div></article>)}</section><SourceDerivedSections headings={routeData?.headings ?? []} paragraphs={routeData?.paragraphs ?? []} images={routeImages} start={4} limit={16} /><SourceGallery images={routeImages} title={title} /><section className="apple-editorial-list"><p className="apple-eyebrow">More from Apple</p>{["Designing for everyone", "A more sustainable future", "Support that goes further"].map((item, index) => <Link key={item} href={index === 0 ? "/accessibility" : index === 1 ? "/environment" : "/retail/geniusbar"}><span>{item}</span><b>↗</b></Link>)}</section></div>;
 }
 
 function AppleStorePage({ title, path, routeData, routeImage, routeImages }: { title: string; path: string; routeData?: { headings: string[]; paragraphs: string[] }; routeImage: string; routeImages: string[] }) {
   const [filter, setFilter] = useState("All");
   const categories = ["All", "Mac", "iPad", "iPhone", "Watch"];
   const products = [
-    { name: "MacBook Air", category: "Mac", image: "macbook-air.jpg", price: "From $999" },
-    { name: "iPad Air", category: "iPad", image: "ipad-air.jpg", price: "From $599" },
-    { name: "iPhone", category: "iPhone", image: "iphone-family.jpg", price: "From $799" },
-    { name: "Apple Watch", category: "Watch", image: "apple-watch.jpg", price: "From $399" },
+    { name: "MacBook Air", slug: "macbook-air", category: "Mac", image: "macbook-air.jpg", price: "From $999" },
+    { name: "iPad Air", slug: "ipad-air", category: "iPad", image: "ipad-air.jpg", price: "From $599" },
+    { name: "iPhone", slug: "iphone-17", category: "iPhone", image: "iphone-family.jpg", price: "From $799" },
+    { name: "Apple Watch", slug: "apple-watch-series-11", category: "Watch", image: "apple-watch.jpg", price: "From $399" },
   ];
   const visible = filter === "All" ? products : products.filter((product) => product.category === filter);
-  return <div className="apple-store-page"><img className="apple-route-template-image" src={routeImage} alt="" /><section className="apple-route-intro"><p className="apple-eyebrow">Mehronex Store</p><h1>{title || "Store"}</h1><p>{routeData?.paragraphs?.[0] || "Shop the latest Apple products and get help choosing what’s right for you."}</p></section><div className="apple-store-filters">{categories.map((category) => <button className={filter === category ? "is-active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div><section className="apple-store-grid">{visible.map((product) => <article className="apple-store-card" key={product.name}><img src={asset(product.image)} alt="" /><p className="apple-eyebrow">{product.category}</p><h2>{product.name}</h2><p>{product.price}</p><Link className="apple-button apple-button--blue" href={`/products/${product.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}>Buy</Link></article>)}</section><SourceDerivedSections headings={routeData?.headings ?? []} paragraphs={routeData?.paragraphs ?? []} images={routeImages} start={2} limit={16} /><SourceGallery images={routeImages} title={title} /><section className="apple-store-note"><p className="apple-eyebrow">Shopping help</p><h2>Need a hand?</h2><p>Get personalized help from an Apple Specialist, or visit an Mehronex Store near you.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
+  return <div className="apple-store-page"><img className="apple-route-template-image" alt="" src={routeImage} /><section className="apple-route-intro"><p className="apple-eyebrow">Mehronex Store</p><h1>{title || "Store"}</h1><p>{routeData?.paragraphs?.[0] || "Shop the latest Apple products and get help choosing what’s right for you."}</p></section><div className="apple-store-filters">{categories.map((category) => <button type="button" className={filter === category ? "is-active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div><section className="apple-store-grid">{visible.map((product) => <article className="apple-store-card" key={product.name}><Link className="apple-store-card__media" href={`/products/${product.slug}`} aria-label={`View ${product.name}`}><img src={asset(product.image)} alt="" /></Link><p className="apple-eyebrow">{product.category}</p><h2><Link href={`/products/${product.slug}`}>{product.name}</Link></h2><p>{product.price}</p><Link className="apple-button apple-button--blue" href={`/products/${product.slug}`}>Buy</Link></article>)}</section><SourceDerivedSections headings={routeData?.headings ?? []} paragraphs={routeData?.paragraphs ?? []} images={routeImages} start={2} limit={16} /><SourceGallery images={routeImages} title={title} /><section className="apple-store-note"><p className="apple-eyebrow">Shopping help</p><h2>Need a hand?</h2><p>Get personalized help from an Apple Specialist, or visit an Mehronex Store near you.</p><Link href="/retail" className="apple-text-link">Find a Store →</Link></section></div>;
 }
 
 export { isAppleRoute };

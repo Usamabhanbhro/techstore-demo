@@ -10,6 +10,8 @@ const appleNavItems = [
   ["TV & Home", "/collections/tv-home"], ["Accessories", "/collections/accessories"], ["Support", "/contact"],
 ] as const;
 
+const mobileSecondaryItems = [["Account", "/account"], ["Saved products", "/wishlist"], ["Compare", "/compare"]] as const;
+
 const footerGroups = [
   { title: "Shop and Learn", links: [["Store", "/shop"], ["Mac", "/collections/mac"], ["iPad", "/collections/ipad"], ["iPhone", "/collections/iphone"], ["Watch", "/collections/apple-watch"], ["AirPods", "/collections/airpods"], ["Vision", "/collections/vision"], ["TV & Home", "/collections/tv-home"], ["Accessories", "/collections/accessories"], ["Compare products", "/compare"]] },
   { title: "Services", links: [["Product guides", "/journal"], ["Contact support", "/contact"], ["About this demo", "/about"], ["Order confirmation", "/order-confirmation"]] },
@@ -27,7 +29,7 @@ function AppleNav() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
   const wasMenuOpen = useRef(false);
-  const [, navigate] = useLocation();
+  const [location, navigate] = useLocation();
   const { cartCount } = useCommerce();
 
   useEffect(() => {
@@ -65,7 +67,11 @@ function AppleNav() {
       <button ref={menuButtonRef} type="button" className="apple-nav__menu" onClick={toggleMenu} aria-expanded={menu} aria-controls="primary-navigation" aria-label={menu ? "Close navigation" : "Open navigation"}>{menu ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}</button>
       <Link className="apple-nav__logo" href="/" aria-label="Mehronex Store home"><span className="mehronex-wordmark">Mehronex</span></Link>
       <nav id="primary-navigation" className={`apple-nav__links ${menu ? "is-open" : ""}`} aria-label="Mehronex Store primary navigation">
-        {appleNavItems.map(([label, href], index) => <Link ref={index === 0 ? firstMenuLinkRef : undefined} key={href} href={href} onClick={closeMenu}>{label}</Link>)}
+        {appleNavItems.map(([label, href], index) => <Link ref={index === 0 ? firstMenuLinkRef : undefined} key={href} href={href} onClick={closeMenu} aria-current={location === href || (href.startsWith("/collections/") && location.startsWith(href)) ? "page" : undefined}>{label}</Link>)}
+        <div className="apple-nav__mobile-secondary" aria-label="Your Mehronex Store">
+          <span className="apple-nav__mobile-heading">Your Mehronex Store</span>
+          {mobileSecondaryItems.map(([label, href]) => <Link key={href} href={href} onClick={closeMenu} aria-current={location === href ? "page" : undefined}>{label}</Link>)}
+        </div>
       </nav>
       <div className="apple-nav__actions">
         <button type="button" aria-label={search ? "Close search" : "Open search"} aria-expanded={search} aria-controls="global-search" onClick={toggleSearch}>{search ? <X size={16} aria-hidden="true" /> : <Search size={16} aria-hidden="true" />}</button>
@@ -92,7 +98,7 @@ function AppleFooter() {
         <div className="footer-links-shell"><ul id={panelId}>{group.links.map(([label, href]) => <li key={`${href}-${label}`}><Link href={href} onClick={() => setOpen(null)}>{label}</Link></li>)}</ul></div>
       </section>; })}
     </div>
-    <div className="apple-footer__bottom"><span>Copyright © 2026 Mehronex Store. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/contact">Support</Link><a href={assetUrl("/sitemap.xml")}>Site Map</a></div><span>Demo storefront</span></div>
+    <div className="apple-footer__bottom"><span>Copyright © {new Date().getFullYear()} Mehronex Store. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/contact">Support</Link><a href={assetUrl("/sitemap.xml")}>Site Map</a></div><span>Demo storefront</span></div>
   </footer>;
 }
 
